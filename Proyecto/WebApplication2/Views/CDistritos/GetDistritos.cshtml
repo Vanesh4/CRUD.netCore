@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "GetDistritos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="table-container">
+	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nombre</th>
+				<th>Detalle</th>
+				<th>Compuest</th>
+				<th>Cod Supervisor</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.COD_DIST</td>
+					<td>@item.NOM_DIST</td>
+					<td>@item.DETALLE</td>
+					<td>@item.COMPUEST</td>
+					<td>@item.COD_SUPERVISOR</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

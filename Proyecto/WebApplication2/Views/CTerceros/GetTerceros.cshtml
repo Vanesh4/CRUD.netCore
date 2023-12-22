@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "GetTerceros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex flex-row">
+	<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+		<div class="d-flex justify-content-center">
+			<input class="form-control m-3" type="number" name="codTer" placeholder="codigo tercero">
+			<button type="submit" class="btn btn-primary m-3">Buscar</button>
+		</div>
+	</form>
+</div>
+
+<div class="table-container">
+	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+		<thead>
+			<tr>
+				<th>CÉDULA</th>
+				<th>NOMBRE</th>
+				<th>DIRECCION</th>
+				<th>EMAIL</th>
+				<th>FECHA DE INGRESO</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			@* @for (int i = 0; i < 20; i++) *@
+			{
+				@* var item = Model[i]; *@
+					<tr>
+						<td>@item.COD_TER</td>
+						<td>@item.NOM_TER</td>
+						<td>@item.DIR1</td>
+						<td>@item.EMAIL</td>
+						<td>@item.FEC_ING</td>
+					</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

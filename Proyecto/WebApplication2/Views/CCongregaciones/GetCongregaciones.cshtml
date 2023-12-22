@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "GetCongregaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="table-container">
+	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nombre Templo</th>
+				<th>Estado</th>
+				<th>Distrito</th>
+				<th>CedulaPastor</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+					<tr>
+						<td>@item.Código</td>
+						<td>@item.NombreTemplo</td>
+						<td>@item.Estado</td>
+						<td>@item.Distrito</td>
+						<td>@item.CedulaPastor</td>
+					</tr>
+			}
+		</tbody>
+	</table>
+</div>

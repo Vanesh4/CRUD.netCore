@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	<div class="d-flex flex-row">
+		<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+			<div class="d-flex justify-content-center">
+				<input class="form-control m-3" type="number" id="inputCedula" name="cedula" placeholder="Ingrese la cedula">
+				<button type="submit" class="btn btn-primary m-3">Buscar</button>
+			</div>
+		</form>
+		<form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+			<div class="d-flex justify-content-center">
+				<input class="form-control m-3" type="text" name="nombre" placeholder="Ingrese nombre">
+				<button type="submit" class="btn btn-primary m-3">Buscar</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="body">
+		<table class="table table-bordered border-primary no-margin-table" id="tabla">
+			<thead>
+				<tr>
+					<th>CÉDULA</th>
+					<th>NOMBRE</th>
+					<th>CONTACTO</th>
+					<th>EMAIL</th>
+					<th>DIRECCIÓN</th>
+					<th>NOMBRE CONGREGACIÓN</th>
+					<th class="oculto">DISTRITO</th>
+					<th>FECHA NACIMIENTO</th>
+					<th>ESTADO PASTOR</th>
+					<th>CLASE PASTOR</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+						<tr>
+							<td>@item.cedula</td>
+							<td>@item.nombre</td>
+							<td>@item.contacto</td>
+							<td>@item.email</td>
+							<td>@item.direccion</td>
+							<td>@item.nombreCongregacion</td>
+								<td class="oculto">@item.distrito</td>
+							<td>@item.fechaNacimiento</td>
+							<td>@item.estadoPastor</td>
+							<td>@item.clasePastor</td>
+
+						</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
