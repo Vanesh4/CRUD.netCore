@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "FiltroPorCedula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/principal.css")" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="d-flex flex-row">
+	<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+		<div class="d-flex justify-content-center">
+			<input class="form-control m-3" type="number" id="inputCedula" name="ced" placeholder="Ingrese la cedula">
+			<button type="submit" class="btn btn-primary m-3">Buscar</button>
+		</div>
+	</form>
+	<form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+		<div class="d-flex justify-content-center">
+			<input class="form-control m-3" type="text" name="nombre" placeholder="Ingrese nombre">
+			<button type="submit" class="btn btn-primary m-3">Buscar</button>
+		</div>
+	</form>
+</div>
+
+@foreach (var item in Model)
+{
+    <form asp-action="Update" asp-controller="CPastores" method="post">
+        <table class="table table-bordered border-primary no-margin-table">
+            <input type="hidden" name="cedula" value="@item.cedula" />
+            <thead>
+                <tr>
+                    <th>CÉDULA</th>
+                    <th>NOMBRE</th>
+                    <th>CONTACTO</th>
+                    <th>EMAIL</th>
+                    <th>DIRECCIÓN</th>
+                    <th>NOMBRE CONGREGACIÓN</th>
+                    <th>DISTRITO</th>
+                    <th>ESTADO PASTOR</th>
+                    <th>CLASE PASTOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@item.cedula</td>
+                    <td><input name="nombre" value="@item.nombre" /></td>
+                    <td><input name="contacto" value="@item.contacto" /></td>
+                    <td><input name="email" value="@item.email" /></td>
+                    <td>@item.direccion</td>
+                    <td>@item.nombreCongregacion</td>
+                    <td>@item.distrito</td>
+                    <td>@item.estadoPastor</td>
+                    <td>@item.clasePastor</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary m-3">Actualizar</button>
+
+    </form>
+}
+
+@if (TempData["Respuesta"] != null)
+{
+    <h4>@Html.Raw(TempData["Respuesta"])</h4>
+}
+<script src="~/js/update.js"></script>
+
