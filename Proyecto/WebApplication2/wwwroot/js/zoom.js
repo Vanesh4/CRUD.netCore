@@ -1,4 +1,4 @@
-alert("hola?")
+
 //OCULTAR Y MOSTRAR COLUMNAS
 function toggleColumns(columnIndexes) {
     var tabla = document.getElementById('miTabla');
