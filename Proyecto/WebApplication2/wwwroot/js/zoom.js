@@ -18,7 +18,7 @@ function toggleColumns(columnIndexes) {
 }
 
 //ZOOM a la tabla
-var zoomLevel = 1;
+var zoomLevel = 0.1;
 function zoomIn() {
     zoomLevel += 0.1;
     applyZoom();

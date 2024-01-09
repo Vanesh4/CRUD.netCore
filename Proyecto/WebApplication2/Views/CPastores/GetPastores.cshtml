@@ -7,9 +7,9 @@
 	
 
 	<div class="body">
-		<div>
-				<button onclick="zoomIn()" class="btn btn-outline-secondary">+</button>
-				<button onclick="zoomOut()" class="btn btn-outline-secondary">-</button>
+		<div class="d-md-flex justify-content-md-end">
+				<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+				<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
 		</div>
 		<table id="miTabla">
 			<thead>
@@ -18,7 +18,7 @@
 						<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
 							<div class="d-flex justify-content-center">
 								<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-								<button type="submit" class="btn btn-primary d-block">Buscar</button>
+										<button class="btn btn-primary d-block" type="submit"></button>
 							</div>
 						</form>
 					</td>
