@@ -1,32 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nvane\\OneDrive\\Escritorio\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj": {}
+    "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nvane\\OneDrive\\Escritorio\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj": {
+    "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nvane\\OneDrive\\Escritorio\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\nvane\\OneDrive\\Escritorio\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj",
-        "packagesPath": "C:\\Users\\nvane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nvane\\OneDrive\\Escritorio\\CRUD.netCore\\Proyecto\\WebApplication2\\obj\\",
+        "projectPath": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\Proyecto\\WebApplication2\\WebApplication2.csproj",
+        "packagesPath": "C:\\Users\\Gordillov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\Proyecto\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\23.1.36\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nvane\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Gordillov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
