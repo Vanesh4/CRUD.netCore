@@ -4,12 +4,13 @@
 @{
 	<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
 
-	<div class="d-flex flex-row">
-
-		
-	</div>
+	
 
 	<div class="body">
+		<div>
+				<button onclick="zoomIn()" class="btn btn-outline-secondary">+</button>
+				<button onclick="zoomOut()" class="btn btn-outline-secondary">-</button>
+		</div>
 		<table id="miTabla">
 			<thead>
 				<tr>
@@ -63,10 +64,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div>
-		<button onclick="zoomIn()" class="btn btn-outline-secondary">+</button>
-		<button onclick="zoomOut()" class="btn btn-outline-secondary">-</button>
-	</div>
+	
 
 	<script src="@Url.Content("~/js/zoom.js")"></script>
 }

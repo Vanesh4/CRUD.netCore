@@ -1,5 +1,6 @@
 table {
     border-collapse: collapse;
+    width:95%;
 }
 
 td, th {
@@ -10,7 +11,9 @@ td, th {
 .selected {
     background-color: #a6c7ff;
 }
-
+.body{
+    padding:20px;
+}
 .hidden {
     display: none;
 }
