@@ -1,0 +1,21 @@
+table {
+    border-collapse: collapse;
+    width: 95%;
+    display:none;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.selected {
+    /*background-color: #a6c7ff;*/
+    background-color: #B6BBC4;
+}
+.body{
+    padding:20px;
+}
+.hidden {
+    display: none;
+}

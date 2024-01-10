@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Gordillov\Desktop\prueba\CRUD.netCore\WebApplication2\bin\Release\net6.0</_PublishTargetUrl>
+    <History>True|2024-01-10T15:26:43.5565559Z;True|2024-01-05T10:03:44.2711934-05:00;True|2023-12-22T15:42:35.0819762-05:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

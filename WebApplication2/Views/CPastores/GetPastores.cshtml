@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
+
+
+
+	<div class="body">
+			<div class="d-md-flex justify-content-md-end">
+					<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+					<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+			</div>
+			<table id="miTabla">
+				<thead>
+					<tr>						
+						<td>
+								<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+									<div class="d-flex justify-content-center">
+										<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+										<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+									</div>
+								</form>
+						</td>
+						<td>
+								<form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+									<div class="d-flex justify-content-center">
+										<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
+										<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+									</div>
+								</form>
+						</td>
+					</tr>
+					<tr>
+						<th>CÉDULA</th>
+						<th>NOMBRE</th>
+						<th>CONTACTO</th>
+						<th>EMAIL</th>
+						<th>DIRECCIÓN</th>
+						<th>NOMBRE CONGREGACIÓN</th>
+						<th>DISTRITO</th>
+						<th>FECHA NACIMIENTO</th>
+						<th>ESTADO PASTOR</th>
+						<th>CLASE PASTOR</th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach (var item in Model)
+				{
+							<tr>
+								<td>@item.cedula</td>
+								<td>@item.nombre</td>
+								<td>@item.contacto</td>
+								<td>@item.email</td>
+								<td>@item.direccion</td>
+								<td>@item.nombreCongregacion</td>
+								<td>@item.distrito</td>
+								<td>@item.fechaNacimiento</td>
+								<td>@item.estadoPastor</td>
+								<td>@item.clasePastor</td>
+
+							</tr>
+				}
+				</tbody>
+			</table>
+	</div>
+	
+	string accion = ViewContext.RouteData.Values["action"].ToString();
+	
+	@if (accion == "GetPastores")
+	{
+		<form method="post" action="@Url.Action("GetPastoresTodos")">
+			<button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
+		</form>
+	}
+	
+
+	<script src="@Url.Content("~/js/zoom.js")"></script>
+}
+
