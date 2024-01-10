@@ -19,3 +19,6 @@ td, th {
 .hidden {
     display: none;
 }
+.inputAct {
+    border: none;
+}

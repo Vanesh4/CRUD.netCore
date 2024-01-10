@@ -3,16 +3,40 @@
     ViewData["Title"] = "GetCongregaciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
 
-<div class="table-container">
-	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+<div class="body">
+	<div class="d-md-flex justify-content-md-end">
+					<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+					<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+			</div>
+		<table id="miTabla">
 		<thead>
+			<tr>
+				<td>
+					<div class="d-flex justify-content-center">
+											<input class="form-control d-block" type="text" name="cedula" placeholder="Nombre Congregacion">
+										<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+					</div>
+				</td>
+				<td>
+					<div class="d-flex justify-content-center">
+											<input class="form-control d-block" type="text" name="cedula" placeholder="Pastor">
+						<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+					</div>
+				</td>
+				
+			</tr>
 			<tr>
 				<th>Código</th>
 				<th>Nombre Templo</th>
 				<th>Estado</th>
 				<th>Distrito</th>
 				<th>CedulaPastor</th>
+					<th>Municipio</th>
+						<th>Dirección</th>
+							<th>FechaApertura</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,8 +48,22 @@
 						<td>@item.Estado</td>
 						<td>@item.Distrito</td>
 						<td>@item.CedulaPastor</td>
+								<td>@item.Municipio</td>
+										<td>@item.Dirección</td>
+												<td>@item.FechaApertura</td>
 					</tr>
 			}
 		</tbody>
 	</table>
 </div>
+
+string accion = ViewContext.RouteData.Values["action"].ToString();
+
+@if (accion == "GetCongregaciones")
+{
+		<form method="post" action="@Url.Action("GetCongregacionesTodos")">
+				<button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
+		</form>
+}
+<script src="@Url.Content("~/js/zoom.js")"></script>
+}

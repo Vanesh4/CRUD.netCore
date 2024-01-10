@@ -3,9 +3,14 @@
     ViewData["Title"] = "GetDistritos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="table-container">
-	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+@{
+	<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
+<div class="body">
+	<div class="d-md-flex justify-content-md-end">
+						<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+						<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+				</div>
+	<table id="miTabla">
 		<thead>
 			<tr>
 				<th>Código</th>
@@ -13,6 +18,7 @@
 				<th>Detalle</th>
 				<th>Compuest</th>
 				<th>Cod Supervisor</th>
+				<th>Cod Asesor Corpen</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,9 +30,11 @@
 					<td>@item.DETALLE</td>
 					<td>@item.COMPUEST</td>
 					<td>@item.COD_SUPERVISOR</td>
+					<td>@item.COD_ASESORCORPEN</td>
 				</tr>
 			}
 		</tbody>
 	</table>
 </div>
-
+	<script src="@Url.Content("~/js/zoom.js")"></script>
+}

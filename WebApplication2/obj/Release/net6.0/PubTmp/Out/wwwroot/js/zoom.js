@@ -38,6 +38,7 @@ function applyZoom() {
     tabla.style.zoom = zoomLevel;
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
     tabla.style.display = "block";
     

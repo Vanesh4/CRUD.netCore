@@ -3,19 +3,36 @@
     ViewData["Title"] = "GetTerceros";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
 
-<div class="d-flex flex-row">
-	<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
-		<div class="d-flex justify-content-center">
-			<input class="form-control m-3" type="number" name="codTer" placeholder="codigo tercero">
-			<button type="submit" class="btn btn-primary m-3">Buscar</button>
-		</div>
-	</form>
-</div>
+<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
 
-<div class="table-container">
-	<table class="table table-bordered border-primary no-margin-table" id="tabla">
+
+<div class="body">
+	<div class="d-md-flex justify-content-md-end">
+					<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+					<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+			</div>
+	<table id="miTabla">
 		<thead>
+			<tr>						
+						<th>
+									<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+			<div class="d-flex justify-content-center">
+				<input class="form-control m-3" type="number" name="codTer" placeholder="codigo tercero">
+				<button type="submit" class="btn btn-primary m-3">Buscar</button>
+			</div>
+		</form>
+						</th>
+						<th>
+								<form asp-action="FiltroPorNombre" asp-controller="CTerceros" method="post">
+									<div class="d-flex justify-content-center">
+										<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
+										<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+									</div>
+								</form>
+						</th>
+					</tr>
 			<tr>
 				<th>CÉDULA</th>
 				<th>NOMBRE</th>
@@ -40,4 +57,17 @@
 		</tbody>
 	</table>
 </div>
+
+	string accion = ViewContext.RouteData.Values["action"].ToString();
+
+	@if (accion == "GetTerceros")
+	{
+		<form method="post" action="@Url.Action("GetTercerosTodos")">
+					<button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
+		</form>
+	}
+
+
+	<script src="@Url.Content("~/js/zoom.js")"></script>
+}
 

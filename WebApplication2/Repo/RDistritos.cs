@@ -24,7 +24,8 @@ namespace WebApplication2.Repo
 							NOM_DIST = reader["NOM_DIST"].ToString(),
 							DETALLE = reader["DETALLE"].ToString() ?? string.Empty,
 							COMPUEST = reader["COMPUEST"].ToString() ?? string.Empty,
-							COD_SUPERVISOR = reader["COD_SUPERVISOR"].ToString() ?? string.Empty
+							COD_SUPERVISOR = reader["COD_SUPERVISOR"].ToString() ?? string.Empty,
+							COD_ASESORCORPEN = reader["COD_ASESORCORPEN"].ToString() ?? string.Empty
 						});
 					}
 				}

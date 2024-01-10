@@ -25,10 +25,9 @@ namespace WebApplication2.Controllers
 
 		[HttpGet]
 		[HttpPost]
-		public IActionResult FiltroPorCedula(int cedula)
+		public IActionResult FiltroPorCedula([FromForm] int cedula)
 		{
-			var ListaCed = _repoPastores.FiltroCedula(cedula);
-			return View(ListaCed);
+			return View(_repoPastores.FiltroCedula(cedula));
 		}
 
 

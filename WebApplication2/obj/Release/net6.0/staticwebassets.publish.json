@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Irejcg5zVZbU+3HlTDSIJ2CZbUMGleuQ7syYplI0ejU=",
+  "Hash": "NENTm8TWWrT0QcRt603ujLappBnVp/l7X2PKygGUkMg=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\WebApplication2.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "css/filtros.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\filtros.css"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\site.css",

@@ -8,7 +8,11 @@ namespace WebApplication2.Controllers
 		RCongregaciones _repoCongregaciones = new RCongregaciones();
 		public IActionResult GetCongregaciones()
 		{
-			return View(_repoCongregaciones.listarTodo());
+			return View(_repoCongregaciones.listar20());
+		}
+		public IActionResult GetCongregacionesTodos()
+		{
+			return View("GetCongregaciones",_repoCongregaciones.listarTodo());
 		}
 
 		//public IActionResult FiltroPorNombre(string nombre)

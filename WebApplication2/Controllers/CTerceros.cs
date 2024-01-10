@@ -8,9 +8,14 @@ namespace WebApplication2.Controllers
 		RTerceros _repoTerceros = new RTerceros();
 		public IActionResult GetTerceros()
 		{
-			var ListaPastores = _repoTerceros.listarTodos();
+			var ListaPastores = _repoTerceros.listar20();
 			return View(ListaPastores);
 		}
+		public IActionResult GetTercerosTodos()
+		{
+			return View("GetTerceros", _repoTerceros.listarTodos());
+		}
+
 
 		//[HttpGet]
 		//[HttpPost]
