@@ -16,12 +16,17 @@ namespace WebApplication2.Controllers
 			return View("GetTerceros", _repoTerceros.listarTodos());
 		}
 
+		[HttpGet]
+		[HttpPost]
+		public IActionResult FiltroPorCodTer([FromForm] string codTer)
+		{
+			return View(_repoTerceros.FiltroId(codTer));
+		}
 
-		//[HttpGet]
-		//[HttpPost]
-		//public IActionResult FiltroPorCodTer(string codTer)
-		//{
-		//	return View(_repoTerceros.FiltroId(codTer));
-		//}
+
+		public IActionResult FiltroPorNomTer([FromForm] string nomTer)
+		{
+			return View(_repoTerceros.FiltroPorNomTer(nomTer));
+		}
 	}
 }

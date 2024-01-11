@@ -17,39 +17,39 @@
 		<thead>
 			<tr>						
 						<th>
-									<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+								<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
 			<div class="d-flex justify-content-center">
-				<input class="form-control m-3" type="number" name="codTer" placeholder="codigo tercero">
-				<button type="submit" class="btn btn-primary m-3">Buscar</button>
+				<input class="form-control" type="number" name="codTer" placeholder="codigo tercero">
+				<button type="submit" class="btn btn-primary">Buscar</button>
 			</div>
 		</form>
 						</th>
 						<th>
-								<form asp-action="FiltroPorNombre" asp-controller="CTerceros" method="post">
-									<div class="d-flex justify-content-center">
-										<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
-										<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-									</div>
-								</form>
+							<form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
+						<div class="d-flex justify-content-center">
+								<input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
+							<button type="submit" class="btn btn-primary m-1">Buscar</button>
+						</div>
+					</form>
 						</th>
 					</tr>
 			<tr>
 				<th>CÉDULA</th>
 				<th>NOMBRE</th>
 				<th>DIRECCION</th>
+						<th>CUIDAD</th>
 				<th>EMAIL</th>
 				<th>FECHA DE INGRESO</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var item in Model)
-			@* @for (int i = 0; i < 20; i++) *@
 			{
-				@* var item = Model[i]; *@
 					<tr>
 						<td>@item.COD_TER</td>
 						<td>@item.NOM_TER</td>
 						<td>@item.DIR1</td>
+								<td>@item.CIUDAD</td>
 						<td>@item.EMAIL</td>
 						<td>@item.FEC_ING</td>
 					</tr>

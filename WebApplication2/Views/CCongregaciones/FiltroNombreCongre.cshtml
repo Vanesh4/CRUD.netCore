@@ -1,47 +1,36 @@
 ﻿
 @{
-    ViewData["Title"] = "GetCongregaciones";
+    ViewData["Title"] = "FiltroNombreCongre";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{
-<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
-
-<div class="body">
-	<div class="d-md-flex justify-content-md-end">
-					<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
-					<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
-			</div>
-		<table id="miTabla">
-		<thead>
-			<tr>
-				<td>
-						<form asp-action="FiltroNombreCongre"  asp-controller="CCongregaciones" method="post">
+<link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
+<div class="d-flex flex-row">
+<form asp-action="FiltroNombreCongre"  asp-controller="CCongregaciones" method="post">
 					<div class="d-flex justify-content-center">
 												<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Congregacion">
 											<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
 						</div>
 				</form>
-					
-				</td>
-				<td>
+
+
 						<form asp-action="FiltroPorNombre" asp-controller="CCongregaciones" method="post">
-				
+
 					<div class="d-flex justify-content-center">
 											<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Pastor">
 						<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
 					</div>
 						</form>
-				</td>
-					<td>
+
 						<form asp-action="filtroporCedula" asp-controller="CCongregaciones" method="post">
 						<div class="d-flex justify-content-center">
 														<input class="form-control d-block" type="number" name="cedula" placeholder="Cedula Pastor">
 												<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
 							</div>
 					</form>
-
-					</td>
-			</tr>
+					</div>
+				<div class="body">
+	<table id="miTabla">
+		<thead>
 			<tr>
 				<th>Código</th>
 				<th>Nombre Templo</th>
@@ -56,28 +45,18 @@
 		<tbody>
 			@foreach (var item in Model)
 			{
-					<tr>
-						<td>@item.Código</td>
-						<td>@item.NombreTemplo</td>
-						<td>@item.Estado</td>
-						<td>@item.Distrito</td>
-						<td>@item.CedulaPastor</td>
-								<td>@item.Municipio</td>
-										<td>@item.Dirección</td>
-												<td>@item.FechaApertura</td>
-					</tr>
+								<tr>
+									<td>@item.Código</td>
+									<td>@item.NombreTemplo</td>
+									<td>@item.Estado</td>
+									<td>@item.Distrito</td>
+									<td>@item.CedulaPastor</td>
+											<td>@item.Municipio</td>
+													<td>@item.Dirección</td>
+															<td>@item.FechaApertura</td>
+								</tr>
 			}
 		</tbody>
 	</table>
 </div>
 
-string accion = ViewContext.RouteData.Values["action"].ToString();
-
-@if (accion == "GetCongregaciones")
-{
-		<form method="post" action="@Url.Action("GetCongregacionesTodos")">
-				<button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
-		</form>
-}
-<script src="@Url.Content("~/js/zoom.js")"></script>
-}

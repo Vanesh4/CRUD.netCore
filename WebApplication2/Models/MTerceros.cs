@@ -7,7 +7,7 @@
 		public string? DIR1 { get; set; }
 		public string TEL1 { get; set; }
 		public string FAX1 { get; set; }
-		public string EMAIL { get; set; }
+		public string? EMAIL { get; set; }
 		public string? FEC_ING { get; set; }
 		public string? CIUDAD { get; set; }
 		public string TIP_PRV { get; set; }

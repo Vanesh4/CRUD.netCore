@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
+	<div class="d-flex flex-row">
+		<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+			<div class="d-flex justify-content-center">
+				<input class="form-control m-1" type="number" name="codTer" placeholder="Codigo Tercero">
+				<button type="submit" class="btn btn-primary m-1">Buscar</button>
+			</div>
+		</form>
+			<form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
+						<div class="d-flex justify-content-center">
+								<input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
+							<button type="submit" class="btn btn-primary m-1">Buscar</button>
+						</div>
+			</form>
+	</div>
+	<div class=body>
+	<table id="miTabla">
+		<thead>
+				<tr>
+					<th>CÉDULA</th>
+					<th>NOMBRE</th>
+					<th>DIRECCION</th>
+					<th>EMAIL</th>
+					<th>FECHA DE INGRESO</th>
+					<th>CIUDAD</th>
+				</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+							<tr>
+								<td>@item.COD_TER</td>
+								<td>@item.NOM_TER</td>
+								<td>@item.DIR1</td>
+								<td>@item.EMAIL</td>
+								<td>@item.FEC_ING</td>
+										<td>@item.CIUDAD</td>
+							</tr>
+			}
+		</tbody>
+	</table>
+	</div>
+}
