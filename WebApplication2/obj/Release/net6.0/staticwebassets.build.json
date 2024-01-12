@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZHnmJ3Np0RQLb3rcSS/tdbk25m8UaiGCAUO3cdapt8E=",
+  "Hash": "/vLLCGNqoO/v3Ptgcg0IExiyl57FkG8Pbs53qNhstKs=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\rocket.ico",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "rocket.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rocket.ico"
     }
   ]
 }

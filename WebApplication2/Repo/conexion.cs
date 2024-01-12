@@ -2,15 +2,15 @@
 {
 	public class conexion
 	{
-		private String cadenaCon { get; set; }
+		private String cadenaConAPP { get; set; }
+		private String cadenaConCinco { get; set; }
 		public conexion()
 		{
 			var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
-			cadenaCon = builder.GetSection("ConnectionStrings:Connection").Value;
+			cadenaConAPP = builder.GetSection("ConnectionStrings:ConnectionApp").Value;
+			cadenaConAPP = builder.GetSection("ConnectionStrings:ConnectionCinco").Value;
 		}
-		public string getCadenaCon()
-		{
-			return cadenaCon;
-		}
+		public string getCadenaConAPP(){ return cadenaConAPP; }
+		public string getCincaConCinco() {  return cadenaConCinco; }
 	}
 }

@@ -11,7 +11,7 @@ namespace WebApplication2.Repo
 		{
 			var Lista = new List<MCongregaciones>();
 
-			using (var conexion = new SqlConnection(_cn.getCadenaCon()))
+			using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
 			{
 				conexion.Open();
 				SqlCommand cmd = new SqlCommand(consulta, conexion);

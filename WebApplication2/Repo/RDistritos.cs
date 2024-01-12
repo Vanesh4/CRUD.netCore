@@ -10,7 +10,7 @@ namespace WebApplication2.Repo
 		{
 			var Lista = new List<MDistritos>();
 
-			using (var conexion = new SqlConnection(_cn.getCadenaCon()))
+			using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
 			{
 				conexion.Open();
 				SqlCommand cmd = new SqlCommand("select * from Distritos;", conexion);
