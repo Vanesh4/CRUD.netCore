@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Gordillov\Desktop\prueba\CRUD.netCore\WebApplication2
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Gordillov/Desktop/prueba/CRUD.netCore/WebApplication2/Views/CCinco/Cinco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENpbmNvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Gordillov/Desktop/prueba/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroNombreCongre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXEZpbHRyb05vbWJyZUNvbmdyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

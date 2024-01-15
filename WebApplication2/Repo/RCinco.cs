@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 using WebApplication2.Models;
 
 namespace WebApplication2.Repo
@@ -21,7 +22,6 @@ namespace WebApplication2.Repo
 
 				using (var reader = cmd.ExecuteReader())
 				{
-
 					while (reader.Read())
 					{
 						Lista.Add(new Cinco()
@@ -35,11 +35,28 @@ namespace WebApplication2.Repo
 				}
 				return Lista;
 			}
+			//using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+			//{
+			//	conexion.Open();
+			//	SqlCommand cmd = new SqlCommand($"SELECT * FROM Pastores WHERE CÉDULA = @cedula", conexion);
+			//	cmd.Parameters.Add(new SqlParameter("@Cedula", SqlDbType.NVarChar) { Value = Lista[0].cedula });
+			//	using (var reader = cmd.ExecuteReader())
+			//	{
+			//		while (reader.Read())
+			//		{
+			//			Lista.Add(new Cinco()
+			//			{
+			//				nombre = reader["NOMBRE"].ToString()
+			//			});
+			//		}
+			//	}
+			//	return Lista;
+			//}
 		}
 
-		public List<Cinco> listarDatos(string nombre) {
-			string consulta = "SELECT * FROM Pastores WHERE Observacion LIKE '%' + @nombre + '%';";
-			SqlParameter[] parametros = { new SqlParameter("@nombre", nombre) };
+		public List<Cinco> listarDatos(int cedula) {
+			string consulta = "SELECT * FROM AportesPastor WHERE Cedula = @cedula ;";
+			SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
 			return ObtenerDatos(consulta, parametros);
 		}
 

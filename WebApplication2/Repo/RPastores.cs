@@ -80,8 +80,7 @@ namespace WebApplication2.Repo
 			bool rpta = false;
 			try
 			{
-
-				using (var conexion = new SqlConnection(_cn.getCadenaCon()))
+				using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
 				{
 					conexion.Open();
 					//SqlCommand cmd = new SqlCommand($"UPDATE ListadoPastores SET NOMBRE='{datosAct.nombre}' WHERE CÉDULA = {datosAct.cedula}", conexion);
