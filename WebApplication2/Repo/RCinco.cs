@@ -20,7 +20,7 @@ namespace WebApplication2.Repo
 					cmd.Parameters.AddRange(parametro);
 				}
 
-				using (var reader = cmd.ExecuteReader())
+                using (var reader = cmd.ExecuteReader())
 				{
 					while (reader.Read())
 					{
@@ -29,32 +29,38 @@ namespace WebApplication2.Repo
 							cedula = reader["Cedula"].ToString(),
 							fecha = reader["Fecha"] != DBNull.Value ? Convert.ToDateTime(reader["Fecha"]).ToString("dd-MM-yyyy") : (string)null,
 							numComprobante = reader["NumComprob"].ToString(),
-							valor = reader["VrDebitos"].ToString()
-						});
+							valor = reader["VrCreditos"].ToString(),
+							nombre = ObtenerNombre(reader["Cedula"].ToString())
+						}) ;
 					}
 				}
-				return Lista;
+				//return Lista;
 			}
-			//using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
-			//{
-			//	conexion.Open();
-			//	SqlCommand cmd = new SqlCommand($"SELECT * FROM Pastores WHERE CÉDULA = @cedula", conexion);
-			//	cmd.Parameters.Add(new SqlParameter("@Cedula", SqlDbType.NVarChar) { Value = Lista[0].cedula });
-			//	using (var reader = cmd.ExecuteReader())
-			//	{
-			//		while (reader.Read())
-			//		{
-			//			Lista.Add(new Cinco()
-			//			{
-			//				nombre = reader["NOMBRE"].ToString()
-			//			});
-			//		}
-			//	}
-			//	return Lista;
-			//}
+			
+            return Lista;
+        }
+		private string ObtenerNombre(string cedula)
+		{
+			string nombrePastor = "";
+            using (var conexionAPP = new SqlConnection(_cn.getCadenaConAPP()))
+            {
+                conexionAPP.Open();
+                SqlCommand cmdNOM = new SqlCommand($"SELECT NOMBRE FROM Pastores WHERE CÉDULA = @cedula", conexionAPP);
+                SqlParameter parametro = new SqlParameter("@cedula", cedula);
+                cmdNOM.Parameters.Add(parametro);
+                using (var readerApp = cmdNOM.ExecuteReader())
+                {
+                    if(readerApp.Read())
+            {
+                        nombrePastor = readerApp["NOMBRE"].ToString();
+                    }
+
+                }
+            }
+			return nombrePastor;
 		}
 
-		public List<Cinco> listarDatos(int cedula) {
+		public List<Cinco> listarDatos(string cedula) {
 			string consulta = "SELECT * FROM AportesPastor WHERE Cedula = @cedula ;";
 			SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
 			return ObtenerDatos(consulta, parametros);

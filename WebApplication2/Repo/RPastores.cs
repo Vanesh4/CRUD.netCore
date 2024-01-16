@@ -28,10 +28,10 @@ namespace WebApplication2.Repo
 						Lista.Add(new MPastores()
 						{
 							cedula = Convert.ToInt32(reader["CÉDULA"]),
-							nombre = reader["NOMBRE"].ToString() ?? string.Empty,
-							contacto = reader["CONTACTO"].ToString() ?? string.Empty,
-							email = reader["EMAIL"].ToString() ?? string.Empty,
-							direccion = reader["DIRECCIÓN"].ToString() ?? string.Empty,
+							nombre = reader["NOMBRE"].ToString(),
+							contacto = reader["CONTACTO"].ToString(),
+							email = reader["EMAIL"].ToString(),
+							direccion = reader["DIRECCIÓN"].ToString(),
 							distrito = reader["DISTRITO"].ToString(),
 							fechaNacimiento = reader["FEC_NACIMIENTO"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_NACIMIENTO"]).ToString("dd-MM-yyyy") : (string)null,
 							nombreCongregacion = reader["NOMBRE_CONGREGACIÓN"].ToString() ?? string.Empty,
@@ -46,12 +46,13 @@ namespace WebApplication2.Repo
 
 		public List<MPastores> listarTodos()
 		{
-			return ObtenerDatos("select * from Pastores;", null);
+			return ObtenerDatos("SELECT * FROM Pastores;", null);
 		}
 
 		public List<MPastores> listar20()
 		{
-			return ObtenerDatos("select TOP 20 * from Pastores;", null);
+			return ObtenerDatos("SELECT TOP 20 * FROM Pastores;", null);
+			//return ObtenerDatos("SELECT TOP 20 CÉDULA, NOMBRE, CONTACTO, EMAIL, DIRECCIÓN, DISTRITO FROM Pastores;", null);
 		}
 
 		public List<MPastores> FiltroCedula(int cedula)

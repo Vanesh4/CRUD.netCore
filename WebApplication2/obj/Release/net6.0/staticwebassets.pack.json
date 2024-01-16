@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApplication2.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+      "PackagePath": "staticwebassets\\css\\CincoStyles.css"
+    },
+    {
       "Id": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",
       "PackagePath": "staticwebassets\\css\\filtros.css"
     },

@@ -3,10 +3,10 @@
 	public class MPastores
 	{
 		public int cedula { get; set; }
-		public string nombre { get; set; }
-		public string contacto { get; set; }
-		public string email { get; set; }
-		public string direccion { get; set; }
+		public string? nombre { get; set; }
+		public string? contacto { get; set; }
+		public string? email { get; set; }
+		public string? direccion { get; set; }
 		public string? fechaNacimiento { get; set; }
 		public DateTime? fechaInicioCorpentunida { get; set; }
 		public DateTime? fechaPrimerAporte { get; set; }

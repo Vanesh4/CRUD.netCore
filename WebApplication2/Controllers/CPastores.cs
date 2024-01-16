@@ -16,8 +16,6 @@ namespace WebApplication2.Controllers
 			return View("GetPastores", _repoPastores.listarTodos());
 		}
 
-
-
 		public IActionResult FiltroPorNombre(string nombre)
 		{
 			return View(_repoPastores.FiltroNombre(nombre));

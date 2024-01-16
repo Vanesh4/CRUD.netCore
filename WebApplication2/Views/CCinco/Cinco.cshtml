@@ -4,4 +4,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Lista.FirstOrDefault()?.cedula</h1>
+@{
+    <link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
+    
+    <div class=body>
+    
+              <form method="post" action="@Url.Action("CincoData")">
+              <input name=cedula>
+                <button type="submit" class="btn btn-outline-primary m-1">buscar</button>
+            </form>
+
+    
+            
+            @if (Model != null)
+            {
+                        <h2>@Model[0].cedula</h2>
+                                <h4>@Model[0].nombre</h4>
+                        <table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.fecha</td>
+                        <td>@item.valor</td>
+                                    <td>@item.numComprobante</td>
+                    </tr>
+                }
+                        </table>
+            }
+            
+
+            
+     
+    </div>
+
+}
+

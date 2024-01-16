@@ -8,7 +8,7 @@
 		{
 			var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
 			cadenaConAPP = builder.GetSection("ConnectionStrings:ConnectionApp").Value;
-			cadenaConAPP = builder.GetSection("ConnectionStrings:ConnectionCinco").Value;
+			cadenaConCinco = builder.GetSection("ConnectionStrings:ConnectionCinco").Value;
 		}
 		public string getCadenaConAPP(){ return cadenaConAPP; }
 		public string getCincaConCinco() {  return cadenaConCinco; }

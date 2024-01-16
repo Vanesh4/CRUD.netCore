@@ -30,13 +30,14 @@
 						</th>
 					</tr>
 					<tr>
-						<th>CÉDULA</th>
+					<th>CÉDULA</th> *
 						<th>NOMBRE</th>
 						<th>CONTACTO</th>
 						<th>EMAIL</th>
 						<th>DIRECCIÓN</th>
+							<th>DISTRITO</th>
 						<th>NOMBRE CONGREGACIÓN</th>
-						<th>DISTRITO</th>
+						
 						<th>FECHA NACIMIENTO</th>
 						<th>ESTADO PASTOR</th>
 						<th>CLASE PASTOR</th>
@@ -46,13 +47,15 @@
 				@foreach (var item in Model)
 				{
 							<tr>
-								<td>@item.cedula</td>
+								 <td>@item.cedula</td> 
 								<td>@item.nombre</td>
 								<td>@item.contacto</td>
 								<td>@item.email</td>
 								<td>@item.direccion</td>
-								<td>@item.nombreCongregacion</td>
+								
 								<td>@item.distrito</td>
+										
+								<td>@item.nombreCongregacion</td>
 								<td>@item.fechaNacimiento</td>
 								<td>@item.estadoPastor</td>
 								<td>@item.clasePastor</td>

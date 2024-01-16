@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/vLLCGNqoO/v3Ptgcg0IExiyl57FkG8Pbs53qNhstKs=",
+  "Hash": "z6R7Dvt+hFG+NymCvVMZKvivHRokg82xvcmTKOGidEQ=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\WebApplication2.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "css/CincoStyles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CincoStyles.css"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",

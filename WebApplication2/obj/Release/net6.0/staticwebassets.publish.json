@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NENTm8TWWrT0QcRt603ujLappBnVp/l7X2PKygGUkMg=",
+  "Hash": "orwuysaCX7SstAGD8KZU20Ds2Wzyb3XJTjAy7V/0F4Y=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\WebApplication2.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "css/CincoStyles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CincoStyles.css"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",
@@ -1137,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\rocket.ico",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "rocket.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\rocket.ico"
     }
   ]
 }
