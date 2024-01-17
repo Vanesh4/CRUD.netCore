@@ -1,5 +1,5 @@
 
-console.log("te quiero <3")
+//console.log("te quiero <3")
 //OCULTAR Y MOSTRAR COLUMNAS
 var tabla = document.getElementById('miTabla');
 function toggleColumns(columnIndexes) {

@@ -26,11 +26,14 @@ namespace WebApplication2.Repo
 					{
 						Lista.Add(new Cinco()
 						{
-							cedula = reader["Cedula"].ToString(),
+                            codComprobante = reader["CodComprob"].ToString(),
+                            cedula = reader["Cedula"].ToString(),
 							fecha = reader["Fecha"] != DBNull.Value ? Convert.ToDateTime(reader["Fecha"]).ToString("dd-MM-yyyy") : (string)null,
 							numComprobante = reader["NumComprob"].ToString(),
-							valor = reader["VrCreditos"].ToString(),
-							nombre = ObtenerNombre(reader["Cedula"].ToString())
+                            observacion = reader["Observacion"].ToString(),
+							valorDebitos = reader["VrDebitos"].ToString(),
+                            valorCreditos = reader["VrCreditos"].ToString(),
+                            nombre = ObtenerNombre(reader["Cedula"].ToString())
 						}) ;
 					}
 				}
@@ -61,7 +64,7 @@ namespace WebApplication2.Repo
 		}
 
 		public List<Cinco> listarDatos(string cedula) {
-			string consulta = "SELECT * FROM AportesPastor WHERE Cedula = @cedula ;";
+			string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula ;";
 			SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
 			return ObtenerDatos(consulta, parametros);
 		}

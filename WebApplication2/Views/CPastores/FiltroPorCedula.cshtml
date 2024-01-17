@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
 
-<div class="d-flex flex-row">
+@* <div class="d-flex flex-row">
 	<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
 		<div class="d-flex justify-content-center">
 			<input class="form-control m-1" type="number" id="inputCedula" name="cedula" placeholder="Ingrese la cedula">
@@ -19,45 +19,73 @@
 			<button type="submit" class="btn btn-primary m-1">Buscar</button>
 		</div>
 	</form>
-</div>
+</div> *@
 <div class="body">
-@foreach (var item in Model)
-{
+    <table>
+        <tr>						
+                        <th>
+                                <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+                                    <div class="d-flex justify-content-center">
+                                            <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                                    </div>
+                                </form>
+                        </th>
+                        <th>
+                                <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+                                    <div class="d-flex justify-content-center">
+                                        <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
+                                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                                    </div>
+                                </form>
+                        </th>
+                    </tr>
+    </table>
+    @foreach (var item in Model)
+                {
     <form asp-action="Update" asp-controller="CPastores" method="post">
-        <table class="table table-bordered border-primary no-margin-table" id="miTabla">
-            <input type="hidden" name="cedula" value="@item.cedula" />
+        <table id="miTabla">
+                <input type="hidden" name="cedula" value="@item.cedula" />
             <thead>
+                
                 <tr>
                     <th>CÉDULA</th>
                     <th>NOMBRE</th>
                     <th>CONTACTO</th>
                     <th>EMAIL</th>
                     <th>DIRECCIÓN</th>
-                    <th>NOMBRE CONGREGACIÓN</th>
                     <th>DISTRITO</th>
-                    <th>ESTADO PASTOR</th>
+                    <th>NOMBRE CONGREGACIÓN</th>
+                    <th>FECHA NACIMIENTO</th>
                     <th>CLASE PASTOR</th>
+                        <th>ESTADO PASTOR</th>
                 </tr>
             </thead>
             <tbody>
+                
+                        
                 <tr>
                     <td>@item.cedula</td>
                     <td><input name="nombre" value="@item.nombre" class="inputAct"/></td>
                     <td><input name="contacto" value="@item.contacto" class="inputAct"/></td>
                     <td><input name="email" value="@item.email" class="inputAct"/></td>
                     <td>@item.direccion</td>
+                        <td>@item.distrito</td>
                     <td>@item.nombreCongregacion</td>
-                    <td>@item.distrito</td>
+                        <td>@item.fechaNacimiento</td>
                     <td>@item.estadoPastor</td>
                     <td>@item.clasePastor</td>
                 </tr>
+                
             </tbody>
         </table>
         <button type="submit" class="btn btn-primary">Actualizar</button>
 
     </form>
-}
+    }
 </div>
+
+
 @if (TempData["Respuesta"] != null)
 {
     <h4>@Html.Raw(TempData["Respuesta"])</h4>
