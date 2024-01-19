@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {}
+    "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {
+    "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+        "projectPath": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
         "packagesPath": "C:\\Users\\Gordillov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gordillov\\Desktop\\prueba\\CRUD.netCore\\WebApplication2\\obj\\",
+        "outputPath": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\23.1.36\\ToolboxNuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Gordillov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -44,13 +40,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.NET.StringTools": {
+              "target": "Package",
+              "version": "[17.3.2, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.16, )"
             },
-            "Rotativa": {
+            "Rotativa.AspNetCore": {
               "target": "Package",
-              "version": "[1.7.3, )"
+              "version": "[1.3.2, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

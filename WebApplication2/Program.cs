@@ -3,8 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddRotativa(); // Agregar servicio de Rotativa
-RotativaConfiguration.Setup(builder.Environment.WebRootPath, "Rotativa");
+
 
 var app = builder.Build();
 
@@ -27,5 +26,8 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+IWebHostEnvironment env = app.Environment;
+Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
 
 app.Run();

@@ -1,62 +1,61 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "FiltroNombreCongre";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
 <div class="d-flex flex-row">
-<form asp-action="FiltroNombreCongre"  asp-controller="CCongregaciones" method="post">
-					<div class="d-flex justify-content-center">
-												<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Congregacion">
-											<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-						</div>
-				</form>
+    <form asp-action="FiltroNombreCongre" asp-controller="CCongregaciones" method="post">
+        <div class="d-flex justify-content-center">
+            <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Congregacion">
+            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+        </div>
+    </form>
 
 
-						<form asp-action="FiltroPorNombre" asp-controller="CCongregaciones" method="post">
+    <form asp-action="FiltroPorNombre" asp-controller="CCongregaciones" method="post">
 
-					<div class="d-flex justify-content-center">
-											<input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Pastor">
-						<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-					</div>
-						</form>
+        <div class="d-flex justify-content-center">
+            <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre Pastor">
+            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+        </div>
+    </form>
 
-						<form asp-action="filtroporCedula" asp-controller="CCongregaciones" method="post">
-						<div class="d-flex justify-content-center">
-														<input class="form-control d-block" type="number" name="cedula" placeholder="Cedula Pastor">
-												<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-							</div>
-					</form>
-					</div>
-				<div class="body">
-	<table id="miTabla">
-		<thead>
-			<tr>
-				<th>Código</th>
-				<th>Nombre Templo</th>
-				<th>Estado</th>
-				<th>Distrito</th>
-				<th>CedulaPastor</th>
-					<th>Municipio</th>
-						<th>Dirección</th>
-							<th>FechaApertura</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-								<tr>
-									<td>@item.Código</td>
-									<td>@item.NombreTemplo</td>
-									<td>@item.Estado</td>
-									<td>@item.Distrito</td>
-									<td>@item.CedulaPastor</td>
-											<td>@item.Municipio</td>
-													<td>@item.Dirección</td>
-															<td>@item.FechaApertura</td>
-								</tr>
-			}
-		</tbody>
-	</table>
+    <form asp-action="filtroporCedula" asp-controller="CCongregaciones" method="post">
+        <div class="d-flex justify-content-center">
+            <input class="form-control d-block" type="number" name="cedula" placeholder="Cedula Pastor">
+            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+        </div>
+    </form>
+</div>
+<div class="body">
+    <table id="miTabla">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre Templo</th>
+                <th>Estado</th>
+                <th>Distrito</th>
+                <th>CedulaPastor</th>
+                <th>Municipio</th>
+                <th>Dirección</th>
+                <th>FechaApertura</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Código</td>
+                    <td>@item.NombreTemplo</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Distrito</td>
+                    <td>@item.CedulaPastor</td>
+                    <td>@item.Municipio</td>
+                    <td>@item.Dirección</td>
+                    <td>@item.FechaApertura</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 

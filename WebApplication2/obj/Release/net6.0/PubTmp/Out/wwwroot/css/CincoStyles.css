@@ -1,9 +1,9 @@
 ﻿.body{
-    margin: 0,30px,0,30px 
+    margin-bottom: 100px;
 }
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 70%;
 }
 
 td, th {

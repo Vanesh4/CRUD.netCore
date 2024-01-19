@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "CincoData";
+    Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/datosCinco.css")" />
+<h1>VISTA DE CINCO DATAAAAAA AAAAAAAAAAAA</h1>
+@if (Model != null && Model.Count > 0)
+{
+    <h2>@Model[0].cedula</h2>
+    <h4>@Model[0].nombre</h4>
+    <table>
+        <tr>
+            <th>Comprobante</th>
+            <th>Num Comprobante</th>
+            <th>Fecha</th>
+            <th>Observacion</th>
+            <th>Debitos</th>
+            <th>Creditos</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.codComprobante</td>
+                <td>@item.numComprobante</td>
+                <td>@item.fecha</td>
+                <td>@item.observacion</td>
+                <td>@item.valorDebitos</td>
+                <td>@item.valorCreditos</td>
+
+            </tr>
+        }
+    </table>  
+}
+

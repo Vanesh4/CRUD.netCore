@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Gordillov\Desktop\prueba\CRUD.netCore\WebApplication2\bin\Release\net6.0</_PublishTargetUrl>
-    <History>True|2024-01-16T21:21:08.4253188Z;True|2024-01-11T10:44:57.5581607-05:00;True|2024-01-10T14:22:04.8109990-05:00;True|2024-01-10T14:10:32.0661712-05:00;True|2024-01-10T10:26:43.5565559-05:00;True|2024-01-05T10:03:44.2711934-05:00;True|2023-12-22T15:42:35.0819762-05:00;</History>
+    <_PublishTargetUrl>C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0</_PublishTargetUrl>
+    <History>True|2024-01-19T17:05:51.9814924Z;True|2024-01-16T16:21:08.4253188-05:00;True|2024-01-11T10:44:57.5581607-05:00;True|2024-01-10T14:22:04.8109990-05:00;True|2024-01-10T14:10:32.0661712-05:00;True|2024-01-10T10:26:43.5565559-05:00;True|2024-01-05T10:03:44.2711934-05:00;True|2023-12-22T15:42:35.0819762-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
