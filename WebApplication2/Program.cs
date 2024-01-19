@@ -1,4 +1,6 @@
 
+using Rotativa.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -28,6 +30,18 @@ app.MapControllerRoute(
 
 
 IWebHostEnvironment env = app.Environment;
-Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
+//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
+string wkhtmltopdfPath = System.IO.Path.Combine(env.WebRootPath, "Rotativa", "wkhtmltopdf.exe");
+string rutaRelativa = "Rotativa/Windows/wkhtmltopdf.exe";
+
+// Utiliza Path.Combine para construir la ruta completa
+string rutaCompleta = Path.Combine(env.WebRootPath, rutaRelativa);
+
+//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, rutaCompleta);
+RotativaConfiguration.Setup(env.WebRootPath, "Rotativa", wkhtmltopdfPath);
+
+
+
+
 
 app.Run();
