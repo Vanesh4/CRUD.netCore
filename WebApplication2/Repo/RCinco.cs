@@ -63,11 +63,16 @@ namespace WebApplication2.Repo
 			return nombrePastor;
 		}
 
-		public List<Cinco> listarDatos(string cedula) {
+		public List<Cinco> AportesPastor(string cedula) {
 			string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula ;";
 			SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
 			return ObtenerDatos(consulta, parametros);
 		}
-
-	}
+        public List<Cinco> CajaGeneral(string cedula)
+        {
+            string consulta = "SELECT * FROM REPCajaGeneral WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+    }
 }

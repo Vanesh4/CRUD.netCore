@@ -1,0 +1,16 @@
+#informacion{
+    display: flex;
+}
+.datos{
+    width: 50%;
+    display: flex;
+}
+.infodatos{
+    width: 50%;
+    text-align: end;
+}
+#nombre{
+    text-align: center;
+    background-color: bisque;
+    width: 100%;
+}

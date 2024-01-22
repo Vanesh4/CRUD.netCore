@@ -16,21 +16,21 @@ namespace WebApplication2.Controllers
 		}
         public IActionResult CincoData(string cedula)
         {
-            return View("CincoData", _repoCINCO.listarDatos(cedula));
+            return View("CincoData", _repoCINCO.AportesPastor(cedula));
         }
         public IActionResult PreviewCinco(string cedula)
         {
-            return View("Cinco", _repoCINCO.listarDatos(cedula));
+            return View("Cinco", _repoCINCO.AportesPastor(cedula));
         }
 
         [HttpPost]
         public async Task<IActionResult> GenerarPDF(string cedula, string nombre)
         {
             DateTime fecha = DateTime.Now;
-            var model = _repoCINCO.listarDatos(cedula);
+            var model = _repoCINCO.AportesPastor(cedula);
             var pdf = await new ViewAsPdf("CincoData", model).BuildFile(ControllerContext);
             string nom = nombre.Split(' ')[0];
-            string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}){cedula}{nom}.pdf";
+            string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}) {cedula}{nom}.pdf";
             
             return File(pdf, "application/pdf", nombreArchivo);
         }
