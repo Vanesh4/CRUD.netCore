@@ -925,6 +925,8 @@ C:\Users\Gordillov\Desktop\prueba\CRUD.netCore\WebApplication2\obj\Release\net6.
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\appsettings.Development.json
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\appsettings.json
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\WebApplication2.staticwebassets.runtime.json
+C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\Rotativa\Windows\wkhtmltoimage.exe
+C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\Rotativa\Windows\wkhtmltopdf.exe
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\WebApplication2.exe
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\WebApplication2.deps.json
 C:\Users\Gordillov\Desktop\PROYECTO\CRUD.netCore\WebApplication2\bin\Release\net6.0\WebApplication2.runtimeconfig.json

@@ -29,16 +29,11 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-IWebHostEnvironment env = app.Environment;
-//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
-string wkhtmltopdfPath = System.IO.Path.Combine(env.WebRootPath, "Rotativa", "wkhtmltopdf.exe");
-string rutaRelativa = "Rotativa/Windows/wkhtmltopdf.exe";
+//original IWebHostEnvironment env = app.Environment;
+string env = app.Environment.ContentRootPath;
+//original Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
+RotativaConfiguration.Setup(env, "Rotativa/Windows");
 
-// Utiliza Path.Combine para construir la ruta completa
-string rutaCompleta = Path.Combine(env.WebRootPath, rutaRelativa);
-
-//Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, rutaCompleta);
-RotativaConfiguration.Setup(env.WebRootPath, "Rotativa", wkhtmltopdfPath);
 
 
 
