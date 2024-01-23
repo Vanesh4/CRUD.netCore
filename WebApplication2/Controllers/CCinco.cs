@@ -4,10 +4,12 @@ using WebApplication2.Repo;
 using Rotativa.AspNetCore;
 using Microsoft.AspNetCore.Routing.Constraints;
 using System.Drawing.Printing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication2.Controllers
 {
-	public class CCinco : Controller
+    [Authorize]
+    public class CCinco : Controller
 	{
 		RCinco _repoCINCO = new RCinco();
 		public IActionResult Cinco()

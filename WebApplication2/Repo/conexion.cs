@@ -2,8 +2,8 @@
 {
 	public class conexion
 	{
-		private String cadenaConAPP { get; set; }
-		private String cadenaConCinco { get; set; }
+		private String cadenaConAPP { get; }
+		private String cadenaConCinco { get; }
 		public conexion()
 		{
 			var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
@@ -12,5 +12,5 @@
 		}
 		public string getCadenaConAPP(){ return cadenaConAPP; }
 		public string getCincaConCinco() {  return cadenaConCinco; }
-	}
+    }
 }

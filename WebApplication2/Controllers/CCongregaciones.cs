@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-	public class CCongregaciones : Controller
+    [Authorize]
+    public class CCongregaciones : Controller
 	{
 		RCongregaciones _repoCongregaciones = new RCongregaciones();
 		public IActionResult GetCongregaciones()
