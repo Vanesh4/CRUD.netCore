@@ -2,13 +2,12 @@
 using WebApplication2.Models;
 using WebApplication2.Repo;
 using Rotativa.AspNetCore;
-using Microsoft.AspNetCore.Routing.Constraints;
-using System.Drawing.Printing;
 using Microsoft.AspNetCore.Authorization;
+using Rotativa.AspNetCore.Options;
 
 namespace WebApplication2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class CCinco : Controller
 	{
 		RCinco _repoCINCO = new RCinco();
@@ -18,7 +17,7 @@ namespace WebApplication2.Controllers
 		}
         public IActionResult CincoData(string cedula)
         {
-            return View("CincoData", _repoCINCO.AportesPastor(cedula));
+            return View("CincoData", _repoCINCO.AportesPastor("7514540"));
         }
         public IActionResult PreviewCinco(string cedula)
         {
@@ -30,7 +29,13 @@ namespace WebApplication2.Controllers
         {
             DateTime fecha = DateTime.Now;
             var model = _repoCINCO.AportesPastor(cedula);
-            var pdf = await new ViewAsPdf("CincoData", model).BuildFile(ControllerContext);
+            Orientation orientation = Orientation.Landscape;
+            var pdf = await new ViewAsPdf("CincoData", model)
+            {
+                PageOrientation = orientation,
+            }.BuildFile(ControllerContext);
+            
+
             string nom = nombre.Split(' ')[0];
             string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}) {cedula}{nom}.pdf";
             
