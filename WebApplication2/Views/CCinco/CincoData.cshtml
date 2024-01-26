@@ -1,27 +1,33 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "CincoData";
     Layout = null;
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
-
-@if (Model != null && Model.Count > 0)
-{
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
+</head>
+<body>
     <div class="body">
         <div id="informacion">
             <div class="datos">
-                <h2>@Model[0].cedula</h2>
-                <h2 id="nombre">@Model[0].nombre</h2>
+                <h2>@Model.AportesPastor[0].cedula</h2>
+                <h2>@Model.AportesPastor[0].nombre</h2>
             </div>
             <div class="infoDatos">
-                <div><strong>Hora:</strong> @DateTime.Now.ToString("h:mm tt") </div>
-                <div><strong>Fecha:</strong> @DateTime.Now.ToString("dddd, dd/MM/yyyy h:mm tt")</div>
+                <div><strong>Hora:</strong>@DateTime.Now.ToString("h:mm tt")</div>
+                <div><strong>Fecha:</strong>@DateTime.Now.ToString("dd/MM/yyyy")</div>
             </div>
         </div>
-
-        <table class="table">
-            <tr><div>416542 Aportes de pastor</div></tr>
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+            <tr>
+                <div><strong>10505 caja general</strong></div>
+            </tr>
             <tr>
                 <th>Comprobante</th>
                 <th>Num Comprobante</th>
@@ -30,9 +36,8 @@
                 <th>Debitos</th>
                 <th>Creditos</th>
             </tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.AportesPastor)
             {
-
                 <tr>
                     <td>@item.codComprobante</td>
                     <td>@item.numComprobante</td>
@@ -40,13 +45,50 @@
                     <td>@item.observacion</td>
                     <td>@item.valorDebitos</td>
                     <td>@item.valorCreditos</td>
-
+                </tr>
+            }
+        </table>
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+            <tr>
+                <div><strong>133036 GastosDirectivos</strong></div>
+            </tr>
+            @foreach (var item in Model.GastosDirectivos)
+            {
+                <tr>
+                    <td>@item.codComprobante</td>
+                    <td>@item.numComprobante</td>
+                    <td>@item.fecha</td>
+                    <td>@item.observacion</td>
+                    <td>@item.valorDebitos</td>
+                    <td>@item.valorCreditos</td>
                 </tr>
             }
         </table>
 
+
+
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+            <tr>
+                <div><strong>416542 Aportes de pastor</strong></div>
+            </tr>
+            @foreach (var item in Model.AportesPastor)
+            {
+                <tr>
+                    <td>@item.codComprobante</td>
+                    <td>@item.numComprobante</td>
+                    <td>@item.fecha</td>
+                    <td>@item.observacion</td>
+                    <td>@item.valorDebitos</td>
+                    <td>@item.valorCreditos</td>
+                </tr>
+            }
+        </table>
+
+
     </div>
 
 
-}
-
+</body>
+</html>

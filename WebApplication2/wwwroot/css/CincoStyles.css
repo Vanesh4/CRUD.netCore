@@ -2,39 +2,43 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.tablaDatos {
+    width: 90%;
+    border-collapse: collapse;
+    /*border-top: 1px solid black;*/
+}
+
 #informacion {
     display: flex;
-    border-bottom: 1px solid black;
     margin-bottom: 20px;
 }
 
+
 .datos {
-    width: 50%;
+    width: 45%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.table {
-    width: 98%;
-    border-collapse: collapse;
-}
-
-.body {
-    padding: 10px;
-}
-
 .infoDatos {
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: end;
     padding-right: 30px;
 }
-
+.seperadorBorde {
+    height: 1px;
+    background-color: black;
+    width: 90%;
+    margin: 10px 0 10px 0;
+}
 th {
     font-size: 13px;
     font-weight: 900;
+    padding-left: 3px;
+    text-align: center;
 }
 
 td {
@@ -42,11 +46,26 @@ td {
     text-align: end;
 }
 
-    td:nth-child(1) {
-        width: 14%;
-    }
+.tablaDatos td:nth-child(1) {
+    width: 10%;
+}
 
-    th:nth-child(2),
-    td:nth-child(2) {
-        width: 14%;
-    }
+.tablaDatos td:nth-child(2) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(3) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(4) {
+    width: 50%;
+}
+
+.tablaDatos td:nth-child(5) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(5) {
+    width: 10%;
+}

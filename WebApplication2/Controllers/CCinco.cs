@@ -15,22 +15,34 @@ namespace WebApplication2.Controllers
 		{
 			return View();
 		}
-        public IActionResult CincoData(string cedula)
+
+        public ReporteDatosCinco repDatos(string cedula)
         {
-            return View("CincoData", _repoCINCO.AportesPastor("7514540"));
+            List<Cinco> listaAportesPastor = _repoCINCO.AportesPastor(cedula);
+            List<Cinco> listaCajaGeneral = _repoCINCO.CajaGeneral(cedula);
+            ReporteDatosCinco reportData = new ReporteDatosCinco
+            {
+                CajaGeneral = listaCajaGeneral,
+                AportesPastor = listaAportesPastor,
+                GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
+            };
+            return reportData;
+        }
+        public IActionResult CincoData(string cedula)
+        {          
+            return View("CincoData", repDatos(cedula));
         }
         public IActionResult PreviewCinco(string cedula)
         {
-            return View("Cinco", _repoCINCO.AportesPastor(cedula));
+            return View("Cinco", repDatos(cedula));
         }
 
         [HttpPost]
         public async Task<IActionResult> GenerarPDF(string cedula, string nombre)
         {
             DateTime fecha = DateTime.Now;
-            var model = _repoCINCO.AportesPastor(cedula);
             Orientation orientation = Orientation.Landscape;
-            var pdf = await new ViewAsPdf("CincoData", model)
+            var pdf = await new ViewAsPdf("CincoData", repDatos(cedula))
             {
                 PageOrientation = orientation,
             }.BuildFile(ControllerContext);

@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#informacion {
+/* #informacion {
     display: flex;
     border-bottom: 1px solid black;
     margin-bottom: 20px;
@@ -12,17 +12,6 @@
     width: 50%;
     display: flex;
     justify-content: space-evenly;
-
-
-}
-
-.table {
-    width: 98%;
-    border-collapse: collapse;
-}
-
-.body {
-    padding: 10px;
 }
 
 .infoDatos {
@@ -32,16 +21,49 @@
     justify-content: center;
     align-items: end;
     padding-right: 30px;
+} */
+#informacion {
+    overflow: hidden;
 }
+
+.datos {
+    float: left;
+    width: 50%;
+}
+#cedula{
+    float: left;
+    margin-right: 20px;
+}
+.infoDatos {
+    float: right;
+    width: 50%;
+    padding-top: 10px;
+    background-color: aqua;
+    text-align: right; 
+}
+
+.tablaDatos {
+    width: 98%;
+    border-collapse: collapse;
+
+}
+
+.body {
+    padding: 10px;
+}
+
+
 
 th {
     font-size: 13px;
     font-weight: 900;
+
 }
 
 td {
     font-size: 13px;
     text-align: end;
+
 }
 
 /* th:nth-child(1),
@@ -64,11 +86,22 @@ td:nth-child(4) {
     width: 50%;
 } */
 
-td:nth-child(1) {
-    width: 14%;
+.tablaDatos td:nth-child(1) {
+    width: 10%;
     
 }
-th:nth-child(2),
-td:nth-child(2) {
-    width: 14%;
+.tablaDatos td:nth-child(2) {
+    width: 10%;
+}
+.tablaDatos td:nth-child(3) {
+    width: 10%;
+}
+.tablaDatos td:nth-child(4) {
+    width: 50%;
+}
+.tablaDatos td:nth-child(5) {
+    width: 10%;
+}
+.tablaDatos td:nth-child(5) {
+    width: 10%;
 }
