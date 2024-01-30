@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Models;
 using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-	public class CPastores : Controller
+    //[Authorize]
+    public class CPastores : Controller
 	{
 		RPastores _repoPastores = new RPastores();
 		public IActionResult GetPastores()

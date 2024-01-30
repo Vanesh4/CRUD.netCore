@@ -7,7 +7,7 @@ using Rotativa.AspNetCore.Options;
 
 namespace WebApplication2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CCinco : Controller
 	{
 		RCinco _repoCINCO = new RCinco();

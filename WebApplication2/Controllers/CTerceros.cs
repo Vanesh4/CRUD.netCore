@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-	public class CTerceros : Controller
+    //[Authorize]
+    public class CTerceros : Controller
 	{
 		RTerceros _repoTerceros = new RTerceros();
 		public IActionResult GetTerceros()
