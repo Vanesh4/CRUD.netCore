@@ -15,10 +15,10 @@ namespace WebApplication2.Controllers
         private RUsuario _rusuario = new RUsuario();
         public IActionResult Login()
         {
-            //Usuario usuario = new Usuario("sistemas Corpen", "sistemas", "correo@example.com", "sistemas123");
-
+            Usuario usuario = new Usuario("Vanessa Gordillo", "gordillov", "correo@gmail.com", "vanesha123", "general");
+            _rusuario.AgregarUsuario(usuario);
             ClaimsPrincipal c = HttpContext.User;
-            if (c.Identity != null) //evitar errores de un usuaro no autenticado
+            if (c.Identity != null) //evitar errores de un usuario no autenticado
             {
                 if (c.Identity.IsAuthenticated) //se valida en el POST
                     return RedirectToAction("Index", "Home");
@@ -51,6 +51,9 @@ namespace WebApplication2.Controllers
                                 };
                                 ClaimsIdentity ci = new(c, CookieAuthenticationDefaults.AuthenticationScheme);
                                 AuthenticationProperties p = new();
+
+                                var role = dr["rol"].ToString();
+                                c.Add(new Claim(ClaimTypes.Role, role));
 
                                 p.AllowRefresh = true; //actualizar la sesion
                                 p.IsPersistent = u.MantenerActivo;

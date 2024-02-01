@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "b4spMFiENFRt4vKR+8i0zUapRitON8UkFKQx/TT6VXE=",
+  "Hash": "ecDoY3CLEpsoGECcPw0mt1U6IDEudszZWkfEfCHwWBw=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\logo.png",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\lupa.png",

@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\lupa.png",
       "PackagePath": "staticwebassets\\img\\lupa.png"
     },
