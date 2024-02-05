@@ -71,8 +71,12 @@ namespace WebApplication2.Repo
 
 		public List<MPastores> FiltroNombre(string nombre)
 		{
-			string consulta = "SELECT * FROM Pastores WHERE NOMBRE LIKE '%' + @nombre + '%';";
-			SqlParameter[] parametros = { new SqlParameter("@nombre", nombre) };
+            string[] nombrebusqueda = nombre.Split(' ');
+            // Agregar '%' entre las palabras
+            string parametroNombre = string.Join("%", nombrebusqueda);
+
+            string consulta = "SELECT * FROM Pastores WHERE NOMBRE LIKE '%' + @nombre + '%';";
+			SqlParameter[] parametros = { new SqlParameter("@nombre", parametroNombre) };
 			return ObtenerDatos(consulta, parametros);
 		}
 
