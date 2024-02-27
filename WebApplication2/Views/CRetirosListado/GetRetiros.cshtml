@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "GetRetiros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
+
+<div class="body">
+	<div class="d-md-flex justify-content-md-end">
+		<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+		<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+	</div>
+	<table id="miTabla">
+		<thead>
+			<tr>
+				<th>
+					<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+						<div class="d-flex justify-content-center">
+							<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+							<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+						</div>
+					</form>
+				</th>
+				
+			</tr>
+			<tr>
+				<th>CÉDULA</th>
+				<th>FECHA CALCULO RETIRO</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.codTer</td>
+					<td>@item.fechaParaCalculo</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+<script src="@Url.Content("~/js/zoom.js")"></script>
+

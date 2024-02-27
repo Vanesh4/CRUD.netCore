@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {}
+    "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {
+    "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+        "projectPath": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
         "packagesPath": "C:\\Users\\Gordillov\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gordillov\\Desktop\\PROYECTO\\CRUD.netCore\\WebApplication2\\obj\\",
+        "outputPath": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gordillov\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -94,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
