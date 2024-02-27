@@ -22,19 +22,44 @@
 						</div>
 					</form>
 				</th>
-				
+				<th>
+					<button onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar Columnas</button>
+				</th>
 			</tr>
 			<tr>
 				<th>CÉDULA</th>
 				<th>FECHA CALCULO RETIRO</th>
+				<th>liquidacion 2006</th>
+				<th>liquidacion 2008</th>
+				<th>liquidacion 2009</th>
+				<th>liquidacion 2007</th>
+				<th>liquidacion 2010</th>
+				<th>liquidacion 2011</th>
+				<th>liquidacion 2012</th>
+				<th>liquidacion 2013</th>
+				<th>liquidacion 2014</th>
+				<th>liquidacion 2015</th>
+				<th>liquidacion 2016</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var item in Model)
 			{
 				<tr>
+					
 					<td>@item.codTer</td>
 					<td>@item.fechaParaCalculo</td>
+					<td>@item.liquidacion2006</td>
+					<td>@item.liquidacion2007</td>
+					<td>@item.liquidacion2008</td>
+					<td>@item.liquidacion2009</td>
+					<td>@item.liquidacion2010</td>
+					<td>@item.liquidacion2011</td>
+					<td>@item.liquidacion2012</td>
+					<td>@item.liquidacion2013</td>
+					<td>@item.liquidacion2014</td>
+					<td>@item.liquidacion2015</td>
+					<td>@item.liquidacion2016</td>
 				</tr>
 			}
 		</tbody>

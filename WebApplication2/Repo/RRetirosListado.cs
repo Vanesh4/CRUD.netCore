@@ -27,10 +27,20 @@ namespace WebApplication2.Repo
                     {
                         Lista.Add(new MRetirosListado()
                         {
-                            codTer = Convert.ToInt32(reader["COD_TER"]),
-                            fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : (string)null,
-                            
-                        });
+							codTer = Convert.ToInt32(reader["CÉDULA"]),
+							fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : (string)null,
+							liquidacion2006 = validarDato(reader["liquidacion_2006"].ToString()),
+							liquidacion2007 = validarDato(reader["liquidacion_2007"].ToString()),
+							liquidacion2008 = validarDato(reader["liquidacion_2008"].ToString()),
+							liquidacion2009 = validarDato(reader["liquidacion_2009"].ToString()),
+							liquidacion2010 = validarDato(reader["liquidacion_2010"].ToString()),
+							liquidacion2011 = validarDato(reader["liquidacion_2011"].ToString()),
+							liquidacion2012 = validarDato(reader["liquidacion_2012"].ToString()),
+							liquidacion2013 = validarDato(reader["liquidacion_2013"].ToString()),
+							liquidacion2014 = validarDato(reader["liquidacion_2014"].ToString()),
+							liquidacion2015 = validarDato(reader["liquidacion_2015"].ToString()),
+							liquidacion2016 = validarDato(reader["liquidacion_2016"].ToString()),
+						});
                     }
                 }
                 return Lista;
@@ -39,13 +49,26 @@ namespace WebApplication2.Repo
 
         public List<MRetirosListado> listarTodos()
         {
-            return ObtenerDatos("SELECT * FROM Retiros;", null);
+            return ObtenerDatos("SELECT * FROM RetirosVista;", null);
         }
         public List<MRetirosListado> FiltroCedula(int cedula)
         {
-            string consulta = "SELECT * FROM Retiros WHERE COD_TER = @Cedula;";
+            string consulta = "SELECT * FROM RetirosVista WHERE COD_TER = @Cedula;";
             SqlParameter[] parametros = { new SqlParameter("@Cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
+
+        public string validarDato(string liquidaciona)
+        {
+			if (liquidaciona == "0")
+			{
+				return "";
+			}
+            else
+            {
+                return liquidaciona;
+            }
+		}
+        
     }
 }
