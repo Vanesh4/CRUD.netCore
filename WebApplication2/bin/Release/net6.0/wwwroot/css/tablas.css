@@ -1,7 +1,10 @@
 table {
     border-collapse: collapse;
     width: 95%;
-    display:none;
+    display: none;
+}
+#miTabla {
+    border-collapse: collapse;
 }
 
 td, th {
@@ -13,12 +16,16 @@ td, th {
     /*background-color: #a6c7ff;*/
     background-color: #B6BBC4;
 }
-.body{
-    padding:20px;
+
+.body {
+    padding: 20px;
 }
+
 .hidden {
-    display: none;
+    visibility: hidden;
+    /*display: none;*/
 }
+
 .inputAct {
     border: none;
 }

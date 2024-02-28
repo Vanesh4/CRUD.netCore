@@ -1,6 +1,13 @@
 
 //OCULTAR Y MOSTRAR COLUMNAS
 function toggleColumns(columnIndexes) {
+    boton = document.getElementById('ocultarColumnas');
+    if (boton.textContent === "Mostrar") {
+        boton.textContent = "Ocultar";
+    } else {
+        boton.textContent = "Mostrar";
+    }
+
     var tabla = document.getElementById('miTabla');
     var filas = tabla.rows;
 

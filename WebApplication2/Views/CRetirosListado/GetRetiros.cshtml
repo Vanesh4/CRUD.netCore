@@ -23,7 +23,8 @@
 					</form>
 				</th>
 				<th>
-					<button onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar Columnas</button>
+					<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
+					
 				</th>
 			</tr>
 			<tr>
@@ -45,8 +46,7 @@
 		<tbody>
 			@foreach (var item in Model)
 			{
-				<tr>
-					
+				<tr>					
 					<td>@item.codTer</td>
 					<td>@item.fechaParaCalculo</td>
 					<td>@item.liquidacion2006</td>

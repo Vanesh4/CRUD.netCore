@@ -1,12 +1,19 @@
 
-//console.log("te quiero <3")
-//OCULTAR Y MOSTRAR COLUMNAS
-var tabla = document.getElementById('miTabla');
-function toggleColumns(columnIndexes) {
-    
-    var filas = tabla.rows;
+console.log("te amoou <3")
 
- 
+var tabla = document.getElementById('miTabla');
+
+//OCULTAR Y MOSTRAR COLUMNAS
+function toggleColumns(columnIndexes) {
+
+    boton = document.getElementById('ocultarColumnas');
+    if (boton.textContent === "Mostrar") {
+        boton.textContent = "Ocultar";
+    } else {
+        boton.textContent = "Mostrar";
+    }
+    var filas = tabla.rows;
+    // Toggle the class 'hidden' for the specified columns in all rows
     for (var i = 0; i < filas.length; i++) {
         console.log("parametro " + columnIndexes)
         for (var j = 0; j < columnIndexes.length; j++) {
