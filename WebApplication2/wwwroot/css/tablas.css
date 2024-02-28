@@ -3,9 +3,6 @@ table {
     width: 95%;
     display: none;
 }
-#miTabla {
-    border-collapse: collapse;
-}
 
 td, th {
     border: 1px solid black;
@@ -22,8 +19,7 @@ td, th {
 }
 
 .hidden {
-    visibility: hidden;
-    /*display: none;*/
+    display: none;
 }
 
 .inputAct {

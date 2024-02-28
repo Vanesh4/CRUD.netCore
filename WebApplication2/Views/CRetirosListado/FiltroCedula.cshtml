@@ -1,0 +1,87 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
+
+
+
+    <div class="body">
+        <table id="miTabla">
+            <thead>
+                <tr>
+                    <th>
+                        <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+                            <div class="d-flex justify-content-center">
+                                <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                            </div>
+                        </form>
+                    </th>
+                    <th>
+                        <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
+
+                    </th>
+                </tr>
+                <tr>
+                    @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                    {
+
+                        <th>@propertyInfo.Name</th>
+
+                    }
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.codTer</td>
+                        <td>@item.fechaParaCalculo</td>
+
+
+                        @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                        {
+                            // Solo mostrar el valor si el nombre de la propiedad no es "codTer" o si el valor no es 0
+                            if (item.liquidacion2006 != 0)
+                            {
+                                <td>@(propertyInfo.GetValue(item) ?? "")</td>
+                            }
+                        }
+                        
+                        <td>@item.liquidacion2006</td>
+                        <td>@item.liquidacion2007</td>
+                        <td>@item.liquidacion2008</td>
+                        <td>@item.liquidacion2009</td>
+                        <td>@item.liquidacion2010</td>
+                        <td>@item.liquidacion2011</td>
+                        <td>@item.liquidacion2012</td>
+                        <td>@item.liquidacion2013</td>
+                        <td>@item.liquidacion2014</td>
+                        <td>@item.liquidacion2015</td>
+                        <td>@item.liquidacion2016</td>
+
+                        <td><button>Editar</button></td>
+                    </tr>
+
+                    
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    // @functions {
+    //     bool validarDato(TModel col)
+    //     {
+    //         if (col == 0){
+    //             return false;
+    //         }
+    //         else
+    //         {
+    //             return true;
+    //         }
+    //     }
+    // }
+}

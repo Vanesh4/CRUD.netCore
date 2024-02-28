@@ -15,7 +15,7 @@
 		<thead>
 			<tr>
 				<th>
-					<form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+					<form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
 						<div class="d-flex justify-content-center">
 							<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
 							<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
@@ -60,8 +60,11 @@
 					<td>@item.liquidacion2014</td>
 					<td>@item.liquidacion2015</td>
 					<td>@item.liquidacion2016</td>
+
+					<td><button>Editar</button></td>
 				</tr>
 			}
+			
 		</tbody>
 	</table>
 </div>

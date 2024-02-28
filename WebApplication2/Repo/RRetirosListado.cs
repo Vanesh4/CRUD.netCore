@@ -69,6 +69,32 @@ namespace WebApplication2.Repo
                 return liquidaciona;
             }
 		}
-        
-    }
+
+		public bool Update(MRetirosListado datosAct)
+		{
+			bool rpta = false;
+			try
+			{
+				using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+				{
+					conexion.Open();
+					//SqlCommand cmd = new SqlCommand($"UPDATE ListadoPastores SET NOMBRE='{datosAct.nombre}' WHERE CÉDULA = {datosAct.cedula}", conexion);
+					SqlCommand cmd = new SqlCommand("UPDATE Pastores SET NOMBRE=@nom,EMAIL=@email,CONTACTO=@con WHERE CÉDULA = @id", conexion);
+					cmd.Parameters.AddWithValue("id", datosAct.verficacion);
+					cmd.Parameters.AddWithValue("nom", datosAct.verficacionFecha);
+					cmd.Parameters.AddWithValue("email", datosAct.verficacionUsuario);
+					cmd.ExecuteNonQuery();
+
+				}
+				rpta = true;
+
+			}
+			catch (Exception e)
+			{
+				string error = e.Message;
+			}
+			return rpta;
+		}
+
+	}
 }

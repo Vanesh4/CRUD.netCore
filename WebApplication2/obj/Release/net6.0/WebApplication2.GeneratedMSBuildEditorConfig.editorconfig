@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1Bhc3RvcmVzXEdldFBhc3RvcmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CRetirosListado/FiltroCedula.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JldGlyb3NMaXN0YWRvXEZpbHRyb0NlZHVsYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CRetirosListado/GetRetiros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JldGlyb3NMaXN0YWRvXEdldFJldGlyb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

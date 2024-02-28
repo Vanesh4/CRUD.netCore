@@ -10,5 +10,10 @@ namespace WebApplication2.Controllers
         {
             return View(_repoListado.listarTodos());
         }
+
+        public IActionResult FiltroCedula(int cedula)
+        {
+            return View(_repoListado.FiltroCedula(cedula));
+        }
     }
 }

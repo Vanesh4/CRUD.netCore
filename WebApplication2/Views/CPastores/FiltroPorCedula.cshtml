@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "FiltroPorCedula";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -24,66 +23,65 @@
 
 <div class="body">
     <table>
-        <tr>						
-                        <th>
-                                <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
-                                    <div class="d-flex justify-content-center">
-                                            <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-                                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                                    </div>
-                                </form>
-                        </th>
-                        <th>
-                                <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
-                                    <div class="d-flex justify-content-center">
-                                        <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
-                                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                                    </div>
-                                </form>
-                        </th>
-                    </tr>
+        <tr>
+            <th>
+                <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+                    <div class="d-flex justify-content-center">
+                        <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                    </div>
+                </form>
+            </th>
+            <th>
+                <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+                    <div class="d-flex justify-content-center">
+                        <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
+                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                    </div>
+                </form>
+            </th>
+        </tr>
     </table>
     @foreach (var item in Model)
-                {
-    <form asp-action="Update" asp-controller="CPastores" method="post">
-        <table id="miTabla">
+    {
+        <form asp-action="Update" asp-controller="CPastores" method="post">
+            <table id="miTabla">
                 <input type="hidden" name="cedula" value="@item.cedula" />
-            <thead>
-                
-                <tr>
-                    <th>CÉDULA</th>
-                    <th>NOMBRE</th>
-                    <th>CONTACTO</th>
-                    <th>EMAIL</th>
-                    <th>DIRECCIÓN</th>
-                    <th>DISTRITO</th>
-                    <th>NOMBRE CONGREGACIÓN</th>
-                    <th>FECHA NACIMIENTO</th>
-                    <th>CLASE PASTOR</th>
-                    <th>ESTADO PASTOR</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                        
-                <tr>
-                    <td>@item.cedula</td>
-                    <td><input name="nombre" value="@item.nombre" class="inputAct"/></td>
-                    <td><input name="contacto" value="@item.contacto" class="inputAct"/></td>
-                    <td><input name="email" value="@item.email" class="inputAct"/></td>
-                    <td>@item.direccion</td>
-                    <td>@item.distrito</td>
-                    <td>@item.nombreCongregacion</td>
-                     <td>@item.fechaNacimiento</td>
-                    <td>@item.estadoPastor</td>
-                    <td>@item.clasePastor</td>
-                </tr>
-                
-            </tbody>
-        </table>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
+                <thead>
+                    <tr>
+                        <th>CÉDULA</th>
+                        <th>NOMBRE</th>
+                        <th>CONTACTO</th>
+                        <th>EMAIL</th>
+                        <th>DIRECCIÓN</th>
+                        <th>DISTRITO</th>
+                        <th>NOMBRE CONGREGACIÓN</th>
+                        <th>FECHA NACIMIENTO</th>
+                        <th>CLASE PASTOR</th>
+                        <th>ESTADO PASTOR</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    </form>
+
+                    <tr>
+                        <td>@item.cedula</td>
+                        <td><input name="nombre" value="@item.nombre" class="inputAct" /></td>
+                        <td><input name="contacto" value="@item.contacto" class="inputAct" /></td>
+                        <td><input name="email" value="@item.email" class="inputAct" /></td>
+                        <td>@item.direccion</td>
+                        <td>@item.distrito</td>
+                        <td>@item.nombreCongregacion</td>
+                        <td>@item.fechaNacimiento</td>
+                        <td>@item.estadoPastor</td>
+                        <td>@item.clasePastor</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+
+        </form>
     }
 </div>
 
