@@ -20,7 +20,7 @@ namespace WebApplication2.Controllers
         {
             ReporteDatosCinco reportData = new ReporteDatosCinco
             {
-                CajaGeneral =_repoCINCO.AportesPastor(cedula),
+                CajaGeneral = _repoCINCO.AportesPastor(cedula),
                 SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
                 AportesPastor = _repoCINCO.CajaGeneral(cedula),
                 GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),

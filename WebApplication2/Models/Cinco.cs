@@ -12,6 +12,8 @@
         public string? numComprobante { get; set; }
 		public string? valorCreditos {  get; set; }
         public string? valorDebitos { get; set; }
+        public string Cuenta { get; set; }
+        public string? CuentaDescripcion { get; set; }
 
     }
 }

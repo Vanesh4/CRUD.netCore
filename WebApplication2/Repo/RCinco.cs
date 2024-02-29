@@ -33,11 +33,12 @@ namespace WebApplication2.Repo
                             observacion = reader["Observacion"].ToString(),
 							valorDebitos = reader["VrDebitos"].ToString(),
                             valorCreditos = reader["VrCreditos"].ToString(),
-                            nombre = ObtenerNombre(reader["Cedula"].ToString())
-						}) ;
+                            nombre = ObtenerNombre(reader["Cedula"].ToString()),
+                            //Cuenta = reader["Cuenta"].ToString(),
+                            //CuentaDescripcion = reader["Descripcion"] != DBNull.Value ? reader["Descripcion"].ToString() : null
+                        }) ;
 					}
 				}
-				//return Lista;
 			}
 			
             return Lista;
@@ -95,7 +96,7 @@ namespace WebApplication2.Repo
         }
         public List<Cinco> BogotaCtasCorrientes(string cedula)
         {
-            string consulta = "SELECT * FROM RepBogotaCtasCorrientes WHERE Cedula = @cedula ;";
+            string consulta = "SELECT * FROM REPBogotaCtasCorrientes WHERE Cedula = @cedula ;";
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }

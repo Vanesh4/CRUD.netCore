@@ -152,7 +152,8 @@
             <div class="seperadorBorde"></div>
             <table class="tablaDatos">
                 <tr>
-                    <div><strong>416542 Aportes de pastor</strong></div>
+                    @* <div><strong>416542 Aportes de pastor</strong></div> *@
+                    <div><strong>@Model.AportesPastor[0].Cuenta @Model.AportesPastor[0].CuentaDescripcion</strong></div>
                 </tr>
                 @foreach (var item in Model.AportesPastor)
                 {
