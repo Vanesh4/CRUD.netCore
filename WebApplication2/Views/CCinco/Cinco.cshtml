@@ -23,16 +23,14 @@
             <div class="seperadorBorde"></div>
             <table class="tablaDatos">
                 <tr>
-                    <div><strong>10505 caja general</strong></div>
+                    @* <div><strong>416542 Aportes de pastor</strong></div> *@
+                    <div><strong>@Model.AportesPastor[0].cuenta @Model.AportesPastor[0].CuentaDescripcion</strong></div>
                 </tr>
-                <tr>
-                    <th>Comprobante</th>
-                    <th>Num Comprobante</th>
-                    <th>Fecha</th>
-                    <th>Observacion</th>
-                    <th>Debitos</th>
-                    <th>Creditos</th>
-                </tr>
+                @{
+                    double debito = 0;
+                    double credito = 0;
+                }
+
                 @foreach (var item in Model.AportesPastor)
                 {
                     <tr>
@@ -43,16 +41,30 @@
                         <td>@item.valorDebitos</td>
                         <td>@item.valorCreditos</td>
                     </tr>
+
+                    debito += double.Parse(@item.valorDebitos);
+                    credito += double.Parse(@item.valorCreditos);
                 }
             </table>
+            <p><strong>TOTAL CUENTA </strong> Total débito: @debito             Total crédito: @credito</p>
+
+
             @if (Model.SegVicepresidente.Count > 0)
             {
-                <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
+                    <div class="seperadorBorde"></div>
                     <tr>
-                        <div><strong>110543 2o.vicepresidente</strong></div>
+                        <div><strong>10505 caja general</strong></div>
                     </tr>
-                    @foreach (var item in Model.SegVicepresidente)
+                    <tr>
+                        <th>Comprobante</th>
+                        <th>Num Comprobante</th>
+                        <th>Fecha</th>
+                        <th>Observacion</th>
+                        <th>Debitos</th>
+                        <th>Creditos</th>
+                    </tr>
+                    @foreach (var item in Model.AportesPastor)
                     {
                         <tr>
                             <td>@item.codComprobante</td>
@@ -63,117 +75,122 @@
                             <td>@item.valorCreditos</td>
                         </tr>
                     }
-                </table>
-            }
 
-            @if (Model.CajaMenor.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>110547 caja menor c.gest. medellin</strong></div>
-                    </tr>
-                    @foreach (var item in Model.CajaMenor)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                    }
                 </table>
-            }
-            @if (Model.BogotaCtasCorrientes.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>111006 banco de bogota ctas corrientes</strong></div>
-                    </tr>
-                    @foreach (var item in Model.BogotaCtasCorrientes)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                    }
-                </table>
-            }
-
-            @if (Model.Otros.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>138095 Otros</strong></div>
-                    </tr>
-                    @foreach (var item in Model.Otros)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                    }
-                </table>
-            }
-
-            <div class="seperadorBorde"></div>
-            @if (Model.GastosDirectivos.Count > 0)
-            {
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>133036 GastosDirectivos</strong></div>
-                    </tr>
-                    @foreach (var item in Model.GastosDirectivos)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                    }
-                </table>
-            }
-
-            <div class="seperadorBorde"></div>
-            <table class="tablaDatos">
-                <tr>
-                    @* <div><strong>416542 Aportes de pastor</strong></div> *@
-                    <div><strong>@Model.AportesPastor[0].Cuenta @Model.AportesPastor[0].CuentaDescripcion</strong></div>
-                </tr>
-                @foreach (var item in Model.AportesPastor)
+                @if (Model.SegVicepresidente.Count > 0)
                 {
-                    <tr>
-                        <td>@item.codComprobante</td>
-                        <td>@item.numComprobante</td>
-                        <td>@item.fecha</td>
-                        <td>@item.observacion</td>
-                        <td>@item.valorDebitos</td>
-                        <td>@item.valorCreditos</td>
-                    </tr>
+                    <div class="seperadorBorde"></div>
+                    <table class="tablaDatos">
+                        <tr>
+                            <div><strong>110543 2o.vicepresidente</strong></div>
+                        </tr>
+                        @foreach (var item in Model.SegVicepresidente)
+                        {
+                            <tr>
+                                <td>@item.codComprobante</td>
+                                <td>@item.numComprobante</td>
+                                <td>@item.fecha</td>
+                                <td>@item.observacion</td>
+                                <td>@item.valorDebitos</td>
+                                <td>@item.valorCreditos</td>
+                            </tr>
+                        }
+                    </table>
                 }
-            </table>
+
+                @if (Model.CajaMenor.Count > 0)
+                {
+                    <div class="seperadorBorde"></div>
+                    <table class="tablaDatos">
+                        <tr>
+                            <div><strong>110547 caja menor c.gest. medellin</strong></div>
+                        </tr>
+                        @foreach (var item in Model.CajaMenor)
+                        {
+                            <tr>
+                                <td>@item.codComprobante</td>
+                                <td>@item.numComprobante</td>
+                                <td>@item.fecha</td>
+                                <td>@item.observacion</td>
+                                <td>@item.valorDebitos</td>
+                                <td>@item.valorCreditos</td>
+                            </tr>
+                        }
+                    </table>
+                }
+                @if (Model.BogotaCtasCorrientes.Count > 0)
+                {
+                    <div class="seperadorBorde"></div>
+                    <table class="tablaDatos">
+                        <tr>
+                            <div><strong>111006 banco de bogota ctas corrientes</strong></div>
+                        </tr>
+                        @foreach (var item in Model.BogotaCtasCorrientes)
+                        {
+                            <tr>
+                                <td>@item.codComprobante</td>
+                                <td>@item.numComprobante</td>
+                                <td>@item.fecha</td>
+                                <td>@item.observacion</td>
+                                <td>@item.valorDebitos</td>
+                                <td>@item.valorCreditos</td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+                @if (Model.Otros.Count > 0)
+                {
+                    <div class="seperadorBorde"></div>
+                    <table class="tablaDatos">
+                        <tr>
+                            <div><strong>138095 Otros</strong></div>
+                        </tr>
+                        @foreach (var item in Model.Otros)
+                        {
+                            <tr>
+                                <td>@item.codComprobante</td>
+                                <td>@item.numComprobante</td>
+                                <td>@item.fecha</td>
+                                <td>@item.observacion</td>
+                                <td>@item.valorDebitos</td>
+                                <td>@item.valorCreditos</td>
+                            </tr>
+                        }
+                    </table>
+                }
+
+                <div class="seperadorBorde"></div>
+                @if (Model.GastosDirectivos.Count > 0)
+                {
+                    <table class="tablaDatos">
+                        <tr>
+                            <div><strong>133036 GastosDirectivos</strong></div>
+                        </tr>
+                        @foreach (var item in Model.GastosDirectivos)
+                        {
+                            <tr>
+                                <td>@item.codComprobante</td>
+                                <td>@item.numComprobante</td>
+                                <td>@item.fecha</td>
+                                <td>@item.observacion</td>
+                                <td>@item.valorDebitos</td>
+                                <td>@item.valorCreditos</td>
+                            </tr>
+                        }
+                    </table>
+                }
 
 
-            <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
-                <input type="hidden" name="cedula" value="@Model.AportesPastor[0].cedula" />
-                <input type="hidden" name="nombre" value="@Model.AportesPastor[0].nombre" />
-                <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
-            </form>
+
+
+
+                <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
+                    <input type="hidden" name="cedula" value="@Model.AportesPastor[0].cedula" />
+                    <input type="hidden" name="nombre" value="@Model.AportesPastor[0].nombre" />
+                    <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
+                </form>
+            }
         }
     </div>
 </div>

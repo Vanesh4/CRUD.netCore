@@ -7,7 +7,7 @@ using Rotativa.AspNetCore.Options;
 
 namespace WebApplication2.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class CCinco : Controller
     {
         RCinco _repoCINCO = new RCinco();
@@ -20,9 +20,9 @@ namespace WebApplication2.Controllers
         {
             ReporteDatosCinco reportData = new ReporteDatosCinco
             {
-                CajaGeneral = _repoCINCO.AportesPastor(cedula),
+                AportesPastor = _repoCINCO.AportesPastor(cedula),
                 SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
-                AportesPastor = _repoCINCO.CajaGeneral(cedula),
+                CajaGeneral = _repoCINCO.CajaGeneral(cedula),
                 GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
                 Otros = _repoCINCO.Otros(cedula),
                 TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
@@ -32,6 +32,8 @@ namespace WebApplication2.Controllers
             };
             return reportData;
         }
+
+      
         public IActionResult CincoData(string cedula)
         {
             return View("CincoData", repDatos(cedula));

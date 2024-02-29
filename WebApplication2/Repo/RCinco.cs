@@ -4,48 +4,48 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Repo
 {
-	public class RCinco
-	{
-		private conexion _cn = new conexion();
-		private List<Cinco> ObtenerDatos(string consulta, SqlParameter[] parametro)
-		{
-			var Lista = new List<Cinco>();
+    public class RCinco
+    {
+        private conexion _cn = new conexion();
+        private List<Cinco> ObtenerDatos(string consulta, SqlParameter[] parametro)
+        {
+            var Lista = new List<Cinco>();
 
-			using (var conexion = new SqlConnection(_cn.getCincaConCinco()))
-			{
-				conexion.Open();
-				SqlCommand cmd = new SqlCommand(consulta, conexion);
-				if (parametro != null)
-				{
-					cmd.Parameters.AddRange(parametro);
-				}
+            using (var conexion = new SqlConnection(_cn.getCincaConCinco()))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(consulta, conexion);
+                if (parametro != null)
+                {
+                    cmd.Parameters.AddRange(parametro);
+                }
 
                 using (var reader = cmd.ExecuteReader())
-				{
-					while (reader.Read())
-					{
-						Lista.Add(new Cinco()
-						{
+                {
+                    while (reader.Read())
+                    {
+                        Lista.Add(new Cinco()
+                        {
                             codComprobante = reader["CodComprob"].ToString(),
                             cedula = reader["Cedula"].ToString(),
-							fecha = reader["Fecha"] != DBNull.Value ? Convert.ToDateTime(reader["Fecha"]).ToString("dd-MM-yyyy") : (string)null,
-							numComprobante = reader["NumComprob"].ToString(),
+                            fecha = reader["Fecha"] != DBNull.Value ? Convert.ToDateTime(reader["Fecha"]).ToString("dd-MM-yyyy") : (string)null,
+                            numComprobante = reader["NumComprob"].ToString(),
                             observacion = reader["Observacion"].ToString(),
-							valorDebitos = reader["VrDebitos"].ToString(),
+                            valorDebitos = reader["VrDebitos"].ToString(),
                             valorCreditos = reader["VrCreditos"].ToString(),
                             nombre = ObtenerNombre(reader["Cedula"].ToString()),
-                            //Cuenta = reader["Cuenta"].ToString(),
-                            //CuentaDescripcion = reader["Descripcion"] != DBNull.Value ? reader["Descripcion"].ToString() : null
-                        }) ;
-					}
-				}
-			}
-			
+                            cuenta = reader["Cuenta"].ToString(),
+                            CuentaDescripcion = reader["Descripcion"] != DBNull.Value ? reader["Descripcion"].ToString() : null
+                        });
+                    }
+                }
+            }
+
             return Lista;
         }
-		private string ObtenerNombre(string cedula)
-		{
-			string nombrePastor = "";
+        private string ObtenerNombre(string cedula)
+        {
+            string nombrePastor = "";
             using (var conexionAPP = new SqlConnection(_cn.getCadenaConAPP()))
             {
                 conexionAPP.Open();
@@ -54,21 +54,22 @@ namespace WebApplication2.Repo
                 cmdNOM.Parameters.Add(parametro);
                 using (var readerApp = cmdNOM.ExecuteReader())
                 {
-                    if(readerApp.Read())
-            {
+                    if (readerApp.Read())
+                    {
                         nombrePastor = readerApp["NOMBRE"].ToString();
                     }
 
                 }
             }
-			return nombrePastor;
-		}
+            return nombrePastor;
+        }
 
-		public List<Cinco> AportesPastor(string cedula) {
-			string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula ;";
-			SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-			return ObtenerDatos(consulta, parametros);
-		}
+        public List<Cinco> AportesPastor(string cedula)
+        {
+            string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
         public List<Cinco> CajaGeneral(string cedula)
         {
             string consulta = "SELECT * FROM REPCajaGeneral WHERE Cedula = @cedula ;";
@@ -82,13 +83,13 @@ namespace WebApplication2.Repo
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
-        public List<Cinco> Otros (string cedula)
+        public List<Cinco> Otros(string cedula)
         {
             string consulta = "SELECT * FROM REPOtros WHERE Cedula = @cedula ;";
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
-        public List<Cinco> TaxisyBuses (string cedula)
+        public List<Cinco> TaxisyBuses(string cedula)
         {
             string consulta = "SELECT * FROM REPTaxisBuses WHERE Cedula = @cedula ;";
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
@@ -119,6 +120,6 @@ namespace WebApplication2.Repo
             return ObtenerDatos(consulta, parametros);
         }
 
-        //gws
+        
     }
 }
