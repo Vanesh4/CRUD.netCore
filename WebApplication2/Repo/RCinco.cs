@@ -93,6 +93,31 @@ namespace WebApplication2.Repo
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
+        public List<Cinco> BogotaCtasCorrientes(string cedula)
+        {
+            string consulta = "SELECT * FROM RepBogotaCtasCorrientes WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        public List<Cinco> Gastos(string cedula)
+        {
+            string consulta = "SELECT * FROM RepGastos WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        public List<Cinco> SegVicepresidente(string cedula)
+        {
+            string consulta = "SELECT * FROM REPSegVicepresidente WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        public List<Cinco> CajaMenor(string cedula)
+        {
+            string consulta = "SELECT * FROM REPCajaMenor WHERE Cedula = @cedula ;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
 
+        //gws
     }
 }

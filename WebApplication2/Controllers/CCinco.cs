@@ -9,27 +9,31 @@ namespace WebApplication2.Controllers
 {
     [Authorize]
     public class CCinco : Controller
-	{
-		RCinco _repoCINCO = new RCinco();
-		public IActionResult Cinco()
-		{
-			return View();
-		}
+    {
+        RCinco _repoCINCO = new RCinco();
+        public IActionResult Cinco()
+        {
+            return View();
+        }
 
         public ReporteDatosCinco repDatos(string cedula)
         {
-            List<Cinco> listaAportesPastor = _repoCINCO.AportesPastor(cedula);
-            List<Cinco> listaCajaGeneral = _repoCINCO.CajaGeneral(cedula);
             ReporteDatosCinco reportData = new ReporteDatosCinco
             {
-                CajaGeneral = listaCajaGeneral,
-                AportesPastor = listaAportesPastor,
+                CajaGeneral =_repoCINCO.AportesPastor(cedula),
+                SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
+                AportesPastor = _repoCINCO.CajaGeneral(cedula),
                 GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
+                Otros = _repoCINCO.Otros(cedula),
+                TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
+                CajaMenor = _repoCINCO.CajaMenor(cedula),
+                BogotaCtasCorrientes = _repoCINCO.BogotaCtasCorrientes(cedula),
+
             };
             return reportData;
         }
         public IActionResult CincoData(string cedula)
-        {          
+        {
             return View("CincoData", repDatos(cedula));
         }
         public IActionResult PreviewCinco(string cedula)
@@ -46,11 +50,11 @@ namespace WebApplication2.Controllers
             {
                 PageOrientation = orientation,
             }.BuildFile(ControllerContext);
-            
+
 
             string nom = nombre.Split(' ')[0];
             string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}) {cedula}{nom}.pdf";
-            
+
             return File(pdf, "application/pdf", nombreArchivo);
         }
     }
