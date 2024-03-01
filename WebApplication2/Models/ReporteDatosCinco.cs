@@ -13,5 +13,7 @@
 
         public List<Cinco> CajaMenor { get; set; }
         public List<Cinco> BogotaCtasCorrientes { get; set; }
+        public List<Cinco> InteresesCDT { get; set; }
+        public List<Cinco> Reafiliaciones { get; set; }
     }
 }

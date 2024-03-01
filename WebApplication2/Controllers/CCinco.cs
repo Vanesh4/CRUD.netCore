@@ -28,7 +28,8 @@ namespace WebApplication2.Controllers
                 TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
                 CajaMenor = _repoCINCO.CajaMenor(cedula),
                 BogotaCtasCorrientes = _repoCINCO.BogotaCtasCorrientes(cedula),
-
+                InteresesCDT = _repoCINCO.InteresesCDT(cedula),
+                Reafiliaciones = _repoCINCO.Reafiliaciones(cedula),
             };
             return reportData;
         }

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\wwwroot\\css\\cincostyles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\wwwroot\\css\\cincostyles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\models\\reportedatoscinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\models\\reportedatoscinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -55,32 +63,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Cinco.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAkwDIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-29T15:06:40.054Z",
+              "Title": "CincoStyles.css",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+              "RelativeDocumentMoniker": "WebApplication2\\wwwroot\\css\\CincoStyles.css",
+              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+              "RelativeToolTip": "WebApplication2\\wwwroot\\css\\CincoStyles.css",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-01T16:20:09.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ReporteDatosCinco.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\ReporteDatosCinco.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Models\\ReporteDatosCinco.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\ReporteDatosCinco.cs",
+              "RelativeToolTip": "WebApplication2\\Models\\ReporteDatosCinco.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T21:27:20.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cinco.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-29T15:06:40.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CCinco.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CCinco.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CCinco.cs",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CCinco.cs",
               "RelativeToolTip": "WebApplication2\\Controllers\\CCinco.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAUwBgAAAA9AAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAUwB8AAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-29T13:49:55.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T13:49:55.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Cinco.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\Cinco.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Models\\Cinco.cs",
@@ -88,25 +119,23 @@
               "RelativeToolTip": "WebApplication2\\Models\\Cinco.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T20:24:18.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T20:24:18.533Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "RCinco.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RCinco.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Repo\\RCinco.cs",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RCinco.cs",
               "RelativeToolTip": "WebApplication2\\Repo\\RCinco.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAACUAAAAcAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAYwIQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-28T14:34:44.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T14:34:44.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "MRetirosListado.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\MRetirosListado.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Models\\MRetirosListado.cs",
@@ -118,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "GetRetiros.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
@@ -126,12 +155,11 @@
               "RelativeToolTip": "WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-02-27T17:00:25.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-27T17:00:25.73Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "CRetirosListado.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CRetirosListado.cs",
@@ -143,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
@@ -155,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "zoom.js",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\js\\zoom.js",
               "RelativeDocumentMoniker": "WebApplication2\\wwwroot\\js\\zoom.js",

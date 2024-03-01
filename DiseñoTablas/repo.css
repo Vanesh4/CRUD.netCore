@@ -52,7 +52,13 @@
     padding: 10px;
 }
 
-
+.TotalCuenta{
+    display: flex;
+    justify-content: flex-end;
+}
+.TotalCuenta, p{
+    padding-left: 100px;
+}
 
 th {
     font-size: 13px;

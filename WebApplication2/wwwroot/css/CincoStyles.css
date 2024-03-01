@@ -13,7 +13,16 @@
     display: flex;
     margin-bottom: 20px;
 }
+.TotalCuenta {
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+}
 
+.TotalCuenta, p {
+    font-size: 15px;
+    padding-left: 100px;
+}
 
 .datos {
     width: 45%;
@@ -32,7 +41,6 @@
 .seperadorBorde {
     height: 1px;
     background-color: black;
-    width: 90%;
     margin: 10px 0 10px 0;
 }
 th {
