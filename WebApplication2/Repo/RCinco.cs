@@ -70,6 +70,7 @@ namespace WebApplication2.Repo
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
+
         public List<Cinco> CajaGeneral(string cedula)
         {
             string consulta = "SELECT * FROM REPCajaGeneral WHERE Cedula = @cedula ;";

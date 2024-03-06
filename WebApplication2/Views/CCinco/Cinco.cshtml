@@ -6,11 +6,11 @@
 <link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
 <div class="body m-3">
     <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
-        <input name=cedula>
+        <input name="cedula">
         <button type="submit" class="btn btn-outline-primary m-1">buscar</button>
     </form>
     <div style="padding:20px;">
-        @if (Model != null)
+        @if (Model != null && Model.AportesPastor != null && Model.AportesPastor.Count > 0 && Model.AportesPastor[0] != null)
         {
             <div id="informacion">
                 <div class="datos">
@@ -29,15 +29,7 @@
                     @{
                         double debito = 0;
                         double credito = 0;
-                    }
-                    <tr>
-                        <th>Comprobante</th>
-                        <th>Num Comprobante</th>
-                        <th>Fecha</th>
-                        <th>Observacion</th>
-                        <th>Debitos</th>
-                        <th>Creditos</th>
-                    </tr>
+                    }                   
 
                     @foreach (var item in Model.AportesPastor)
                     {
@@ -50,8 +42,11 @@
                             <td>@item.valorCreditos</td>
                         </tr>
 
-                        debito += double.Parse(@item.valorDebitos);
-                        credito += double.Parse(@item.valorCreditos);
+                        double.TryParse(item.valorDebitos, out double debitoActual);
+                        debito += debitoActual;
+
+                        double.TryParse(item.valorCreditos, out double creditoActual);
+                        credito += creditoActual;
                     }
                 </table>
                 <div class="TotalCuenta">
@@ -60,6 +55,7 @@
                     <p>Total crédito: @credito</p>
                 </div>
             }
+
 
             @if (Model.SegVicepresidente.Count > 0)
             {
@@ -94,8 +90,7 @@
                 </div>
             }
 
-
-            @* @if (Model.CajaGeneral.Count > 0)
+            @if (Model.CajaGeneral.Count > 0)
             {
                 <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
@@ -125,9 +120,9 @@
                     <p>Total débito: @debito </p>
                     <p>Total crédito: @credito</p>
                 </div>
-            } *@
+            }
 
-            @* @if (Model.CajaMenor.Count > 0)
+            @if (Model.CajaMenor.Count > 0)
             {
                 <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
@@ -157,8 +152,9 @@
                     <p>Total débito: @debito </p>
                     <p>Total crédito: @credito</p>
                 </div>
-            } *@
-            @* @if (Model.BogotaCtasCorrientes.Count > 0)
+            }
+
+            @if (Model.BogotaCtasCorrientes != null && Model.BogotaCtasCorrientes.Count > 0)
             {
                 <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
@@ -182,6 +178,7 @@
                         debito += double.Parse(@item.valorDebitos);
                         credito += double.Parse(@item.valorCreditos);
                     }
+
                 </table>
 
                 <div class="TotalCuenta">
@@ -189,9 +186,112 @@
                     <p>Total débito: @debito </p>
                     <p>Total crédito: @credito</p>
                 </div>
-            } *@
+            }
 
-            @* @if (Model.Otros.Count > 0)
+
+            @if (Model.TaxisyBuses.Count > 0)
+            {
+                <div class="seperadorBorde"></div>
+                <table class="tablaDatos">
+                    <tr>
+                        <div><strong>@Model.TaxisyBuses[0].cuenta @Model.TaxisyBuses[0].CuentaDescripcion</strong></div>
+                    </tr>
+                    @{
+                        double debito = 0;
+                        double credito = 0;
+                    }
+                    @foreach (var item in Model.TaxisyBuses)
+                    {
+                        <tr>
+                            <td>@item.codComprobante</td>
+                            <td>@item.numComprobante</td>
+                            <td>@item.fecha</td>
+                            <td>@item.observacion</td>
+                            <td>@item.valorDebitos</td>
+                            <td>@item.valorCreditos</td>
+                        </tr>
+
+                        debito += double.Parse(@item.valorDebitos);
+                        credito += double.Parse(@item.valorCreditos);
+
+                    }
+                </table>
+                <div class="TotalCuenta">
+                    <p><strong>TOTAL CUENTA </strong></p>
+                    <p>Total débito: @debito </p>
+                    <p>Total crédito: @credito</p>
+                </div>
+            }
+
+            @if (Model.InteresesCDT.Count > 0)
+            {
+                <div class="seperadorBorde"></div>
+                <table class="tablaDatos">
+                    <tr>
+                        <div><strong>@Model.InteresesCDT[0].cuenta @Model.InteresesCDT[0].CuentaDescripcion</strong></div>
+                    </tr>
+                    @{
+                        double debito = 0;
+                        double credito = 0;
+                    }
+                    @foreach (var item in Model.InteresesCDT)
+                    {
+                        <tr>
+                            <td>@item.codComprobante</td>
+                            <td>@item.numComprobante</td>
+                            <td>@item.fecha</td>
+                            <td>@item.observacion</td>
+                            <td>@item.valorDebitos</td>
+                            <td>@item.valorCreditos</td>
+                        </tr>
+
+                        debito += double.Parse(@item.valorDebitos);
+                        credito += double.Parse(@item.valorCreditos);
+
+                    }
+                </table>
+                <div class="TotalCuenta">
+                    <p><strong>TOTAL CUENTA </strong></p>
+                    <p>Total débito: @debito </p>
+                    <p>Total crédito: @credito</p>
+                </div>
+            }
+
+            @if (Model.Reafiliaciones.Count > 0)
+            {
+                <div class="seperadorBorde"></div>
+                <table class="tablaDatos">
+                    <tr>
+                        <div><strong>@Model.Reafiliaciones[0].cuenta @Model.Reafiliaciones[0].CuentaDescripcion</strong></div>
+                    </tr>
+                    @{
+                        double debito = 0;
+                        double credito = 0;
+                    }
+                    @foreach (var item in Model.Reafiliaciones)
+                    {
+                        <tr>
+                            <td>@item.codComprobante</td>
+                            <td>@item.numComprobante</td>
+                            <td>@item.fecha</td>
+                            <td>@item.observacion</td>
+                            <td>@item.valorDebitos</td>
+                            <td>@item.valorCreditos</td>
+                        </tr>
+
+                        debito += double.Parse(@item.valorDebitos);
+                        credito += double.Parse(@item.valorCreditos);
+
+                    }
+                </table>
+                <div class="TotalCuenta">
+                    <p><strong>TOTAL CUENTA </strong></p>
+                    <p>Total débito: @debito </p>
+                    <p>Total crédito: @credito</p>
+                </div>
+            }
+
+            @if (Model.Otros.Count > 0)
             {
                 <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
@@ -223,47 +323,14 @@
                     <p>Total débito: @debito </p>
                     <p>Total crédito: @credito</p>
                 </div>
-            } *@
-
-            @if (Model.Gastos.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>@Model.Gastos[0].cuenta @Model.Gastos[0].CuentaDescripcion</strong></div>
-                    </tr>
-                    @{
-                        double debito = 0;
-                        double credito = 0;
-                    }
-                    @foreach (var item in Model.Gastos)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                        debito += double.Parse(@item.valorDebitos);
-                        credito += double.Parse(@item.valorCreditos);
-                    }
-                </table>
-                <div class="TotalCuenta">
-                    <p><strong>TOTAL CUENTA </strong></p>
-                    <p>Total débito: @debito </p>
-                    <p>Total crédito: @credito</p>
-                </div>
             }
-
 
             @if (Model.GastosDirectivos.Count > 0)
             {
                 <div class="seperadorBorde"></div>
                 <table class="tablaDatos">
                     <tr>
-                        <div><strong>@Model.BogotaCtasCorrientes[0].cuenta @Model.BogotaCtasCorrientes[0].CuentaDescripcion</strong></div>
+                        <div><strong>@Model.GastosDirectivos[0].cuenta @Model.GastosDirectivos[0].CuentaDescripcion</strong></div>
                     </tr>
                     @{
                         double debito = 0;
@@ -290,115 +357,174 @@
                     <p>Total crédito: @credito</p>
                 </div>
             }
-
-            @if (Model.TaxisyBuses.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>@Model.TaxisyBuses[0].cuenta @Model.TaxisyBuses[0].CuentaDescripcion</strong></div>
-                    </tr>
-                    @{
-                        double debito = 0;
-                        double credito = 0;
-                    }
-                    @foreach (var item in Model.TaxisyBuses)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                        debito += double.Parse(@item.valorDebitos);
-                        credito += double.Parse(@item.valorCreditos);
-                    }
-                </table>
-
-                <div class="TotalCuenta">
-                    <p><strong>TOTAL CUENTA </strong></p>
-                    <p>Total débito: @debito </p>
-                    <p>Total crédito: @credito</p>
-                </div>
-            }
-
-            @if (Model.InteresesCDT.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>@Model.InteresesCDT[0].cuenta @Model.InteresesCDT[0].CuentaDescripcion</strong></div>
-                    </tr>
-                    @{
-                        double debito = 0;
-                        double credito = 0;
-                    }
-                    @foreach (var item in Model.InteresesCDT)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                        debito += double.Parse(@item.valorDebitos);
-                        credito += double.Parse(@item.valorCreditos);
-                    }
-                </table>
-
-                <div class="TotalCuenta">
-                    <p><strong>TOTAL CUENTA </strong></p>
-                    <p>Total débito: @debito </p>
-                    <p>Total crédito: @credito</p>
-                </div>
-            }
-
-
-            @if (Model.Reafiliaciones.Count > 0)
-            {
-                <div class="seperadorBorde"></div>
-                <table class="tablaDatos">
-                    <tr>
-                        <div><strong>@Model.Reafiliaciones[0].cuenta @Model.Reafiliaciones[0].CuentaDescripcion</strong></div>
-                    </tr>
-                    @{
-                        double debito = 0;
-                        double credito = 0;
-                    }
-                    @foreach (var item in Model.Reafiliaciones)
-                    {
-                        <tr>
-                            <td>@item.codComprobante</td>
-                            <td>@item.numComprobante</td>
-                            <td>@item.fecha</td>
-                            <td>@item.observacion</td>
-                            <td>@item.valorDebitos</td>
-                            <td>@item.valorCreditos</td>
-                        </tr>
-                        debito += double.Parse(@item.valorDebitos);
-                        credito += double.Parse(@item.valorCreditos);
-                    }
-                </table>
-
-                <div class="TotalCuenta">
-                    <p><strong>TOTAL CUENTA </strong></p>
-                    <p>Total débito: @debito </p>
-                    <p>Total crédito: @credito</p>
-                </div>
-            }
-
-
-
             <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
                 <input type="hidden" name="cedula" value="@Model.AportesPastor[0].cedula" />
                 <input type="hidden" name="nombre" value="@Model.AportesPastor[0].nombre" />
                 <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
             </form>
+        }
+        else
+        {
+            <p>No hay datos con esa cedula</p>
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @*
+
+
+        @if (Model.GastosDirectivos.Count > 0)
+        {
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+        <tr>
+        <div><strong>@Model.BogotaCtasCorrientes[0].cuenta @Model.BogotaCtasCorrientes[0].CuentaDescripcion</strong></div>
+        </tr>
+        @{
+        double debito = 0;
+        double credito = 0;
+        }
+        @foreach (var item in Model.GastosDirectivos)
+        {
+        <tr>
+        <td>@item.codComprobante</td>
+        <td>@item.numComprobante</td>
+        <td>@item.fecha</td>
+        <td>@item.observacion</td>
+        <td>@item.valorDebitos</td>
+        <td>@item.valorCreditos</td>
+        </tr>
+        debito += double.Parse(@item.valorDebitos);
+        credito += double.Parse(@item.valorCreditos);
+        }
+        </table>
+
+        <div class="TotalCuenta">
+        <p><strong>TOTAL CUENTA </strong></p>
+        <p>Total débito: @debito </p>
+        <p>Total crédito: @credito</p>
+        </div>
+        }
+
+        @if (Model.TaxisyBuses.Count > 0)
+        {
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+        <tr>
+        <div><strong>@Model.TaxisyBuses[0].cuenta @Model.TaxisyBuses[0].CuentaDescripcion</strong></div>
+        </tr>
+        @{
+        double debito = 0;
+        double credito = 0;
+        }
+        @foreach (var item in Model.TaxisyBuses)
+        {
+        <tr>
+        <td>@item.codComprobante</td>
+        <td>@item.numComprobante</td>
+        <td>@item.fecha</td>
+        <td>@item.observacion</td>
+        <td>@item.valorDebitos</td>
+        <td>@item.valorCreditos</td>
+        </tr>
+        debito += double.Parse(@item.valorDebitos);
+        credito += double.Parse(@item.valorCreditos);
+        }
+        </table>
+
+        <div class="TotalCuenta">
+        <p><strong>TOTAL CUENTA </strong></p>
+        <p>Total débito: @debito </p>
+        <p>Total crédito: @credito</p>
+        </div>
+        }
+
+        @if (Model.InteresesCDT.Count > 0)
+        {
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+        <tr>
+        <div><strong>@Model.InteresesCDT[0].cuenta @Model.InteresesCDT[0].CuentaDescripcion</strong></div>
+        </tr>
+        @{
+        double debito = 0;
+        double credito = 0;
+        }
+        @foreach (var item in Model.InteresesCDT)
+        {
+        <tr>
+        <td>@item.codComprobante</td>
+        <td>@item.numComprobante</td>
+        <td>@item.fecha</td>
+        <td>@item.observacion</td>
+        <td>@item.valorDebitos</td>
+        <td>@item.valorCreditos</td>
+        </tr>
+        debito += double.Parse(@item.valorDebitos);
+        credito += double.Parse(@item.valorCreditos);
+        }
+        </table>
+
+        <div class="TotalCuenta">
+        <p><strong>TOTAL CUENTA </strong></p>
+        <p>Total débito: @debito </p>
+        <p>Total crédito: @credito</p>
+        </div>
+        }
+
+
+        @if (Model.Reafiliaciones.Count > 0)
+        {
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+        <tr>
+        <div><strong>@Model.Reafiliaciones[0].cuenta @Model.Reafiliaciones[0].CuentaDescripcion</strong></div>
+        </tr>
+        @{
+        double debito = 0;
+        double credito = 0;
+        }
+        @foreach (var item in Model.Reafiliaciones)
+        {
+        <tr>
+        <td>@item.codComprobante</td>
+        <td>@item.numComprobante</td>
+        <td>@item.fecha</td>
+        <td>@item.observacion</td>
+        <td>@item.valorDebitos</td>
+        <td>@item.valorCreditos</td>
+        </tr>
+        debito += double.Parse(@item.valorDebitos);
+        credito += double.Parse(@item.valorCreditos);
+        }
+        </table>
+
+        <div class="TotalCuenta">
+        <p><strong>TOTAL CUENTA </strong></p>
+        <p>Total débito: @debito </p>
+        <p>Total crédito: @credito</p>
+        </div>
+        }
+
+
+
+        
 
         }
+        else
+        {
+        <p>No hay datos con esa cedula</p>
+        } *@
     </div>
 </div>

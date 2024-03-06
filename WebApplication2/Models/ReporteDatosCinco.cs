@@ -3,6 +3,9 @@
     public class ReporteDatosCinco
     {
         public List<Cinco> AportesPastor { get; set; }
+        public List<Cinco> AfiliacionAF { get; set; }
+        public List<Cinco> ProgramaIncialInvalidez { get; set; }
+        public List<Cinco> NuevoInvalidez { get; set; }
         public List<Cinco> SegVicepresidente {  get; set; }
         public List<Cinco> CajaMenor { get; set; }
         public List<Cinco> CajaGeneral { get; set; }
