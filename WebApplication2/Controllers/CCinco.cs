@@ -21,15 +21,19 @@ namespace WebApplication2.Controllers
             ReporteDatosCinco reportData = new ReporteDatosCinco
             {
                 AportesPastor = _repoCINCO.AportesPastor(cedula),
+                AfiliacionAF = _repoCINCO.Afiliaciones(cedula),
+                InicialInvalidezIP = _repoCINCO.InicialInvalidez(cedula),
+                NuevoInvalidezNI = _repoCINCO.NuevoInvalidez(cedula),
                 SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
                 CajaGeneral = _repoCINCO.CajaGeneral(cedula),
-                GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
-                Otros = _repoCINCO.Otros(cedula),
-                TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
                 CajaMenor = _repoCINCO.CajaMenor(cedula),
                 BogotaCtasCorrientes = _repoCINCO.BogotaCtasCorrientes(cedula),
+                TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
                 InteresesCDT = _repoCINCO.InteresesCDT(cedula),
                 Reafiliaciones = _repoCINCO.Reafiliaciones(cedula),
+                Otros = _repoCINCO.Otros(cedula),
+                GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
+                Gastos = _repoCINCO.Gastos(cedula),
             };
             return reportData;
         }

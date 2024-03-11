@@ -132,7 +132,24 @@ namespace WebApplication2.Repo
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
-
-
+        public List<Cinco> Afiliaciones(string cedula)
+        {
+            string consulta = "SELECT * FROM REPAfiliaciones WHERE Cedula = @cedula order by Fecha;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        public List<Cinco> InicialInvalidez(string cedula)
+        {
+            string consulta = "SELECT * FROM REPInicialInvalidez WHERE Cedula = @cedula order by Fecha;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        public List<Cinco> NuevoInvalidez(string cedula)
+        {
+            string consulta = "SELECT * FROM REPNuevoInvalidez WHERE Cedula = @cedula order by Fecha;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+        
     }
 }
