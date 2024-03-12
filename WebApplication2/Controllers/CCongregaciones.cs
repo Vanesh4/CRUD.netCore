@@ -4,7 +4,7 @@ using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CCongregaciones : Controller
 	{
 		RCongregaciones _repoCongregaciones = new RCongregaciones();

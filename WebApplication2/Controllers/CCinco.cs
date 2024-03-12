@@ -16,44 +16,54 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ReporteDatosCinco repDatos(string cedula)
-        {
-            ReporteDatosCinco reportData = new ReporteDatosCinco
-            {
-                AportesPastor = _repoCINCO.AportesPastor(cedula),
-                AfiliacionAF = _repoCINCO.Afiliaciones(cedula),
-                InicialInvalidezIP = _repoCINCO.InicialInvalidez(cedula),
-                NuevoInvalidezNI = _repoCINCO.NuevoInvalidez(cedula),
-                SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
-                CajaGeneral = _repoCINCO.CajaGeneral(cedula),
-                CajaMenor = _repoCINCO.CajaMenor(cedula),
-                BogotaCtasCorrientes = _repoCINCO.BogotaCtasCorrientes(cedula),
-                TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
-                InteresesCDT = _repoCINCO.InteresesCDT(cedula),
-                Reafiliaciones = _repoCINCO.Reafiliaciones(cedula),
-                Otros = _repoCINCO.Otros(cedula),
-                GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
-                Gastos = _repoCINCO.Gastos(cedula),
-            };
-            return reportData;
-        }
+        //private ReporteDatosCinco repDatos(string cedula)
+        //{
+        //    ReporteDatosCinco reportData = new ReporteDatosCinco
+        //    {
+        //        AportesPastor = _repoCINCO.AportesPastor(cedula),
+        //        AfiliacionAF = _repoCINCO.Afiliaciones(cedula),
+        //        InicialInvalidezIP = _repoCINCO.InicialInvalidez(cedula),
+        //        NuevoInvalidezNI = _repoCINCO.NuevoInvalidez(cedula),
+        //        SegVicepresidente = _repoCINCO.SegVicepresidente(cedula),
+        //        CajaGeneral = _repoCINCO.CajaGeneral(cedula),
+        //        CajaMenor = _repoCINCO.CajaMenor(cedula),
+        //        BogotaCtasCorrientes = _repoCINCO.BogotaCtasCorrientes(cedula),
+        //        TaxisyBuses = _repoCINCO.TaxisyBuses(cedula),
+        //        InteresesCDT = _repoCINCO.InteresesCDT(cedula),
+        //        Reafiliaciones = _repoCINCO.Reafiliaciones(cedula),
+        //        Otros = _repoCINCO.Otros(cedula),
+        //        GastosDirectivos = _repoCINCO.GastosDirectivos(cedula),
+        //        Gastos = _repoCINCO.Gastos(cedula),
+        //    };
+        //    return reportData;
+        //}
 
       
         public IActionResult CincoData(string cedula)
         {
-            return View("CincoData", repDatos(cedula));
+            //return View("CincoData", repDatos(cedula));
+            return View("CincoData", _repoCINCO.MOVCont(cedula));
         }
         public IActionResult PreviewCinco(string cedula)
         {
-            return View("Cinco", repDatos(cedula));
+            //return View("Cinco", repDatos(cedula));
+            return View("Cinco", _repoCINCO.MOVCont(cedula));
         }
+
+        //vista de prueba Datos en for
+        public IActionResult CIncoPrueba(string cedula)
+        {
+            return View(_repoCINCO.MOVCont(cedula));
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> GenerarPDF(string cedula, string nombre)
         {
             DateTime fecha = DateTime.Now;
             Orientation orientation = Orientation.Landscape;
-            var pdf = await new ViewAsPdf("CincoData", repDatos(cedula))
+            //var pdf = await new ViewAsPdf("CincoData", repDatos(cedula))
+            var pdf = await new ViewAsPdf("CincoData", _repoCINCO.MOVCont(cedula))
             {
                 PageOrientation = orientation,
             }.BuildFile(ControllerContext);

@@ -1,15 +1,90 @@
 ﻿@{
-    @model WebApplication2.Models.ReporteDatosCinco
+    //@model WebApplication2.Models.ReporteDatosCinco
     ViewData["Title"] = "Cinco";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
 <div class="body m-3">
-    <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
+    <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+    @* <form asp-action="CIncoPrueba" asp-controller="CCinco" method="post"> *@
         <input name="cedula">
         <button type="submit" class="btn btn-outline-primary m-1">buscar</button>
     </form>
-    <div style="padding:20px;">
+
+    @if (Model != null && Model.Count > 0)
+    {
+        string cuentaAnterior = Model[0].cuenta;
+        <div id="informacion">
+            <h2>@Model[0].cedula </h2>
+            <h2 id="nombre"> @Model[0].nombre</h2>
+        </div>
+        <div class="seperadorBorde"></div>
+        <table class="tablaDatos">
+            <tr>
+                <th>Comprobante</th>
+                <th>Num Comprobante</th>
+                <th>Fecha</th>
+                <th>Observacion</th>
+                <th>Debitos</th>
+                <th>Creditos</th>
+            </tr>
+            <tr>
+                <th colspan="6" style="text-align: left;">@Model[0].cuenta @Model[0].CuentaDescripcion</th>
+            </tr>
+            @{
+                double debito = 0;
+                double credito = 0;
+            }
+            @foreach (var item in Model)
+            {
+                if (item.cuenta != cuentaAnterior)
+                {
+                    <tr>                        
+                        <td colspan="5"><strong>TOTAL CUENTA: </strong>        Total débito: @debito</td>
+                        <td>Total crédito: @credito</td>
+                    </tr>
+                    <tr class="separadorBorder">
+                        <td colspan="6"><div class="seperadorBorde"></div> </td>
+                    </tr>
+                    <tr>
+                        <th colspan="6" style="text-align: left;">@item.cuenta @item.CuentaDescripcion</th>
+                    </tr>
+                    debito = 0;
+                    credito = 0;
+                }
+                <tr>
+                    <td>@item.codComprobante</td>
+                    <td>@item.numComprobante</td>
+                    <td>@item.fecha</td>
+                    <td>@item.observacion</td>
+                    <td>@item.valorDebitos</td>
+                    <td>@item.valorCreditos</td>
+                </tr>
+                debito += double.Parse(item.valorDebitos);
+                credito += double.Parse(item.valorCreditos);
+                cuentaAnterior = item.cuenta;
+            }
+            <tr>
+                <td colspan="5"><strong>TOTAL CUENTA: </strong>        Total débito: @debito</td>
+                <td>Total crédito: @credito</td>
+            </tr>
+        </table>           
+
+
+
+        <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
+            <input type="hidden" name="cedula" value="@Model[0].cedula" />
+            <input type="hidden" name="nombre" value="@Model[0].nombre" />
+            <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
+        </form>
+    }
+    else
+    {
+        <p>No se encontraron datos con esa cedula</p>
+    }
+
+
+    @* <div style="padding:20px;">
         @if (Model != null && Model.AportesPastor != null && Model.AportesPastor.Count > 0 && Model.AportesPastor[0] != null)
         {
             <div id="informacion">
@@ -546,5 +621,5 @@
             <p>No hay datos con esa cedula</p>
         }
 
-    </div>
+    </div> *@
 </div>

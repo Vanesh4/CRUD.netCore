@@ -4,7 +4,7 @@ using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CDistritos : Controller
 	{
 		RDistritos _repoDistritos = new RDistritos();

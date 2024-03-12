@@ -19,11 +19,12 @@ namespace WebApplication2.Repo
                 {
                     cmd.Parameters.AddRange(parametro);
                 }
-
+                bool p = true;
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
+                        string nombre = p ? ObtenerNombre(reader["Cedula"].ToString()) : null;
                         Lista.Add(new Cinco()
                         {
                             codComprobante = reader["CodComprob"].ToString(),
@@ -33,10 +34,14 @@ namespace WebApplication2.Repo
                             observacion = reader["Observacion"].ToString(),
                             valorDebitos = reader["VrDebitos"].ToString(),
                             valorCreditos = reader["VrCreditos"].ToString(),
-                            nombre = ObtenerNombre(reader["Cedula"].ToString()),
+                            nombre = nombre,                            
                             cuenta = reader["Cuenta"].ToString(),
-                            CuentaDescripcion = reader["Descripcion"] != DBNull.Value ? reader["Descripcion"].ToString() : null
+                            CuentaDescripcion = reader["Descripcion"].ToString()
                         });
+                        if (p)
+                        {
+                            p = false;
+                        }
                     }
                 }
             }
@@ -49,14 +54,14 @@ namespace WebApplication2.Repo
             using (var conexionAPP = new SqlConnection(_cn.getCadenaConAPP()))
             {
                 conexionAPP.Open();
-                SqlCommand cmdNOM = new SqlCommand($"SELECT NOMBRE FROM Pastores WHERE CÉDULA = @cedula", conexionAPP);
+                SqlCommand cmdNOM = new SqlCommand($"SELECT NOM_TER FROM Terceros WHERE COD_TER = @cedula", conexionAPP);
                 SqlParameter parametro = new SqlParameter("@cedula", cedula);
                 cmdNOM.Parameters.Add(parametro);
                 using (var readerApp = cmdNOM.ExecuteReader())
                 {
                     if (readerApp.Read())
                     {
-                        nombrePastor = readerApp["NOMBRE"].ToString();
+                        nombrePastor = readerApp["NOM_TER"].ToString();
                     }
 
                 }
@@ -150,6 +155,13 @@ namespace WebApplication2.Repo
             SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
             return ObtenerDatos(consulta, parametros);
         }
-        
+
+        public List<Cinco> MOVCont(string cedula)
+        {
+            string consulta = "SELECT * FROM REPMoviCont WHERE Cedula = @cedula order by Cuenta, Fecha;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+
     }
 }

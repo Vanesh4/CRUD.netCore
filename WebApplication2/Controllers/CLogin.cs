@@ -60,7 +60,7 @@ namespace WebApplication2.Controllers
 
 
                                 if (!u.MantenerActivo)
-                                    p.ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(1);
+                                    p.ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10);
                                 else
                                     p.ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1);
 
