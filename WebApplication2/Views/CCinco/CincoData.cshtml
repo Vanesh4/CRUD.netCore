@@ -67,12 +67,16 @@
                     <td>@item.valorDebitos</td>
                     <td>@item.valorCreditos</td>
                 </tr>
-                debito += double.Parse(item.valorDebitos);
+                float valorDebito;
+                if (float.TryParse(item.valorDebitos, out valorDebito))
+                {
+                    debito += valorDebito;
+                }
                 credito += double.Parse(item.valorCreditos);
                 cuentaAnterior = item.cuenta;
             }
             <tr>
-                <td colspan="5"><strong>TOTAL CUENTA: </strong>        Total débito: @debito</td>
+                <td colspan="5"><strong>TOTAL CUENTA: </strong> Total débito: @debito</td>
                 <td>Total crédito: @credito</td>
             </tr>
         </table>

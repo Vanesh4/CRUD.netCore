@@ -43,5 +43,9 @@
 			}
 		</tbody>
 	</table>
+		<form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
+			<input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
+			<button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
+		</form>
 	</div>
 }

@@ -58,7 +58,7 @@ namespace WebApplication2.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> GenerarPDF(string cedula, string nombre)
+        public async Task<IActionResult> GenerarPDF(string cedula)
         {
             DateTime fecha = DateTime.Now;
             Orientation orientation = Orientation.Landscape;
@@ -68,9 +68,7 @@ namespace WebApplication2.Controllers
                 PageOrientation = orientation,
             }.BuildFile(ControllerContext);
 
-
-            string nom = nombre.Split(' ')[0];
-            string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}) {cedula}{nom}.pdf";
+            string nombreArchivo = $"Reporte({fecha.ToString("yyyy-MM-dd")}) {cedula}.pdf";
 
             return File(pdf, "application/pdf", nombreArchivo);
         }
