@@ -5,65 +5,121 @@
 
 <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
 <div class="body">
-    <table id="miTabla">
-        <thead>
-            <tr>
-                <th>
-                    <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
-                        <div class="d-flex justify-content-center">
-                            <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-                            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                        </div>
-                    </form>
-                </th>
-                <th>
-                    <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
-                        <div class="d-flex justify-content-center">
-                            <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
-                            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                        </div>
-                    </form>
-                </th>
-            </tr>
-            <tr>
-                <th>CÉDULA</th>
-                <th>NOMBRE</th>
-                <th>CONTACTO</th>
-                <th>EMAIL</th>
-                <th>DIRECCIÓN</th>
-                <th>DISTRITO</th>
-                <th>NOMBRE CONGREGACIÓN</th>
-                <th>FECHA NACIMIENTO</th>
-                <th>ESTADO PASTOR</th>
-                <th>CLASE PASTOR</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    @if (Model != null && Model.Count > 0)
+    {
+        <table id="miTabla">
+            <thead>
                 <tr>
-                    <td>@item.cedula</td>
-                    <td>@item.nombre</td>
-                    <td>@item.contacto</td>
-                    <td>@item.email</td>
-                    <td>@item.direccion</td>
-                    <td>@item.distrito</td>
-                    <td>@item.nombreCongregacion</td>
-                    <td>@item.fechaNacimiento</td>
-                    <td>@item.clasePastor</td>
-                    <td>@item.estadoPastor</td>
+                    <th colspan="2">
+                        <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+                            <div class="d-flex justify-content-center">
+                                <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                            </div>
+                        </form>
+                    </th>
+
+                    <th colspan="2">
+
+                        <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
+                            <div class="d-flex justify-content-center">
+                                <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
+                                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                            </div>
+                        </form>
+                    </th>
+                </tr>
+                <tr>
+                    <th>CÉDULA</th>
+                    <th>NOMBRE</th>
+                    <th>CONTACTO</th>
+                    <th>EMAIL</th>
+                    <th>DIRECCIÓN</th>
+                    <th>DISTRITO</th>
+                    <th>NOMBRE CONGREGACIÓN</th>
+                    <th>FECHA NACIMIENTO</th>
+                    <th>ESTADO PASTOR</th>
+                    <th>CLASE PASTOR</th>
+
 
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cedula</td>
+                        <td>@item.nombre</td>
+                        <td>@item.contacto</td>
+                        <td>@item.email</td>
+                        <td>@item.direccion</td>
+                        <td>@item.distrito</td>
+                        <td>@item.nombreCongregacion</td>
+                        <td>@item.fechaNacimiento</td>
+                        <td>@item.clasePastor</td>
+                        <td>@item.estadoPastor</td>
 
-    <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
-        <input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
-        <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
-    </form>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
+            <input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
+            <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
+        </form>
+
+
+
+
+        @foreach (var item in Model)
+        {
+            <form asp-action="Update" asp-controller="CPastores" method="post">
+                <table class="table table-bordered border-primary no-margin-table" id="miTabla">
+                    <input type="hidden" name="cedula" value="@item.cedula" />
+                    <table id="miTabla">
+                        <input type="hidden" name="cedula" value="@item.cedula" />
+                        <thead>
+                            <tr>
+                                <th>CÉDULA</th>
+                                <th>NOMBRE</th>
+                                <th>CONTACTO</th>
+                                <th>EMAIL</th>
+                                <th>DIRECCIÓN</th>
+                                <th>NOMBRE CONGREGACIÓN</th>
+                                <th>DISTRITO</th>
+                                <th>ESTADO PASTOR</th>
+                                <th>NOMBRE CONGREGACIÓN</th>
+                                <th>FECHA NACIMIENTO</th>
+                                <th>CLASE PASTOR</th>
+                                <th>ESTADO PASTOR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@item.cedula</td>
+                                <td><input name="nombre" value="@item.nombre" class="inputAct" /></td>
+                                <td><input name="contacto" value="@item.contacto" class="inputAct" /></td>
+                                <td><input name="email" value="@item.email" class="inputAct" /></td>
+                                <td>@item.direccion</td>
+                                <td>@item.distrito</td>
+                                <td>@item.nombreCongregacion</td>
+                                <td>@item.distrito</td>
+                                <td>@item.fechaNacimiento</td>
+                                <td>@item.estadoPastor</td>
+                                <td>@item.clasePastor</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        }
+    }
+    else
+    {
+        <p>No se encontraron datos con esa cedula</p>
+    }
 </div>
 
 

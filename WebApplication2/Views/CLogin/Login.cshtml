@@ -12,39 +12,100 @@
     <title>Inicio de Sesion</title>
     <link rel="shortcut icon" href="~/rocket.ico" type="image/x-icon" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/css/style.css">
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+
+    <link rel="stylesheet" href="~/assets/css/now-ui-dashboard.css" />
 </head>
-<body>
-    <form method="post" asp-action="Login" asp-controller="CLogin" class="bg-light">
-        <div class="container d-flex align-items-center vh-100">
+<body class="main-layout">
+    @* <form method="post" asp-action="Login" asp-controller="CLogin" class="bg-light">
+    <div class="container d-flex align-items-center vh-100">
 
+    <div class="row">
+    <div class="mx-auto">
+    <div class="card mx-auto">
+    <p>
+    <img src="~/img/logo.png" height="100" style="margin:10px">
+    </p>
+    <div class="card-body ">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Usuario</label>
+    <input type="text" class="form-control" required asp-for="userName">
+    </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" required asp-for="clave">
+    </div>
+
+    <button type="submit" class="btn-lg btn-primary">Ingresar</button>
+    <p class="alert-danger">@ViewBag.Error</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form> *@
+    
+    <div class="main-panel w-100" id="main-panel">
+
+        <div class="panel-header">
+            <div class="header text-center">
+                <img src="~/img/Logo blanco sin fondo-01 (1).png">
+            </div>
+        </div>
+
+        <div class="content">
             <div class="row">
-                <div class="mx-auto">
-
-                    <div class="card mx-auto">
-                        <p>
-                            <img src="~/img/logo.png" height="100" style="margin:10px">
-                        </p>
-                        <div class="card-body ">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                                <input type="text" class="form-control" required asp-for="userName">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="col-md-6 ml-auto mr-auto text-center">
+                            <div class="card-header">
+                                <h4 class="card-title">Iniciar Sesión</h4>
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" required asp-for="clave">
-                            </div>
-                            @* <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" asp-for="MantenerActivo">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div> *@
+                            <div class="card-body">
+                                <!-- <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="now-ui-icons users_circle-08" id="basic-addon1"></i></span>
+                                    <input type="text" class="form-control text-lg" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
 
-                            <button type="submit" class="btn-lg btn-primary">Ingresar</button>
-                            <p class="alert-danger">@ViewBag.Error</p>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="now-ui-icons objects_key-25" id="basic-addon1"></i></span>
+                                    <input type="password" class="form-control text-lg" placeholder="Contraseña" aria-describedby="basic-addon1">
+                                </div> -->
+                                <form method="post" asp-action="Login" asp-controller="CLogin">
+                                <div class="input-group no-border form-control-lg ">
+                                    <span class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="now-ui-icons users_circle-08"></i>
+                                        </div>
+                                    </span>
+                                    <input class="form-control " placeholder="Usuario" type="text" name="email" required asp-for="userName">
+                                </div>
+                                <div class="input-group no-border form-control-lg ">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="now-ui-icons objects_key-25"></i>
+                                        </div>
+                                    </div>
+                                        <input placeholder="Password" class="form-control " name="password" type="password" required asp-for="clave">
+                                </div>
+
+                                <div class="input-group no-border form-control-lg mb-3">
+                                        <button class="btn bg-panel-header w-100" type="submit">Ingresar</button>
+                                        <p class="alert-danger">@ViewBag.Error</p>
+                                </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
+
 </body>
 </html>

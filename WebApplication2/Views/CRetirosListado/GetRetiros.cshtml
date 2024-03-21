@@ -14,7 +14,7 @@
 	<table id="miTabla">
 		<thead>
 			<tr>
-				<th>
+				<th colspan="2">
 					<form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
 						<div class="d-flex justify-content-center">
 							<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
@@ -23,8 +23,7 @@
 					</form>
 				</th>
 				<th>
-					<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
-					
+					<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>					
 				</th>
 			</tr>
 			<tr>

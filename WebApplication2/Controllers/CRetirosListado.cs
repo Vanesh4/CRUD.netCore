@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication2.Models;
 using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
@@ -14,6 +15,32 @@ namespace WebApplication2.Controllers
         public IActionResult FiltroCedula(int cedula)
         {
             return View(_repoListado.FiltroCedula(cedula));
+        }
+
+        [HttpPost]
+        public IActionResult Update(MRetirosListado datosVer)
+        {
+            try
+            {
+                var respuesta = _repoListado.Update(datosVer);
+
+                if (respuesta)
+                {
+                    TempData["Respuesta"] = "Se actualizaron los datos";
+                    return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
+                }
+                else
+                {
+                    TempData["Respuesta"] = "Hubo un problema al actualizar los datos.";
+                    return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Respuesta"] = "Error al actualizar los datos: " + ex.Message;
+                return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
+            }
+
         }
     }
 }

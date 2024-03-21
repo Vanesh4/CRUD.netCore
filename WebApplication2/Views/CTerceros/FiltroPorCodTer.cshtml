@@ -3,49 +3,56 @@
 *@
 @{
     <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
-	<div class="d-flex flex-row">
-		<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
-			<div class="d-flex justify-content-center">
-				<input class="form-control m-1" type="number" name="codTer" placeholder="Codigo Tercero">
-				<button type="submit" class="btn btn-primary m-1">Buscar</button>
-			</div>
-		</form>
-			<form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
-						<div class="d-flex justify-content-center">
-								<input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
-							<button type="submit" class="btn btn-primary m-1">Buscar</button>
-						</div>
-			</form>
-	</div>
-	<div class=body>
-	<table id="miTabla">
-		<thead>
-				<tr>
-					<th>CÉDULA</th>
-					<th>NOMBRE</th>
-					<th>DIRECCION</th>
-					<th>EMAIL</th>
-					<th>FECHA DE INGRESO</th>
-					<th>CIUDAD</th>
-				</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-							<tr>
-								<td>@item.COD_TER</td>
-								<td>@item.NOM_TER</td>
-								<td>@item.DIR1</td>
-								<td>@item.EMAIL</td>
-								<td>@item.FEC_ING</td>
-										<td>@item.CIUDAD</td>
-							</tr>
-			}
-		</tbody>
-	</table>
-		<form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
-			<input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
-			<button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
-		</form>
-	</div>
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="d-flex flex-row">
+            <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+                <div class="d-flex justify-content-center">
+                    <input class="form-control m-1" type="number" name="codTer" placeholder="Codigo Tercero">
+                    <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                </div>
+            </form>
+            <form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
+                <div class="d-flex justify-content-center">
+                    <input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
+                    <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div class=body>
+            <table id="miTabla">
+                <thead>
+                    <tr>
+                        <th>CÉDULA</th>
+                        <th>NOMBRE</th>
+                        <th>DIRECCION</th>
+                        <th>EMAIL</th>
+                        <th>FECHA DE INGRESO</th>
+                        <th>CIUDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.COD_TER</td>
+                            <td>@item.NOM_TER</td>
+                            <td>@item.DIR1</td>
+                            <td>@item.EMAIL</td>
+                            <td>@item.FEC_ING</td>
+                            <td>@item.CIUDAD</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
+                <input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
+                <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron datos con esa cedula</p>
+    }
 }

@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics.Metrics;
 using WebApplication2.Models;
 
 namespace WebApplication2.Repo
@@ -49,7 +51,7 @@ namespace WebApplication2.Repo
 
         public List<MRetirosListado> listarTodos()
         {
-            return ObtenerDatos("SELECT * FROM RetirosVista;", null);
+            return ObtenerDatos("SELECT TOP 1000 * FROM RetirosVista;", null);
         }
         public List<MRetirosListado> FiltroCedula(int cedula)
         {
@@ -70,30 +72,27 @@ namespace WebApplication2.Repo
             }
 		}
 
-		public bool Update(MRetirosListado datosAct)
+		public bool Update(MRetirosListado datosVer)
 		{
-			bool rpta = false;
+			bool res = false;
 			try
 			{
 				using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
 				{
-					conexion.Open();
-					//SqlCommand cmd = new SqlCommand($"UPDATE ListadoPastores SET NOMBRE='{datosAct.nombre}' WHERE CÉDULA = {datosAct.cedula}", conexion);
-					SqlCommand cmd = new SqlCommand("UPDATE Pastores SET NOMBRE=@nom,EMAIL=@email,CONTACTO=@con WHERE CÉDULA = @id", conexion);
-					cmd.Parameters.AddWithValue("id", datosAct.verficacion);
-					cmd.Parameters.AddWithValue("nom", datosAct.verficacionFecha);
-					cmd.Parameters.AddWithValue("email", datosAct.verficacionUsuario);
+					conexion.Open();               
+                    SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@user, fecha_para_calculo = @fechaCalculo WHERE COD_TER = @codTer;", conexion);
+					cmd.Parameters.AddWithValue("user", datosVer.verficacionUsuario);
+					cmd.Parameters.AddWithValue("codTer", datosVer.codTer);
+                    cmd.Parameters.AddWithValue("fechaCalculo", datosVer.fechaParaCalculo);
 					cmd.ExecuteNonQuery();
-
 				}
-				rpta = true;
-
+				res = true;
 			}
 			catch (Exception e)
 			{
 				string error = e.Message;
 			}
-			return rpta;
+			return res;
 		}
 
 	}

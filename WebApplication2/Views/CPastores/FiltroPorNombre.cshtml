@@ -8,10 +8,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="body">
+    @if (Model != null && Model.Count > 0)
+    { 
     <table id="miTabla">
         <thead>
             <tr>
-                <th>
+                    <th colspan="2">
                     <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
                         <div class="d-flex justify-content-center">
                             <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
@@ -19,7 +21,7 @@
                         </div>
                     </form>
                 </th>
-                <th>
+                    <th colspan="2">
                     <form asp-action="FiltroPorNombre" asp-controller="CPastores" method="post">
                         <div class="d-flex justify-content-center">
                             <input class="form-control d-block" type="text" name="nombre" placeholder="Nombre">
@@ -66,6 +68,11 @@
     <form asp-action="PreviewCinco" asp-controller="CCinco" method="post">
         <input class="d-none" type="number" name="cedula" value=@Model[0].cedula>
         <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
-    </form>
+        </form>
+    }
+    else
+    {
+        <p>No se encontraron datos</p>
+    }
 </div>
 <script src="@Url.Content("~/js/zoom.js")"></script>

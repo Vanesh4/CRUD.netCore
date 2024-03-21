@@ -19,7 +19,7 @@ namespace WebApplication2.Controllers
 		}
 
 		[HttpGet]
-		[HttpPost]
+		//[HttpPost]
 		public IActionResult FiltroPorCodTer([FromForm] string codTer)
 		{
 			return View(_repoTerceros.FiltroId(codTer));
