@@ -8,47 +8,84 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication2.styles.css" asp-append-version="true" />
     <link rel="shortcut icon" href="~/rocket.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="~/assets/css/now-ui-dashboard.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand navbar-light bg-light justify-content-center">
-            <ul class="nav nav-pills"> 
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetPastores" asp-controller="CPastores">Pastores</a>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetCongregaciones" asp-controller="CCongregaciones">Congregaciones</a>
-                </li>              
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetTerceros" asp-controller="CTerceros">Terceros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetDistritos" asp-controller="CDistritos">Distritos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="Cinco" asp-controller="CCinco">CINCO</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-action="GetRetiros" asp-controller="CRetirosListado">RETIROS</a>
-                </li>
-                @* <li class="nav-item">
-                    <a class="nav-link" asp-action="Exequiales" asp-controller="CExequiales">EXEQUIALES</a>
-                </li> *@
-                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="CerrarSesion">Cerrar sesión</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
-        <main role="main" class="">
-            @RenderBody()
-        </main>
+    @* <header>
+    <nav class="navbar navbar-expand navbar-light bg-light justify-content-center">
+    <ul class="nav nav-pills">
+    <li class="nav-item">
+    <a class="nav-link" asp-action="GetPastores" asp-controller="CPastores">Pastores</a>
+    <li class="nav-item">
+    <a class="nav-link" asp-action="GetCongregaciones" asp-controller="CCongregaciones">Congregaciones</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" asp-action="GetTerceros" asp-controller="CTerceros">Terceros</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" asp-action="GetDistritos" asp-controller="CDistritos">Distritos</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" asp-action="Cinco" asp-controller="CCinco">CINCO</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" asp-action="GetRetiros" asp-controller="CRetirosListado">RETIROS</a>
+    </li>
 
-    @* <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - WebApplication2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <li class="nav-item">
+    <a class="nav-link" asp-controller="Home" asp-action="CerrarSesion">Cerrar sesión</a>
+    </li>
+    </ul>
+    </nav>
+    </header>
+
+    <main role="main" class="">
+    @RenderBody()
+    </main> *@
+
+
+
+    <div class="wrapper ">
+        <div class="sidebar" data-color="blue">
+            <div class="logo">
+                @{
+                    var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+                }
+                <a class="simple-text logo-normal">
+                    Hola, @nombreUsuario
+                </a>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="active ">
+                        <a class="nav-link" asp-action="Cinco" asp-controller="CCinco">
+                            <i class="now-ui-icons design_app"></i>
+                            <p>Cinco</p>
+                        </a>
+                    </li>
+
+                    <li class="active ">
+                        <a class="nav-link" asp-action="GetRetiros" asp-controller="CRetirosListado">
+                            <i class="now-ui-icons objects_spaceship"></i>
+                            <p>Retiros</p>
+                        </a>
+                    </li>
+                    
+                    <li class="active-pro">
+                        <a href="./upgrade.html">
+                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                            <p>Cerrar Sesion</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </footer> *@
+    </div>
+
+    <div class="content">
+        @RenderBody()
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

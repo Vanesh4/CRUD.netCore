@@ -36,9 +36,9 @@
                         @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
                         {
                             string propertyName = propertyInfo.Name;
-                            var propertyValue = propertyInfo.GetValue(item); // Obtener el valor de la propiedad usando reflexión
+                            var propertyValue = propertyInfo.GetValue(item);
 
-                            <td>@propertyValue</td> <!-- Mostrar el valor de la propiedad en una celda -->
+                            <td>@propertyValue</td> 
                         }
                         @*<td>@item.codTer</td>
                         <td>@item.fechaParaCalculo</td>

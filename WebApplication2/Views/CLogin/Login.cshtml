@@ -50,9 +50,9 @@
     
     <div class="main-panel w-100" id="main-panel">
 
-        <div class="panel-header">
+        <div class="panel-header p-4">
             <div class="header text-center">
-                <img src="~/img/Logo blanco sin fondo-01 (1).png">
+                <img src="~/img/Logo blanco sin fondo-01 (1).png" width="400px">
             </div>
         </div>
 
@@ -66,15 +66,6 @@
                                 <h4 class="card-title">Iniciar Sesión</h4>
                             </div>
                             <div class="card-body">
-                                <!-- <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="now-ui-icons users_circle-08" id="basic-addon1"></i></span>
-                                    <input type="text" class="form-control text-lg" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="now-ui-icons objects_key-25" id="basic-addon1"></i></span>
-                                    <input type="password" class="form-control text-lg" placeholder="Contraseña" aria-describedby="basic-addon1">
-                                </div> -->
                                 <form method="post" asp-action="Login" asp-controller="CLogin">
                                 <div class="input-group no-border form-control-lg ">
                                     <span class="input-group-prepend">
@@ -82,7 +73,7 @@
                                             <i class="now-ui-icons users_circle-08"></i>
                                         </div>
                                     </span>
-                                    <input class="form-control " placeholder="Usuario" type="text" name="email" required asp-for="userName">
+                                    <input type="text" class="form-control" required asp-for="userName">                                    
                                 </div>
                                 <div class="input-group no-border form-control-lg ">
                                     <div class="input-group-prepend">
@@ -90,7 +81,7 @@
                                             <i class="now-ui-icons objects_key-25"></i>
                                         </div>
                                     </div>
-                                        <input placeholder="Password" class="form-control " name="password" type="password" required asp-for="clave">
+                                        <input type="password" class="form-control" required asp-for="clave">
                                 </div>
 
                                 <div class="input-group no-border form-control-lg mb-3">
