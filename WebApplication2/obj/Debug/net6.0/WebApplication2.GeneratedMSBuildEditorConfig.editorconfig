@@ -26,6 +26,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENpbmNvRGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CCinco/CIncoPrueba.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENJbmNvUHJ1ZWJhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroNombreCongre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXEZpbHRyb05vbWJyZUNvbmdyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -64,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CPastores/GetPastores.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1Bhc3RvcmVzXEdldFBhc3RvcmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CRetirosListado/FiltroCedula.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JldGlyb3NMaXN0YWRvXEZpbHRyb0NlZHVsYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Gordillov/Desktop/CRUD.netCore/WebApplication2/Views/CRetirosListado/GetRetiros.cshtml]
