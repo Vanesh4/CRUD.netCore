@@ -1,20 +1,9 @@
-﻿* {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.tablaDatos {
+﻿.tablaDatos {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
     border: none;
-    /*border-top: 1px solid black;*/
-}
-
-#informacion {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
 }
 
 .TotalCuenta {
@@ -28,6 +17,11 @@
     padding-left: 100px;
 }
 
+/*#informacion {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
 .datos {
     width: 45%;
     display: flex;
@@ -45,9 +39,9 @@
 
 .seperadorBorde {
     height: 1px;
-    background-color: black;
+    background-color: black;*/
     /*margin: 10px 0 10px 0;*/
-}
+/*}*/
 
 th {
     font-size: 13px;
@@ -74,13 +68,13 @@ td {
 }
 
 .tablaDatos td:nth-child(4) {
-    width: 50%;
+    width: 40%;
 }
 
 .tablaDatos td:nth-child(5) {
-    width: 10%;
+    width: 14%;
 }
 
 .tablaDatos td:nth-child(5) {
-    width: 10%;
+    width: 14%;
 }

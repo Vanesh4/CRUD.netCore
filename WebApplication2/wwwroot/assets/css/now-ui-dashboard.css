@@ -4206,15 +4206,14 @@ Created using IcoMoon - icomoon.io
 }
 
 .panel-header {
-  height: 260px;
-  padding-top: 80px;
-  padding-bottom: 45px;
-  background: #141E30;
-  /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
-  position: relative;
-  overflow: hidden;
+    height: 200px;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    /* fallback for old browsers */
+    background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
+    background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+    position: relative;
+    overflow: hidden;
 }
 
 .panel-header .header .title {
@@ -4232,8 +4231,9 @@ Created using IcoMoon - icomoon.io
   color: #FFFFFF;
 }
 
+
 .panel-header-sm {
-  height: 135px;
+    height: 100px;
 }
 
 .panel-header-lg {

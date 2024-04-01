@@ -72,7 +72,7 @@
                     </li>
                     
                     <li class="active-pro">
-                        <a href="./upgrade.html">
+                        <a asp-controller="Home" asp-action="CerrarSesion">
                             <i class="now-ui-icons arrows-1_cloud-download-93"></i>
                             <p>Cerrar Sesion</p>
                         </a>
@@ -80,11 +80,17 @@
                 </ul>
             </div>
         </div>
+        <div class="panel-header panel-header-sm">
+        </div>
+        <div class="main-panel" id="main-panel">
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+        
     </div>
 
-    <div class="content">
-        @RenderBody()
-    </div>
+    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

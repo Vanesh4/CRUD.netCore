@@ -91,7 +91,8 @@ namespace WebApplication2.Repo
 			catch (Exception e)
 			{
 				string error = e.Message;
-			}
+                throw;
+            }
 			return res;
 		}
 

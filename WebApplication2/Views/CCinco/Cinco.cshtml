@@ -4,707 +4,190 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
-<div class="body m-3">
-    <form asp-action="previewcinco" asp-controller="ccinco" method="post">
-        @* <form asp-action="CIncoPrueba" asp-controller="CCinco" method="post"> *@
-        <input name="cedula">
-        <button type="submit" class="btn btn-outline-primary m-1">buscar</button>
-    </form>
-
-    @if (Model != null && Model.Count > 0)
-    {
-        string cuentaAnterior = Model[0].cuenta;
-        <div id="informacion">
-            <h2>@Model[0].cedula </h2>
-            <h2 id="nombre"> _@Model[0].nombre</h2>
-
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
-                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"></path>
-                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"></path>
-                </svg>
-                Verificar fecha de calculo
-            </button>
-        </div>
-        <div class="seperadorBorde"></div>
-
-        <div class="accordion-item" id="accordion1">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="false" aria-controls="panelsStayOpen-collapse1">
-                    <strong>@Model[0].cuenta </strong> _ @Model[0].CuentaDescripcion
-                </button>
-            </h2>
-        </div>
-        int a = 2;
-
-        @foreach (var item in Model)
-        {
-            @if (item.cuenta != cuentaAnterior)
-            {
-
-                <div class="accordion-item" id="accordion@(a)">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse@(a)" aria-expanded="false" aria-controls="panelsStayOpen-collapse@(a)">
-                            <strong>@item.cuenta </strong> _ @item.CuentaDescripcion
-                        </button>
-                    </h2>
-                    @{
-                        a++;
-                    }
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">CINCO</h5>
+                @* <p class="category">Handcrafted by our friends from <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a></p> *@
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5">
+                        <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+                            <div class="input-group no-border">
+                                <input type="text" name="cedula" class="form-control" placeholder="Número de Cedula...">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                    </div>
+                                </div>
+                            <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                            </div>
+                        </form>
+                    </div>                    
                 </div>
-                @* <div class="datooss" style="display:none;">@debito @credito</div> *@
-            }
-            cuentaAnterior = item.cuenta;
-        }
-
-        <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
-            <input type="hidden" name="cedula" value="@Model[0].cedula" />
-            <input type="hidden" name="nombre" value="@Model[0].nombre" />
-            <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
-        </form>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Fecha para calculo</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form asp-action="Update" asp-controller="CRetirosListado" method="post">
-                        @{
-                            var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
-                        }
-                        <input type="hidden" name="user" value="@nombreUsuario" />
-                        <input type="hidden" name="codTer" value="@Model[0].cedula" />
-                        <div class="mb-3">
-                            <input type="date" class="form-control" id="recipient-name" name="fechaCalculo">
+                <div class="row mt-2">
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        string cuentaAnterior = Model[0].cuenta;
+                        <div id="informacion" class="col-9 d-flex justify-content-around">
+                            <h3>@Model[0].cedula </h3>
+                            <h3 id="nombre"> @Model[0].nombre</h3>                            
                         </div>
-                            <button type="submit" class="btn btn-primary">Actualizar</button>
-                    </form>
-                </div>
-                <div class="modal-footer">  
-                        <h4>@Html.Raw(TempData["Respuesta"])</h4>
+
+                        <div class="col-3">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                @* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                                    <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"></path>
+                                    <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"></path>
+                                </svg> *@
+                                Verificar fecha de calculo
+                            </button>
+                        </div>
+                        
+
+                        <div class="accordion-item" id="accordion1">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="false" aria-controls="panelsStayOpen-collapse1">
+                                    <strong>@Model[0].cuenta </strong> _ @Model[0].CuentaDescripcion
+                                </button>
+                            </h2>
+                        </div>
+                        int a = 2;
+
+                        @foreach (var item in Model)
+                        {
+                            @if (item.cuenta != cuentaAnterior)
+                            {
+
+                                <div class="accordion-item" id="accordion@(a)">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse@(a)" aria-expanded="false" aria-controls="panelsStayOpen-collapse@(a)">
+                                            <strong>@item.cuenta </strong> _ @item.CuentaDescripcion
+                                        </button>
+                                    </h2>
+                                    @{
+                                        a++;
+                                    }
+                                </div>
+
+                            }
+                            cuentaAnterior = item.cuenta;
+                        }
+
+                        <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
+                            <input type="hidden" name="cedula" value="@Model[0].cedula" />
+                            <input type="hidden" name="nombre" value="@Model[0].nombre" />
+                            <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
+                        </form>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Fecha para calculo</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form asp-action="Update" asp-controller="CRetirosListado" method="post">
+                                            @{
+                                                var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+                                            }
+                                            <input type="hidden" name="user" value="@nombreUsuario" />
+                                            <input type="hidden" name="codTer" value="@Model[0].cedula" />
+                                            <div class="mb-3">
+                                                <input type="date" class="form-control" id="recipient-name" name="fechaCalculo">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <h4>@Html.Raw(TempData["Respuesta"])</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <p>No se encontraron datos con esa cedula</p>
+                    }
+
+                    <script>
+
+                        var modelo = @Json.Serialize(Model)
+                            console.log(modelo);
+                        cuentas = [];
+                        var botones = document.getElementsByClassName("accordion-button");
+
+                        for (var i = 0; i < botones.length; i++) {
+                            texto = (botones[i].textContent);
+                            texto = texto.trim();
+                            cuentas.push(texto.split(" ")[0])
+
+                            var contenedor = document.getElementById("accordion" + (i + 1));
+                            var divCollapse = document.createElement("div");
+                            divCollapse.id = "panelsStayOpen-collapse" + (i + 1);
+                            divCollapse.classList.add("accordion-collapse", "collapse");
+                            var divBody = document.createElement("div");
+                            divBody.classList.add("accordion-body");
+
+                            // Tabla
+                            var Tabla = document.createElement("table");
+                            Tabla.id = "tablaData" + (i + 1);
+                            Tabla.classList.add("tablaDatos");
+                            var encabezado = document.createElement("tr");
+                            encabezado.innerHTML = `
+                                                                    <th>Comprobante</th>
+                                                                    <th>Num Comprobante</th>
+                                                                    <th>Fecha</th>
+                                                                    <th>Observacion</th>
+                                                                    <th>Debitos</th>
+                                                                    <th>Creditos</th>
+                                                                `;
+                            Tabla.appendChild(encabezado);
+                            var divContador = document.createElement("div");
+                            divContador.id = 'TotalCuenta'
+
+                            divBody.appendChild(Tabla);
+                            divCollapse.appendChild(divBody);
+                            contenedor.appendChild(divCollapse);
+                        }
+
+                        debitos = 0;
+                        creditos = 0;
+
+                        for (var i in modelo) {
+                            for (c of cuentas) {
+                                var posicion = cuentas.indexOf(c);
+                                if (modelo[i].cuenta === c) {
+                                    Tabla = document.getElementById("tablaData" + (posicion + 1));
+                                    var filaDatos = document.createElement("tr");
+                                    filaDatos.innerHTML = "<td>" + modelo[i].codComprobante + "</td>" +
+                                        "<td>" + modelo[i].numComprobante + "</td>" +
+                                        "<td>" + modelo[i].fecha + "</td>" +
+                                        "<td>" + modelo[i].observacion + "</td>" +
+                                        "<td>" + modelo[i].valorDebitos + "</td>" +
+                                        "<td>" + modelo[i].valorCreditos + "</td>";
+                                    Tabla.appendChild(filaDatos);
+                                    debitos += modelo[i].valorDebitos
+                                }
+                                else {
+                                    debitos = 0;
+                                    creditos = 0;
+                                }
+                                var p = document.createElement("p");
+                                divBody = document.getElementsByClassName('accordion-body');
+                                divBody.textContent
+                                divBody[posicion].appendChild(p);
+                            }
+                        }
+                    </script>
                 </div>
             </div>
+            
         </div>
     </div>
-
-    }
-    else
-    {
-        <p>No se encontraron datos con esa cedula</p>
-    }    
-
-    <script>
-
-        var modelo = @Json.Serialize(Model)
-            console.log(modelo);
-        cuentas = [];
-        var botones = document.getElementsByClassName("accordion-button");
-
-        for (var i = 0; i < botones.length; i++) {
-            texto = (botones[i].textContent);
-            texto = texto.trim();
-            cuentas.push(texto.split(" ")[0])
-
-            var contenedor = document.getElementById("accordion" + (i + 1));
-            var divCollapse = document.createElement("div");
-            divCollapse.id = "panelsStayOpen-collapse" + (i + 1);
-            divCollapse.classList.add("accordion-collapse", "collapse");
-            var divBody = document.createElement("div");
-            divBody.classList.add("accordion-body");
-
-            // Tabla
-            var Tabla = document.createElement("table");
-            Tabla.id = "tablaData" + (i + 1);
-            Tabla.classList.add("tablaDatos");
-            var encabezado = document.createElement("tr");
-            encabezado.innerHTML = `
-                            <th>Comprobante</th>
-                            <th>Num Comprobante</th>
-                            <th>Fecha</th>
-                            <th>Observacion</th>
-                            <th>Debitos</th>
-                            <th>Creditos</th>
-                        `;
-            Tabla.appendChild(encabezado);
-            var divContador = document.createElement("div");
-            divContador.id = 'TotalCuenta'
-
-            divBody.appendChild(Tabla);
-            divCollapse.appendChild(divBody);
-            contenedor.appendChild(divCollapse);
-        }
-
-        debitos = 0;
-        creditos = 0;
-
-        for (var i in modelo) {
-            for (c of cuentas) {
-                var posicion = cuentas.indexOf(c);
-                if (modelo[i].cuenta === c) {
-                    Tabla = document.getElementById("tablaData" + (posicion + 1));
-                    var filaDatos = document.createElement("tr");
-                    filaDatos.innerHTML = "<td>" + modelo[i].codComprobante + "</td>" +
-                        "<td>" + modelo[i].numComprobante + "</td>" +
-                        "<td>" + modelo[i].fecha + "</td>" +
-                        "<td>" + modelo[i].observacion + "</td>" +
-                        "<td>" + modelo[i].valorDebitos + "</td>" +
-                        "<td>" + modelo[i].valorCreditos + "</td>";
-                    Tabla.appendChild(filaDatos);
-                    debitos += modelo[i].valorDebitos
-                }
-                else {
-                    debitos = 0;
-                    creditos = 0;
-                }
-                var p = document.createElement("p");
-                divBody = document.getElementsByClassName('accordion-body');
-                divBody.textContent
-                divBody[posicion].appendChild(p);
-            }
-        }
-
-
-    </script>
-
-    @* <div style="padding:20px;">
-    @if (Model != null && Model.AportesPastor != null && Model.AportesPastor.Count > 0 && Model.AportesPastor[0] != null)
-    {
-    <div id="informacion">
-    <div class="datos">
-    <h2>@Model.AportesPastor[0].cedula</h2>
-    <h2 id="nombre">@Model.AportesPastor[0].nombre</h2>
-    </div>
-    </div>
-
-    @if (Model.AportesPastor.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <th>Comprobante</th>
-    <th>Num Comprobante</th>
-    <th>Fecha</th>
-    <th>Observacion</th>
-    <th>Debitos</th>
-    <th>Creditos</th>
-    </tr>
-    <tr>
-    <div><strong>@Model.AportesPastor[0].cuenta @Model.AportesPastor[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-
-    @foreach (var item in Model.AportesPastor)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    double.TryParse(item.valorDebitos, out double debitoActual);
-    debito += debitoActual;
-
-    double.TryParse(item.valorCreditos, out double creditoActual);
-    credito += creditoActual;
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.AfiliacionAF.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <th>Comprobante</th>
-    <th>Num Comprobante</th>
-    <th>Fecha</th>
-    <th>Observacion</th>
-    <th>Debitos</th>
-    <th>Creditos</th>
-    </tr>
-    <tr>
-    <div><strong>@Model.AfiliacionAF[0].cuenta @Model.AfiliacionAF[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-
-    @foreach (var item in Model.AfiliacionAF)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    double.TryParse(item.valorDebitos, out double debitoActual);
-    debito += debitoActual;
-
-    double.TryParse(item.valorCreditos, out double creditoActual);
-    credito += creditoActual;
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.InicialInvalidezIP.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <th>Comprobante</th>
-    <th>Num Comprobante</th>
-    <th>Fecha</th>
-    <th>Observacion</th>
-    <th>Debitos</th>
-    <th>Creditos</th>
-    </tr>
-    <tr>
-    <div><strong>@Model.InicialInvalidezIP[0].cuenta @Model.InicialInvalidezIP[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-
-    @foreach (var item in Model.InicialInvalidezIP)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    double.TryParse(item.valorDebitos, out double debitoActual);
-    debito += debitoActual;
-
-    double.TryParse(item.valorCreditos, out double creditoActual);
-    credito += creditoActual;
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.NuevoInvalidezNI.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <th>Comprobante</th>
-    <th>Num Comprobante</th>
-    <th>Fecha</th>
-    <th>Observacion</th>
-    <th>Debitos</th>
-    <th>Creditos</th>
-    </tr>
-    <tr>
-    <div><strong>@Model.NuevoInvalidezNI[0].cuenta @Model.NuevoInvalidezNI[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-
-    @foreach (var item in Model.NuevoInvalidezNI)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    double.TryParse(item.valorDebitos, out double debitoActual);
-    debito += debitoActual;
-
-    double.TryParse(item.valorCreditos, out double creditoActual);
-    credito += creditoActual;
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-
-    @if (Model.SegVicepresidente.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.SegVicepresidente[0].cuenta @Model.SegVicepresidente[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.SegVicepresidente)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-    </table>
-
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.CajaGeneral.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.CajaGeneral[0].cuenta @Model.CajaGeneral[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.CajaGeneral)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.CajaMenor.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.CajaMenor[0].cuenta @Model.CajaMenor[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.CajaMenor)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.BogotaCtasCorrientes != null && Model.BogotaCtasCorrientes.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.BogotaCtasCorrientes[0].cuenta @Model.BogotaCtasCorrientes[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.BogotaCtasCorrientes)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-
-    </table>
-
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-
-    @if (Model.TaxisyBuses.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.TaxisyBuses[0].cuenta @Model.TaxisyBuses[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.TaxisyBuses)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.InteresesCDT.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.InteresesCDT[0].cuenta @Model.InteresesCDT[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.InteresesCDT)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.Reafiliaciones.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.Reafiliaciones[0].cuenta @Model.Reafiliaciones[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.Reafiliaciones)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.Otros.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.Otros[0].cuenta @Model.Otros[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.Otros)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-
-    }
-    </table>
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-    @if (Model.GastosDirectivos.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.GastosDirectivos[0].cuenta @Model.GastosDirectivos[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.GastosDirectivos)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-    </table>
-
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-    @if (Model.Gastos.Count > 0)
-    {
-    <div class="seperadorBorde"></div>
-    <table class="tablaDatos">
-    <tr>
-    <div><strong>@Model.Gastos[0].cuenta @Model.Gastos[0].CuentaDescripcion</strong></div>
-    </tr>
-    @{
-    double debito = 0;
-    double credito = 0;
-    }
-    @foreach (var item in Model.Gastos)
-    {
-    <tr>
-    <td>@item.codComprobante</td>
-    <td>@item.numComprobante</td>
-    <td>@item.fecha</td>
-    <td>@item.observacion</td>
-    <td>@item.valorDebitos</td>
-    <td>@item.valorCreditos</td>
-    </tr>
-    debito += double.Parse(@item.valorDebitos);
-    credito += double.Parse(@item.valorCreditos);
-    }
-    </table>
-
-    <div class="TotalCuenta">
-    <p><strong>TOTAL CUENTA </strong></p>
-    <p>Total débito: @debito </p>
-    <p>Total crédito: @credito</p>
-    </div>
-    }
-
-
-
-    <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
-    <input type="hidden" name="cedula" value="@Model.AportesPastor[0].cedula" />
-    <input type="hidden" name="nombre" value="@Model.AportesPastor[0].nombre" />
-    <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
-    </form>
-    }
-    else
-    {
-    <p>No hay datos con esa cedula</p>
-    }
-
-    </div> *@
 </div>
