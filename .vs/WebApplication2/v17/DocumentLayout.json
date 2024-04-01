@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "WebApplication2\\Repo\\RRetirosListado.cs",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
               "RelativeToolTip": "WebApplication2\\Repo\\RRetirosListado.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAwwEMAAAAEAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAwwEgAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T20:20:38.348Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "WebApplication2\\Controllers\\CRetirosListado.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAQwCgAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T20:18:40.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T20:18:40.54Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "WebApplication2\\wwwroot\\css\\CincoStyles.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-04-01T19:57:27.05Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T19:57:27.05Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "WebApplication2\\wwwroot\\assets\\css\\now-ui-dashboard.css",
               "ViewState": "AQIAAG4QAAAAAAAAAAAIwHgQAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-04-01T16:53:39.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T16:53:39.814Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-22T19:05:14.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-22T19:05:14.455Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
               "ViewState": "AQIAAEUAAAAAAAAAAAAAAGAAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-14T19:45:40.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-14T19:45:40.542Z"
             }
           ]
         }
