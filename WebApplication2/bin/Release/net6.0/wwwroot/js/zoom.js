@@ -1,11 +1,11 @@
-
-console.log("te amoou <3")
-
-var tabla = document.getElementById('miTabla');
-
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("te amoooooooooooooooou <3")
+    var tabla = document.getElementById('miTabla');
+    toggleColumns([2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+});
 //OCULTAR Y MOSTRAR COLUMNAS
+var tabla = document.getElementById('miTabla');
 function toggleColumns(columnIndexes) {
-
     boton = document.getElementById('ocultarColumnas');
     if (boton.textContent === "Mostrar") {
         boton.textContent = "Ocultar";
@@ -15,7 +15,7 @@ function toggleColumns(columnIndexes) {
     var filas = tabla.rows;
     // Toggle the class 'hidden' for the specified columns in all rows
     for (var i = 0; i < filas.length; i++) {
-        console.log("parametro " + columnIndexes)
+        //console.log("parametro " + columnIndexes)
         for (var j = 0; j < columnIndexes.length; j++) {
             //console.log("filas "+filas[i].cells[columnIndexes[j]])
             celda = filas[i].cells[columnIndexes[j]];
@@ -40,18 +40,18 @@ function zoomOut() {
     applyZoom();
 }
 
-function applyZoom() {
-    /*var tabla = document.getElementById('miTabla');*/
+    function applyZoom() {
+    var tabla = document.getElementById('miTabla');
     tabla.style.zoom = zoomLevel;
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    var tabla = document.getElementById('miTabla');
     tabla.style.display = "block";
     
 
     //SELECCIONAR LAS CELDAS
-    /*var tabla = document.getElementById('miTabla');*/
     var celdas = tabla.querySelectorAll('td');
     var celdaSeleccionada = null;
 

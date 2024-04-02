@@ -11,6 +11,7 @@ namespace WebApplication2.Controllers
     public class CCinco : Controller
     {
         RCinco _repoCINCO = new RCinco();
+        RRetirosListado _retirosListado = new RRetirosListado();
         public IActionResult Cinco()
         {
             return View();
@@ -56,6 +57,11 @@ namespace WebApplication2.Controllers
             return View(_repoCINCO.MOVCont(cedula));
         }
 
+        public IActionResult ObtenerFechaCalculo(string cedula)
+        {
+            string fechaCal = _retirosListado.fechadeCalculo(cedula);
+            return Json(new { FechaCalculo = fechaCal });
+        }
 
         [HttpPost]
         public async Task<IActionResult> GenerarPDF(string cedula)

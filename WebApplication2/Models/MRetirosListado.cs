@@ -16,10 +16,13 @@
         public string? liquidacion2014 { get; set; }
         public string? liquidacion2015 { get; set; }
         public string? liquidacion2016 { get; set; }
-        public string? liquidacion2017 { get; set; }
-        public string? liquidacion2018 { get; set; }
-        public string? liquidacion2019 { get; set; }
-        public string? liquidacion2020 { get; set; }
+        public string? liquidacion2017PLUS { get; set; }
+        public string? liquidacion2018PLUS { get; set; }
+        public string? liquidacion2019PLUS { get; set; }
+        public string? liquidacion2020PLUS { get; set; }
+        public string? liquidacion2021PLUS { get; set; }
+        public string? liquidacion2022PLUS { get; set; }
+        public string? liquidacion2023PLUS { get; set; }
 
 
         public string verficacion { get; set; }

@@ -27,7 +27,7 @@ namespace WebApplication2.Controllers
                 if (respuesta)
                 {
                     TempData["Respuesta"] = "Se actualizaron los datos";
-                    return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
+                    return Json(new { redirectUrl = Url.Action("FiltroCedula", new { cedula = datosVer.codTer }) });
                 }
                 else
                 {
@@ -37,10 +37,10 @@ namespace WebApplication2.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Respuesta"] = "Error al actualizar los datos: " + ex.Message;
-                return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
-            }
+                TempData["Respuesta"] = "Error: " + ex.Message;
+                return RedirectToAction("Cinco", "CCinco");
 
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics.Metrics;
+using System.Reflection.Metadata;
 using WebApplication2.Models;
 
 namespace WebApplication2.Repo
@@ -42,10 +44,45 @@ namespace WebApplication2.Repo
 							liquidacion2014 = validarDato(reader["liquidacion_2014"].ToString()),
 							liquidacion2015 = validarDato(reader["liquidacion_2015"].ToString()),
 							liquidacion2016 = validarDato(reader["liquidacion_2016"].ToString()),
+                            liquidacion2017PLUS = validarDato(reader["liquidacion_2017PLUS"].ToString()),
+							liquidacion2018PLUS = validarDato(reader["liquidacion_2018PLUS"].ToString()),
+							liquidacion2019PLUS = validarDato(reader["liquidacion_2019PLUS"].ToString()),
+                            liquidacion2020PLUS = validarDato(reader["liquidacion_2020PLUS"].ToString()),
+                            liquidacion2021PLUS = validarDato(reader["liquidacion_2021PLUS"].ToString()),
+                            liquidacion2022PLUS = validarDato(reader["liquidacion_2022PLUS"].ToString()),
+                            liquidacion2023PLUS = validarDato(reader["liquidacion_2023PLUS"].ToString()),
 						});
                     }
                 }
                 return Lista;
+            }
+        }
+
+        public string fechadeCalculo(string cedula)
+        {
+            using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+            {
+                try
+                {
+                    conexion.Open();
+                    string fechaParaCalculo = "no hay fecha";
+                    SqlCommand cmd = new SqlCommand("SELECT fecha_para_calculo FROM Retiros WHERE COD_TER=@codTer;", conexion);
+                    cmd.Parameters.AddWithValue("@codTer", cedula);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : "no hay fecha";
+                        }
+                    }
+                    return fechaParaCalculo;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al obtener la fecha de cálculo: " + ex.Message);
+                    return "no hay fecha";
+                }
             }
         }
 
@@ -80,10 +117,10 @@ namespace WebApplication2.Repo
 				using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
 				{
 					conexion.Open();               
-                    SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@user, fecha_para_calculo = @fechaCalculo WHERE COD_TER = @codTer;", conexion);
-					cmd.Parameters.AddWithValue("user", datosVer.verficacionUsuario);
+                    SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo WHERE COD_TER = @codTer;", conexion);
+					cmd.Parameters.AddWithValue("verficacionUsuario", datosVer.verficacionUsuario);
 					cmd.Parameters.AddWithValue("codTer", datosVer.codTer);
-                    cmd.Parameters.AddWithValue("fechaCalculo", datosVer.fechaParaCalculo);
+                    cmd.Parameters.AddWithValue("fechaParaCalculo", datosVer.fechaParaCalculo);
 					cmd.ExecuteNonQuery();
 				}
 				res = true;

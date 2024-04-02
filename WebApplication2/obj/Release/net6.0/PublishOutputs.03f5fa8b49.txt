@@ -2,6 +2,7 @@ C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTm
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\appsettings.json
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\libman.json
+C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\wwwroot\css\cincocss.css
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\Rotativa\Windows\wkhtmltoimage.exe
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\Rotativa\Windows\wkhtmltopdf.exe
 C:\Users\Gordillov\Desktop\CRUD.netCore\WebApplication2\obj\Release\net6.0\PubTmp\Out\WebApplication2.dll

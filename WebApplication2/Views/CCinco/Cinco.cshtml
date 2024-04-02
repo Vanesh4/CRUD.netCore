@@ -3,7 +3,8 @@
     ViewData["Title"] = "Cinco";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="@Url.Content("~/css/CincoStyles.css")" />
+<link rel="stylesheet" href="~/css/cincocss.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -17,11 +18,6 @@
                         <form asp-action="previewcinco" asp-controller="ccinco" method="post">
                             <div class="input-group no-border">
                                 <input type="text" name="cedula" class="form-control" placeholder="Número de Cedula...">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
-                                    </div>
-                                </div>
                             <button type="submit" class="btn btn-primary m-1">Buscar</button>
                             </div>
                         </form>
@@ -37,7 +33,7 @@
                         </div>
 
                         <div class="col-3">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="botonFec">
                                 @* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
                                     <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"></path>
                                     <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"></path>
@@ -82,22 +78,24 @@
                             <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
                         </form>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        @* <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Fecha para calculo</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Fecha de calculo</h1>                                        
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
+                                        <p id="fechaCalculoData"></p>
                                         <form asp-action="Update" asp-controller="CRetirosListado" method="post">
                                             @{
                                                 var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
                                             }
-                                            <input type="hidden" name="user" value="@nombreUsuario" />
+                                            <input type="hidden" name="verficacionUsuario" value="@nombreUsuario" />
                                             <input type="hidden" name="codTer" value="@Model[0].cedula" />
+                                            
                                             <div class="mb-3">
-                                                <input type="date" class="form-control" id="recipient-name" name="fechaCalculo">
+                                                <input type="date" class="form-control" id="recipient-name" name="fechaParaCalculo">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Actualizar</button>
                                         </form>
@@ -107,8 +105,88 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
 
+
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha de calculo</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @{
+                                            var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+                                        }
+                                        <p id="fechaCalculoData"></p>
+                                        <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
+                                        <input type="hidden" id="codTer" name="codTer" value="@Model[0].cedula" />
+                                        <div class="mb-3">
+                                            <input type="date" class="form-control" id="fechaParaCalculo" name="fechaParaCalculo">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">                                    
+                                    <div class="modal-body">
+                                        Esta seguro que desea actualizar
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
+                                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+
+
+                        <script>
+                            $(document).ready(function () {
+                                $('#botonFec').click(function () {
+                                    $.ajax({
+                                        url: '@Url.Action("ObtenerFechaCalculo", "CCinco")',
+                                        type: 'GET',
+                                        data: { cedula: @Model[0].cedula},
+                                        success: function (result) {
+                                            //console.log(result)
+                                            $('#fechaCalculoData').html("<strong>@Model[0].nombre</strong> fecha: " + result["fechaCalculo"])
+                                        },
+                                        error: function () {                                            
+                                            console.log("Error al llamar al método");
+                                        }
+                                    });
+                                });                                
+                            });
+
+                            $('#confirmarEnvioBene').click(function () {
+                                console.log("en el boton");
+                                $.ajax({
+                                    url: '@Url.Action("Update", "CRetirosListado")',
+                                    type: 'POST',
+                                    data: {                                        
+                                        verficacionUsuario: $('#verficacionUsuario').val(),
+                                        codTer: $('#codTer').val(),
+                                        fechaParaCalculo: $('#fechaParaCalculo').val()
+                                    },
+                                    success: function (result) {
+                                        if (result.redirectUrl) {                                            
+                                            window.location.href = result.redirectUrl;
+                                        }                                        
+                                    },
+                                    error: function () {
+                                        console.log("Error al llamar al método");
+                                    }
+                                });
+                                
+                            });
+                        </script>
                     }
                     else
                     {
@@ -116,9 +194,8 @@
                     }
 
                     <script>
-
                         var modelo = @Json.Serialize(Model)
-                            console.log(modelo);
+                            //console.log(modelo);
                         cuentas = [];
                         var botones = document.getElementsByClassName("accordion-button");
 

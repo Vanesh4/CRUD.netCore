@@ -1,0 +1,35 @@
+﻿th {
+    font-size: 13px;
+    font-weight: 900;
+    padding-left: 3px;
+    text-align: center;
+}
+
+td {
+    font-size: 13px;
+    text-align: end;
+}
+
+.tablaDatos td:nth-child(1) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(2) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(3) {
+    width: 10%;
+}
+
+.tablaDatos td:nth-child(4) {
+    width: 40%;
+}
+
+.tablaDatos td:nth-child(5) {
+    width: 14%;
+}
+
+.tablaDatos td:nth-child(5) {
+    width: 14%;
+}

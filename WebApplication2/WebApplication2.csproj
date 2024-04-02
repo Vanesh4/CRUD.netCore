@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\cincocss.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Rotativa\Windows\wkhtmltoimage.exe" />
     <Content Include="Rotativa\Windows\wkhtmltopdf.exe" />
   </ItemGroup>

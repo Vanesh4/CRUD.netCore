@@ -1,67 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "FiltroCedula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
     <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
-
-    <div class="body">              
-        <table id="miTabla">
-            <thead>
-                <tr>
-                    <th colspan="2">
-                        <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
-                            <div class="d-flex justify-content-center">
-                                <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-                                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                            </div>
-                        </form>
-                    </th>
-                    <th>
-                        <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])">Ocultar</button>
-
-                    </th>
-                </tr>
-                <tr>
-                    @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
-                    {
-                        <th>@propertyInfo.Name</th>
-                    }
-                </tr>
-
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                @if (TempData["Respuesta"] != null)
                 {
-                    <tr>
-                        @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
-                        {
-                            string propertyName = propertyInfo.Name;
-                            var propertyValue = propertyInfo.GetValue(item);
-
-                            <td>@propertyValue</td> 
-                        }
-                        @*<td>@item.codTer</td>
-                        <td>@item.fechaParaCalculo</td>
-                        <td>@item.liquidacion2006</td>
-                        <td>@item.liquidacion2007</td>
-                        <td>@item.liquidacion2008</td>
-                        <td>@item.liquidacion2009</td>
-                        <td>@item.liquidacion2010</td>
-                        <td>@item.liquidacion2011</td>
-                        <td>@item.liquidacion2012</td>
-                        <td>@item.liquidacion2013</td>
-                        <td>@item.liquidacion2014</td>
-                        <td>@item.liquidacion2015</td>
-                        <td>@item.liquidacion2016</td>*@
-
-                        <td><button>Editar</button></td>
-                    </tr>
-
-
+                    <div class="alert alert-success" role="alert">
+                        @TempData["Respuesta"]
+                    </div>
                 }
+                    <table id="miTabla">
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
+                                        <div class="d-flex justify-content-center">
+                                            <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                                            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                                        </div>
+                                    </form>
+                                </th>
+                                <th>
+                                    @*<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])">Ocultar</button>*@
+                                    <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
 
-            </tbody>
-        </table>
+                                </th>
+                            </tr>
+                            <tr>
+                                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                                {
+                                    <th>@propertyInfo.Name</th>
+                                }
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                                    {
+                                        string propertyName = propertyInfo.Name;
+                                        var propertyValue = propertyInfo.GetValue(item);
+
+                                        <td>@propertyValue</td>
+                                    }
+                                    <td><button>Editar</button></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="@Url.Content("~/js/zoom.js")"></script>
-}

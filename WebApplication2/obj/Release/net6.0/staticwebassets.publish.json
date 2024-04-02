@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0FD20sOUEioKt+h/leHd4rsnakMXnwJJI/7yefaxclo=",
+  "Hash": "CysJ6PZXmdCTQUWQauah0HWXFcqMdxD5qUYHKKng0UI=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -2411,12 +2411,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\scss\\now-ui-dashboard\\plugins\\_plugin-perfect-scrollbar.scss"
     },
     {
-      "Identity": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\CincoStyles.css",
+      "Identity": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\cincocss.css",
       "SourceId": "WebApplication2",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\",
       "BasePath": "_content/WebApplication2",
-      "RelativePath": "css/CincoStyles.css",
+      "RelativePath": "css/cincocss.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2427,7 +2427,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\CincoStyles.css"
+      "OriginalItemSpec": "wwwroot\\css\\cincocss.css"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",

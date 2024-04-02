@@ -1,72 +1,62 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "GetRetiros";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
 
-<div class="body">
-	<div class="d-md-flex justify-content-md-end">
-		<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
-		<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
-	</div>
-	<table id="miTabla">
-		<thead>
-			<tr>
-				<th colspan="2">
-					<form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
-						<div class="d-flex justify-content-center">
-							<input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-							<button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-						</div>
-					</form>
-				</th>
-				<th>
-					<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>					
-				</th>
-			</tr>
-			<tr>
-				<th>CÉDULA</th>
-				<th>FECHA CALCULO RETIRO</th>
-				<th>liquidacion 2006</th>
-				<th>liquidacion 2008</th>
-				<th>liquidacion 2009</th>
-				<th>liquidacion 2007</th>
-				<th>liquidacion 2010</th>
-				<th>liquidacion 2011</th>
-				<th>liquidacion 2012</th>
-				<th>liquidacion 2013</th>
-				<th>liquidacion 2014</th>
-				<th>liquidacion 2015</th>
-				<th>liquidacion 2016</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>					
-					<td>@item.codTer</td>
-					<td>@item.fechaParaCalculo</td>
-					<td>@item.liquidacion2006</td>
-					<td>@item.liquidacion2007</td>
-					<td>@item.liquidacion2008</td>
-					<td>@item.liquidacion2009</td>
-					<td>@item.liquidacion2010</td>
-					<td>@item.liquidacion2011</td>
-					<td>@item.liquidacion2012</td>
-					<td>@item.liquidacion2013</td>
-					<td>@item.liquidacion2014</td>
-					<td>@item.liquidacion2015</td>
-					<td>@item.liquidacion2016</td>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="body">
+                <div class="d-md-flex justify-content-md-end">
+                    <button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
+                    <button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
+                </div>
+                <table id="miTabla">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
+                                    <div class="d-flex justify-content-center">
+                                        <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                                        <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                                    </div>
+                                </form>
+                            </th>
+                            <th>
+                                <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])">Ocultar</button>
+                            </th>
+                        </tr>
+                        <tr>
 
-					<td><button>Editar</button></td>
-				</tr>
-			}
-			
-		</tbody>
-	</table>
+                            @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                            {
+                                <th>@propertyInfo.Name</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                                {
+                                    string propertyName = propertyInfo.Name;
+                                    var propertyValue = propertyInfo.GetValue(item);
+
+                                    <td>@propertyValue</td>
+                                }
+                                <td><button>Editar</button></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
 <script src="@Url.Content("~/js/zoom.js")"></script>
 
