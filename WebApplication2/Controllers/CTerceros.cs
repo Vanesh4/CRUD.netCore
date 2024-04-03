@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication2.Models;
 using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
@@ -25,8 +26,19 @@ namespace WebApplication2.Controllers
 			return View(_repoTerceros.FiltroId(codTer));
 		}
 
+        public IActionResult NombreCedula(string cedula)
+        {
+            List<MTerceros> fechaCal = _repoTerceros.FiltroId(cedula);
+            string nombre = "";
+            if (fechaCal != null && fechaCal.Count > 0)
+            {
+                nombre = fechaCal[0].NOM_TER;
+            }
 
-		public IActionResult FiltroPorNomTer([FromForm] string nomTer)
+            return Json(new { Nombre = nombre });
+        }
+
+        public IActionResult FiltroPorNomTer([FromForm] string nomTer)
 		{
 			return View(_repoTerceros.FiltroPorNomTer(nomTer));
 		}

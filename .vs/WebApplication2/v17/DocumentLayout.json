@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\cretiroslistado\\getretiros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cretiroslistado\\getretiros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\cretiroslistado\\filtrocedula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cretiroslistado\\filtrocedula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -27,8 +11,16 @@
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\models\\mretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\models\\mretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\cretiroslistado\\getretiros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cretiroslistado\\getretiros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -37,14 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\wwwroot\\css\\cincocss.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\wwwroot\\css\\cincocss.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\wwwroot\\css\\filtros.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\wwwroot\\css\\filtros.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\desktop\\crud.netcore\\webapplication2\\wwwroot\\js\\zoom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\wwwroot\\js\\zoom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -53,8 +37,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 209,
-          "SelectedChildIndex": 10,
+          "DockedWidth": 269,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,78 +46,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FiltroCedula.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T20:19:02.533Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Cinco.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAmwKMAAAAnAAAA",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAAAGsAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T16:57:35.635Z",
+              "WhenOpened": "2024-04-02T21:35:55.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MRetirosListado.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\MRetirosListado.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Models\\MRetirosListado.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Models\\MRetirosListado.cs",
-              "RelativeToolTip": "WebApplication2\\Models\\MRetirosListado.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA0AAAA",
+              "DocumentIndex": 1,
+              "Title": "RRetirosListado.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Repo\\RRetirosListado.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
+              "RelativeToolTip": "WebApplication2\\Repo\\RRetirosListado.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAwwHoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T16:32:38.82Z",
+              "WhenOpened": "2024-04-01T20:20:38.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "filtros.css",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",
-              "RelativeDocumentMoniker": "WebApplication2\\wwwroot\\css\\filtros.css",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\filtros.css",
-              "RelativeToolTip": "WebApplication2\\wwwroot\\css\\filtros.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-04-02T16:18:55.183Z",
+              "DocumentIndex": 0,
+              "Title": "FiltroCedula.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFMAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-03T13:46:42.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "zoom.js",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\js\\zoom.js",
-              "RelativeDocumentMoniker": "WebApplication2\\wwwroot\\js\\zoom.js",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\js\\zoom.js",
-              "RelativeToolTip": "WebApplication2\\wwwroot\\js\\zoom.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-04-02T15:57:52.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "GetRetiros.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\CRetirosListado\\GetRetiros.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACkAAAAZAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABgAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-02T15:55:52.097Z",
               "EditorCaption": ""
@@ -146,14 +104,14 @@
               "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CCinco.cs",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CCinco.cs",
               "RelativeToolTip": "WebApplication2\\Controllers\\CCinco.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwDUAAAAmAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowDkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-02T14:51:01.106Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "cincocss.css",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\wwwroot\\css\\cincocss.css",
               "RelativeDocumentMoniker": "WebApplication2\\wwwroot\\css\\cincocss.css",
@@ -161,44 +119,17 @@
               "RelativeToolTip": "WebApplication2\\wwwroot\\css\\cincocss.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-04-02T14:20:53.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T14:20:53.872Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "RRetirosListado.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Repo\\RRetirosListado.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
-              "RelativeToolTip": "WebApplication2\\Repo\\RRetirosListado.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAowG4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T20:20:38.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CRetirosListado.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CRetirosListado.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
-              "RelativeToolTip": "WebApplication2\\Controllers\\CRetirosListado.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBEAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T20:18:40.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAADsAAABVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFIAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-03-22T19:05:14.455Z",
               "EditorCaption": ""

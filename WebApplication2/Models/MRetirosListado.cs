@@ -26,7 +26,7 @@
 
 
         public string verficacion { get; set; }
-        public DateTime verficacionFecha { get; set; }
+        public string verficacionFecha { get; set; }
         public string verficacionUsuario { get; set; }
 
 

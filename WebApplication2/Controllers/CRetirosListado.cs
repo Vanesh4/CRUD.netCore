@@ -31,7 +31,7 @@ namespace WebApplication2.Controllers
                 }
                 else
                 {
-                    TempData["Respuesta"] = "Hubo un problema al actualizar los datos.";
+                    TempData["Respuesta"] = "Hubo un problema al actualizar los datos";
                     return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
                 }
             }

@@ -3,61 +3,157 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
+@* <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" /> *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+
                 @if (TempData["Respuesta"] != null)
                 {
                     <div class="alert alert-success" role="alert">
                         @TempData["Respuesta"]
                     </div>
                 }
-                    <table id="miTabla">
-                        <thead>
-                            <tr>
-                                <th colspan="2">
-                                    <form asp-action="FiltroPorCedula" asp-controller="CPastores" method="post">
-                                        <div class="d-flex justify-content-center">
-                                            <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-                                            <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                                        </div>
-                                    </form>
+                @* <table id="miTabla">
+                <thead>
+                <tr>
+                <th colspan="2">
+                <form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
+                <div class="d-flex justify-content-center">
+                <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
+                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
+                </div>
+                </form>
+                </th>
+                <th>
+                <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
+                </th>
+                </tr>
+                <tr>
+                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                {
+                <th>@propertyInfo.Name</th>
+                }
+                </tr>
+
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
+                {
+                string propertyName = propertyInfo.Name;
+                var propertyValue = propertyInfo.GetValue(item);
+
+                <td>@propertyValue</td>
+                }
+                <td><button>Editar</button></td>
+                </tr>
+                }
+                </tbody>
+                </table> *@
+
+                @if (Model != null && Model.Count > 0)
+                {
+                    <div class="card-header">
+                        @* <h5 class="card-category">All Persons List</h5> *@
+                        <h4 class="card-title" id="dataReg"></h4>
+                        <script>
+                            $(document).ready(function () {
+                                $.ajax({
+                                    url: '@Url.Action("NombreCedula", "CTerceros")',
+                                    type: 'GET',
+                                    data: { cedula: @Model[0].codTer },
+                                    success: function (result) {
+                                        console.log(result)
+                                        $('#dataReg').text(result["nombre"])
+                                    },
+                                    error: function () {
+                                        console.log("Error al llamar al método");
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 pr-1">
+                                <div class="form-group">
+                                    <label>Fecha de calculo</label>
+                                    <div class="form-control">@Model[0].fechaParaCalculo</div>
+                                    @* <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc."> *@
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-1">
+                                <div class="form-group">
+                                    @if (@Model[0].verficacion == "True") //esta en string, ponerlo a BOOL
+                                    {
+                                        <label>Estado</label>
+                                        <div class="form-control btn btn-success py-1">VERIFICADO</div>                                        
+                                    }
+                                    else
+                                    {
+                                        <label>Estado</label>
+                                        <div class="form-control btn btn-danger py-1">SIN VERIFICAR</div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-1">
+                                <div class="form-group">
+                                    <label>Verficacion Fecha</label>
+                                    <div class="form-control">@Model[0].verficacionFecha</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 pl-1">
+                                <div class="form-group">
+                                    <label>Verficacion Usuario</label>
+                                    <div class="form-control">@Model[0].verficacionUsuario</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Fecha
                                 </th>
                                 <th>
-                                    @*<button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])">Ocultar</button>*@
-                                    <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
-
+                                    Valor
                                 </th>
-                            </tr>
-                            <tr>
-                                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
-                                {
-                                    <th>@propertyInfo.Name</th>
-                                }
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        List<string> without = new List<string> { "codTer", "fechaParaCalculo", "verficacion", "verficacionFecha", "verficacionUsuario", };
+                                    }
                                     @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
                                     {
                                         string propertyName = propertyInfo.Name;
-                                        var propertyValue = propertyInfo.GetValue(item);
-
-                                        <td>@propertyValue</td>
+                                        if (!without.Contains(propertyName))
+                                        {
+                                            <tr>
+                                                <td>@propertyInfo.Name</td>
+                                                <td>@propertyInfo.GetValue(Model[0])</td>
+                                            </tr>
+                                        }
                                     }
-                                    <td><button>Editar</button></td>
-                                </tr>
-                            }
 
-                        </tbody>
-                    </table>
-                </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p>No se encontraron datos con esa cedula</p>
+                }
             </div>
         </div>
     </div>
-    <script src="@Url.Content("~/js/zoom.js")"></script>
+</div>
+
+@*     <script src="@Url.Content("~/js/zoom.js")"></script> *@
+@* <script src="~/js/zoom.js"></script> *@
