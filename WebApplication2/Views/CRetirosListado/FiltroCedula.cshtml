@@ -124,6 +124,12 @@
                                 <th>
                                     Valor
                                 </th>
+                                <th>
+                                    Plus
+                                </th>
+                                <th>
+                                    Total Plus
+                                </th>
                                 </thead>
                                 <tbody>
                                     @{
@@ -136,7 +142,20 @@
                                         {
                                             <tr>
                                                 <td>@propertyInfo.Name</td>
-                                                <td>@propertyInfo.GetValue(Model[0])</td>
+                                                @if (String.CompareOrdinal(propertyName, "liquidacion2017") >= 0)
+                                                {
+                                                    var liquidacionList = (List<string>)propertyInfo.GetValue(Model[0]);
+                                                    <td>@(liquidacionList.Count > 0 ? liquidacionList[0] : "")</td>
+                                                    <td>@(liquidacionList.Count > 0 ? liquidacionList[1] : "")</td>
+                                                    @* <td>@(liquidacionList.Count > 0 ? liquidacionList[2] : "")</td> *@
+                                                }
+                                                else
+                                                {
+                                                    <td>@propertyInfo.GetValue(Model[0])</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                }
+                                                
                                             </tr>
                                         }
                                     }

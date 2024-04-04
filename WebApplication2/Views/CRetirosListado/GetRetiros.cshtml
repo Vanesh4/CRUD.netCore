@@ -8,8 +8,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="body">
-                <div class="d-md-flex justify-content-md-end">
+            <div class="card-body">
+                @* <div class="d-md-flex justify-content-md-end">
                     <button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
                     <button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
                 </div>
@@ -53,7 +53,17 @@
                         }
 
                     </tbody>
-                </table>
+                </table> *@
+                <div class="row">
+                    <div class="col-5">
+                        <form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
+                            <div class="input-group no-border">
+                                <input type="number" id="inputCedula" name="cedula" class="form-control" placeholder="Número de Cedula...">
+                                <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
