@@ -27,6 +27,8 @@
         public List<string> liquidacion2017 {  get; set; }
         public List<string> liquidacion2018 {  get; set; }
 
+        public string? totalLiquidaciones;
+
 
         public string verficacion { get; set; }
         public string verficacionFecha { get; set; }

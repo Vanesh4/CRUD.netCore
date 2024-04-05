@@ -83,18 +83,20 @@ namespace WebApplication2.Repo
                     while (reader.Read())
                     {
                         int codTer = reader["COD_TER"] != DBNull.Value ? Convert.ToInt32(reader["COD_TER"]) : 0;
+                        var liq2017 = anio2017(codTer);
+                        var liq2018 = anio2018(codTer);
                         Lista.Add(new MRetirosListado()
                         {
                             //codTer = Convert.ToInt32(reader["CÉDULA"]), este es con la vista
                             codTer = codTer,
                             fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : (string)null,
-
+                            
                             liquidacion2006 = validarDato(anio2006(codTer).ToString()),
                             liquidacion2007 = validarDato(anio2007(codTer).ToString()),
 
                             
-                            liquidacion2017 = new List<string> { validarDato(anio2017(codTer).Item1.ToString()), validarDato(anio2017(codTer).Item2.ToString()), validarDato(anio2017(codTer).Item3.ToString()) },
-                            liquidacion2018 = new List<string> { "222222222", "3333333333" },
+                            liquidacion2017 = new List<string> { validarDato(liq2017.Item1.ToString()), validarDato(liq2017.Item2.ToString()), validarDato(liq2017.Item3.ToString()) },
+                            liquidacion2018 = new List<string> { validarDato(liq2018.Item1.ToString()), validarDato(liq2018.Item2.ToString()), validarDato(liq2018.Item3.ToString()) },
 
                             verficacion = reader["Verificacion"].ToString(),
                             verficacionFecha = reader["VerificadoFecha"] != DBNull.Value ? Convert.ToDateTime(reader["VerificadoFecha"]).ToString("dd-MM-yyyy") : (string)null,
@@ -330,7 +332,8 @@ namespace WebApplication2.Repo
             {
                 double liquidacion = valorFijo;
                 double plus = calculoPlus(cod_ter, new DateTime(2017, 12, 31), 4891);
-                return (liquidacion, plus, liquidacion + plus);
+                double total = liquidacion + plus;
+                return (liquidacion, (int)Math.Ceiling(plus), total);
                 
             }
             else if (r.Item1 == 2017)
@@ -340,9 +343,35 @@ namespace WebApplication2.Repo
 
                 double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
                 double plus = calculoPlus(cod_ter, new DateTime(2017, 12, 31), 4891);
-                return (liquidacion, plus, liquidacion + plus);
+                double total = (liquidacion + plus);
+                return (liquidacion, plus, total);
             }
             else return (0,calculo, 0);
+        }
+
+        private (double, double, double) anio2018(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 2064174;
+            if (r.Item1 < 2018)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2018, 12, 31), 4898);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2018)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2018, 12, 31), 4898);
+                double total = (liquidacion + plus);
+                return (liquidacion, (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
         }
 
     }
