@@ -26,6 +26,11 @@
 
         public List<string> liquidacion2017 {  get; set; }
         public List<string> liquidacion2018 {  get; set; }
+        public List<string> liquidacion2019 { get; set; }
+        public List<string> liquidacion2020 { get; set; }
+        public List<string> liquidacion2021 { get; set; }
+        public List<string> liquidacion2022 { get; set; }
+        public List<string> liquidacion2023 { get; set; }
 
         public string? totalLiquidaciones;
 

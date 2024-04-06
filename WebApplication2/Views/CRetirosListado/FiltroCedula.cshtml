@@ -16,50 +16,10 @@
                         @TempData["Respuesta"]
                     </div>
                 }
-                @* <table id="miTabla">
-                <thead>
-                <tr>
-                <th colspan="2">
-                <form asp-action="FiltroCedula" asp-controller="CRetirosListado" method="post">
-                <div class="d-flex justify-content-center">
-                <input class="form-control d-block" type="number" id="inputCedula" name="cedula" placeholder="Cedula">
-                <button class="btn btn-primary d-block" type="submit"><img src="~/img/lupa.png"></img></button>
-                </div>
-                </form>
-                </th>
-                <th>
-                <button id="ocultarColumnas" onclick="toggleColumns([2,3,4,5,6,7,8,9,10,11,12])">Ocultar</button>
-                </th>
-                </tr>
-                <tr>
-                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
-                {
-                <th>@propertyInfo.Name</th>
-                }
-                </tr>
-
-                </thead>
-                <tbody>
-                @foreach (var item in Model)
-                {
-                <tr>
-                @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
-                {
-                string propertyName = propertyInfo.Name;
-                var propertyValue = propertyInfo.GetValue(item);
-
-                <td>@propertyValue</td>
-                }
-                <td><button>Editar</button></td>
-                </tr>
-                }
-                </tbody>
-                </table> *@
-
                 @if (Model != null && Model.Count > 0)
                 {
                     <div class="card-header">
-                        @* <h5 class="card-category">All Persons List</h5> *@
+                        <h5 class="card-category">@Model[0].codTer</h5>
                         <h4 class="card-title" id="dataReg"></h4>
                         <script>
                             $(document).ready(function () {
@@ -135,33 +95,42 @@
                                     @{
                                         List<string> without = new List<string> { "codTer", "fechaParaCalculo", "verficacion", "verficacionFecha", "verficacionUsuario", };
                                     }
+                                    
                                     @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())
                                     {
                                         string propertyName = propertyInfo.Name;
                                         if (!without.Contains(propertyName))
                                         {
-                                            <tr>
-                                                <td>@propertyInfo.Name</td>
-                                                @if (String.CompareOrdinal(propertyName, "liquidacion2017") >= 0)
+                                            @if (String.CompareOrdinal(propertyName, "liquidacion2017") >= 0)
+                                            {
+                                                var liquidacionList = (List<string>)propertyInfo.GetValue(Model[0]);
+                                                if (liquidacionList != null && liquidacionList[0] != null)
                                                 {
-                                                    var liquidacionList = (List<string>)propertyInfo.GetValue(Model[0]);
-                                                    <td>@(liquidacionList.Count > 0 ? liquidacionList[0] : "")</td>
-                                                    <td>@(liquidacionList.Count > 0 ? liquidacionList[1] : "")</td>
-                                                    <td>@(liquidacionList.Count > 0 ? liquidacionList[2] : "")</td>
-                                                }
-                                                else
-                                                {
+                                                    <tr>
+                                                        <td>@propertyInfo.Name</td>
+                                                        <td>@(liquidacionList.Count > 0 ? liquidacionList[0] : "")</td>
+                                                        <td>@(liquidacionList.Count > 0 ? liquidacionList[1] : "")</td>
+                                                        <td>@(liquidacionList.Count > 0 ? liquidacionList[2] : "")</td>
+                                                    </tr>
+                                                }                                                
+                                            }
+                                            else if (@propertyInfo.GetValue(Model[0]) != null)
+                                            {
+                                                <tr>
+                                                    <td>@propertyName</td>
                                                     <td>@propertyInfo.GetValue(Model[0])</td>
                                                     <td></td>
                                                     <td></td>
-                                                }
-                                                
-                                            </tr>
+                                                </tr>
+                                            }                                            
                                         }
-                                    }
+                                    }                                   
 
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-end">
+                                <div class="text-right form-control btn btn-outline-primary w-25">@Model[0].totalLiquidaciones</div>
+                            </div>
                         </div>
                     </div>
                 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.AspNetCore.Components.Routing;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -85,6 +86,11 @@ namespace WebApplication2.Repo
                         int codTer = reader["COD_TER"] != DBNull.Value ? Convert.ToInt32(reader["COD_TER"]) : 0;
                         var liq2017 = anio2017(codTer);
                         var liq2018 = anio2018(codTer);
+                        var liq2019 = anio2019(codTer);
+                        var liq2020 = anio2020(codTer);
+                        var liq2021 = anio2021(codTer);
+                        var liq2022 = anio2022(codTer);
+                        var liq2023 = anio2023(codTer);
                         Lista.Add(new MRetirosListado()
                         {
                             //codTer = Convert.ToInt32(reader["CÉDULA"]), este es con la vista
@@ -93,10 +99,25 @@ namespace WebApplication2.Repo
                             
                             liquidacion2006 = validarDato(anio2006(codTer).ToString()),
                             liquidacion2007 = validarDato(anio2007(codTer).ToString()),
-
+                            liquidacion2008 = validarDato(anio2008(codTer).ToString()),
+                            liquidacion2009 = validarDato(anio2009(codTer).ToString()),
+                            liquidacion2010 = validarDato(anio2010(codTer).ToString()),
+                            liquidacion2011 = validarDato(anio2011(codTer).ToString()),
+                            liquidacion2012 = validarDato(anio2012(codTer).ToString()),
+                            liquidacion2013 = validarDato(anio2013(codTer).ToString()),
+                            liquidacion2014 = validarDato(anio2014(codTer).ToString()),
+                            liquidacion2015 = validarDato(anio2015(codTer).ToString()),
+                            liquidacion2016 = validarDato(anio2016(codTer).ToString()),
                             
                             liquidacion2017 = new List<string> { validarDato(liq2017.Item1.ToString()), validarDato(liq2017.Item2.ToString()), validarDato(liq2017.Item3.ToString()) },
                             liquidacion2018 = new List<string> { validarDato(liq2018.Item1.ToString()), validarDato(liq2018.Item2.ToString()), validarDato(liq2018.Item3.ToString()) },
+                            liquidacion2019 = new List<string> { validarDato(liq2019.Item1.ToString()), validarDato(liq2019.Item2.ToString()), validarDato(liq2019.Item3.ToString()) },
+                            liquidacion2020 = new List<string> { validarDato(liq2020.Item1.ToString()), validarDato(liq2020.Item2.ToString()), validarDato(liq2020.Item3.ToString()) },
+                            liquidacion2021 = new List<string> { validarDato(liq2021.Item1.ToString()), validarDato(liq2021.Item2.ToString()), validarDato(liq2021.Item3.ToString()) },
+                            liquidacion2022 = new List<string> { validarDato(liq2022.Item1.ToString()), validarDato(liq2022.Item2.ToString()), validarDato(liq2022.Item3.ToString()) },
+                            liquidacion2023 = new List<string> { validarDato(liq2023.Item1.ToString()), validarDato(liq2023.Item2.ToString()), validarDato(liq2023.Item3.ToString()) },
+
+                            totalLiquidaciones = sumaTotalLiquidaciones(codTer),
 
                             verficacion = reader["Verificacion"].ToString(),
                             verficacionFecha = reader["VerificadoFecha"] != DBNull.Value ? Convert.ToDateTime(reader["VerificadoFecha"]).ToString("dd-MM-yyyy") : (string)null,
@@ -116,7 +137,7 @@ namespace WebApplication2.Repo
                 {
                     conexion.Open();
                     string fechaParaCalculo = "no hay fecha";
-                    SqlCommand cmd = new SqlCommand("SELECT fecha_para_calculo FROM Retiros WHERE COD_TER=@codTer;", conexion);
+                    SqlCommand cmd = new SqlCommand("SELECT fecha_para_calculo FROM RetirosNet WHERE COD_TER=@codTer;", conexion);
                     cmd.Parameters.AddWithValue("@codTer", cedula);
 
                     using (var reader = cmd.ExecuteReader())
@@ -152,14 +173,14 @@ namespace WebApplication2.Repo
         {
             if (liquidaciona == "0")
             {
-                return "";
+                return null;
             }
             else
             {
                 decimal valorDecimal;
                 if (decimal.TryParse(liquidaciona, out valorDecimal))
                 {
-                    return valorDecimal.ToString("#,0.###", System.Globalization.CultureInfo.InvariantCulture);
+                    return valorDecimal.ToString("#,0", System.Globalization.CultureInfo.InvariantCulture);
                 }
                 else
                 {
@@ -168,9 +189,10 @@ namespace WebApplication2.Repo
             }
         }
 
+         
         
 
-        public bool Update(MRetirosListado datosVer)
+    public bool Update(MRetirosListado datosVer)
         {
             //bool res = false;
             try
@@ -283,7 +305,7 @@ namespace WebApplication2.Repo
             double calculo = 0;
             var r = retAnioMesDia(cod_ter);
             int valorFijo = 576000;
-            if (r.Item1 <= 2006)
+            if (r.Item1 < 2007)
             {
                 calculo = valorFijo;
                 return calculo;
@@ -291,6 +313,186 @@ namespace WebApplication2.Repo
             else if (r.Item1 == 2007)
             {
 
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2008(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 670472;
+            if (r.Item1 < 2008)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2008)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2009(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 780350;
+            if (r.Item1 < 2009)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2009)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2010(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 823000;
+            if (r.Item1 < 2010)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2010)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2011(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 945000;
+            if (r.Item1 < 2011)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2011)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2012(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 1000000;
+            if (r.Item1 < 2012)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2012)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2013(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 1090000;
+            if (r.Item1 < 2013)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2013)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2014(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 1263000;
+            if (r.Item1 < 2014)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2014)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2015(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 1336600;
+            if (r.Item1 < 2015)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2015)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                calculo = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                return (int)Math.Ceiling(calculo);
+            }
+            else return calculo;
+        }
+        private double anio2016(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 1336600;
+            if (r.Item1 < 2016)
+            {
+                calculo = valorFijo;
+                return calculo;
+            }
+            else if (r.Item1 == 2016)
+            {
                 int difMes = 12 - r.Item2;
                 int difDia = 31 - r.Item3;
 
@@ -369,9 +571,136 @@ namespace WebApplication2.Repo
                 double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
                 double plus = calculoPlus(cod_ter, new DateTime(2018, 12, 31), 4898);
                 double total = (liquidacion + plus);
-                return (liquidacion, (int)Math.Ceiling(plus), total);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
             }
             else return (0, calculo, 0);
+        }
+
+        private (double, double, double) anio2019(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 2209842;
+            if (r.Item1 < 2019)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2019, 12, 31), 4997);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2019)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2019, 12, 31), 4997);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+        private (double, double, double) anio2020(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 2103661;
+            if (r.Item1 < 2020)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2020, 12, 31), 4601);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2020)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2020, 12, 31), 4601);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+        private (double, double, double) anio2021(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 2462064;
+            if (r.Item1 < 2021)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2021, 12, 31), 5531);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2021)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2021, 12, 31), 5531);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+        private (double, double, double) anio2022(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 3243572;
+            if (r.Item1 < 2022)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2022, 12, 31), 7209);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2022)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2002, 12, 31), 7209);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+        private (double, double, double) anio2023(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 3243572;
+            if (r.Item1 < 2023)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2023, 12, 31), 7209);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2023)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2023, 12, 31), 7209);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+
+        private string sumaTotalLiquidaciones(int codTer)
+        {
+            double suma = anio2006(codTer) + anio2007(codTer) + anio2008(codTer) + anio2009(codTer) + anio2010(codTer) + anio2011(codTer) + anio2012(codTer) + anio2013(codTer) + anio2014(codTer) + anio2015(codTer) + anio2016(codTer) + anio2017(codTer).Item3 + anio2018(codTer).Item3 + anio2019(codTer).Item3 + anio2020(codTer).Item3 + anio2021(codTer).Item3 + anio2022(codTer).Item3 + anio2022(codTer).Item3;
+            return validarDato(suma.ToString());
         }
 
     }
