@@ -69,6 +69,24 @@ namespace WebApplication2.Repo
             return nombrePastor;
         }
 
+        public List<Cinco> MOVCont(string cedula)
+        {
+            string consulta = "SELECT * FROM REPMoviCont WHERE Cedula = @cedula order by Cuenta, Fecha;";
+            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+            return ObtenerDatos(consulta, parametros);
+        }
+
+        public List<Cinco> porCuentas(string cuenta, string cedula)
+        {
+            string consulta = "SELECT * FROM REPMoviCont WHERE Cedula = @cedula and Cuenta = @cuenta order by fecha;";
+            SqlParameter[] parametros = {
+                new SqlParameter("@cedula", cedula),
+                new SqlParameter("@cuenta", cuenta)
+            };
+            return ObtenerDatos(consulta, parametros);
+        }
+
+        //uno por uno
         public List<Cinco> AportesPastor(string cedula)
         {
             string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula order by Fecha;";
@@ -156,12 +174,6 @@ namespace WebApplication2.Repo
             return ObtenerDatos(consulta, parametros);
         }
 
-        public List<Cinco> MOVCont(string cedula)
-        {
-            string consulta = "SELECT * FROM REPMoviCont WHERE Cedula = @cedula order by Cuenta, Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
 
     }
 }

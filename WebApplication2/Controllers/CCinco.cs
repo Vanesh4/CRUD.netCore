@@ -4,6 +4,7 @@ using WebApplication2.Repo;
 using Rotativa.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Rotativa.AspNetCore.Options;
+using Microsoft.DotNet.Scaffolding.Shared.Project;
 
 namespace WebApplication2.Controllers
 {
@@ -38,7 +39,6 @@ namespace WebApplication2.Controllers
         //    };
         //    return reportData;
         //}
-
       
         public IActionResult CincoData(string cedula)
         {
@@ -61,6 +61,11 @@ namespace WebApplication2.Controllers
         {
             string fechaCal = _retirosListado.fechadeCalculo(cedula);
             return Json(new { FechaCalculo = fechaCal });
+        }
+
+        public IActionResult PorCuenta(string cuenta, string cedula)
+        {            
+            return Json(_repoCINCO.porCuentas(cuenta, cedula));
         }
 
         [HttpPost]
