@@ -1,73 +1,77 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "GetTerceros";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@{
 
 <link rel="stylesheet" href="@Url.Content("~/css/tablas.css")" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            @if (Model != null && Model.Count > 0)
+            {
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 pr-1">
+                            <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+                                <div class="d-flex justify-content-center">
+                                    <input class="form-control m-1" type="number" name="codTer" placeholder="codigo tercero">
+                                    <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3 px-1">
+                            <form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
+                                <div class="d-flex justify-content-center">
+                                    <input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
+                                    <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 px-1">
+                        </div>
+                        <div class="col-md-2 px-1">
+                            <button onclick="zoomIn()" class="btn btn-secondary m-2">+</button>
+                            <button onclick="zoomOut()" class="btn btn-secondary m-2">-</button>
+                        </div>
+                    </div>
+                    <table id="miTabla">
+                        <thead>
+                            <tr>
+                                <th>CÉDULA</th>
+                                <th>NOMBRE</th>
+                                <th>DIRECCION</th>
+                                <th>CUIDAD</th>
+                                <th>EMAIL</th>
+                                <th>FECHA DE INGRESO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.COD_TER</td>
+                                    <td>@item.NOM_TER</td>
+                                    <td>@item.DIR1</td>
+                                    <td>@item.CIUDAD</td>
+                                    <td>@item.EMAIL</td>
+                                    <td>@item.FEC_ING</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+                        <input type="hidden" name="cedula" value=@Model[0].COD_TER>
+                        <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
+                    </form>
+                </div>
 
-
-<div class="body">
-	<div class="d-md-flex justify-content-md-end">
-					<button onclick="zoomIn()" class="btn btn-outline-secondary m-2">+</button>
-					<button onclick="zoomOut()" class="btn btn-outline-secondary m-2">-</button>
-			</div>
-	<table id="miTabla">
-		<thead>
-			<tr>						
-						<th>
-								<form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
-			<div class="d-flex justify-content-center">
-				<input class="form-control" type="number" name="codTer" placeholder="codigo tercero">
-				<button type="submit" class="btn btn-primary">Buscar</button>
-			</div>
-		</form>
-						</th>
-						<th>
-							<form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
-						<div class="d-flex justify-content-center">
-								<input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
-							<button type="submit" class="btn btn-primary m-1">Buscar</button>
-						</div>
-					</form>
-						</th>
-					</tr>
-			<tr>
-				<th>CÉDULA</th>
-				<th>NOMBRE</th>
-				<th>DIRECCION</th>
-						<th>CUIDAD</th>
-				<th>EMAIL</th>
-				<th>FECHA DE INGRESO</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-					<tr>
-						<td>@item.COD_TER</td>
-						<td>@item.NOM_TER</td>
-						<td>@item.DIR1</td>
-								<td>@item.CIUDAD</td>
-						<td>@item.EMAIL</td>
-						<td>@item.FEC_ING</td>
-					</tr>
-			}
-		</tbody>
-	</table>
+            }
+            else
+            {
+                <p>No se encontraron datos</p>
+            }
+        </div>
+    </div>
 </div>
-
-	string accion = ViewContext.RouteData.Values["action"].ToString();
-
-	@if (accion == "GetTerceros")
-	{
-		<form method="post" action="@Url.Action("GetTercerosTodos")">
-					<button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
-		</form>
-	}
-
-
-	<script src="@Url.Content("~/js/zoom.js")"></script>
-}
+<script src="@Url.Content("~/js/zoom.js")"></script>
 

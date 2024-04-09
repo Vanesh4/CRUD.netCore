@@ -30,7 +30,6 @@ namespace WebApplication2.Repo
 							CIUDAD = reader["NOM1"].ToString(),
 							EMAIL = reader["EMAIL"].ToString(),
 							FEC_ING = reader["FEC_ING"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_ING"]).ToString("dd-MM-yyyy") : (string)null
-
 						});
 					}
 				}

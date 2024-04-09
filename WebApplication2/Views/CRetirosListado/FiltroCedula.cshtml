@@ -24,7 +24,8 @@
                         <script>
                             $(document).ready(function () {
                                 $.ajax({
-                                    url: '@Url.Action("NombreCedula", "CTerceros")',
+                                    @*url: '@Url.Action("NombreCedula", "CTerceros")',*@
+                                    url: '@Url.Action("NombreCedula", "CPastores")',
                                     type: 'GET',
                                     data: { cedula: @Model[0].codTer },
                                     success: function (result) {

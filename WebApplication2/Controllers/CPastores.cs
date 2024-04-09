@@ -30,8 +30,19 @@ namespace WebApplication2.Controllers
 			return View(_repoPastores.FiltroCedula(cedula));
 		}
 
+        public IActionResult NombreCedula(int cedula)
+        {
+            List<MPastores> RegPastor = _repoPastores.FiltroCedula(cedula);
+            string nombre = "";
+            if (RegPastor != null && RegPastor.Count > 0)
+            {
+                nombre = RegPastor[0].nombre;
+            }
 
-		[HttpPost]
+            return Json(new { Nombre = nombre });
+        }
+
+        [HttpPost]
 		public IActionResult Update(MPastores datosAct)
 		{
 			var respuesta = _repoPastores.Update(datosAct);
