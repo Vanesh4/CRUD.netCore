@@ -219,7 +219,7 @@ namespace WebApplication2.Repo
                     conexion.Open();
                     //Tabla retiros
                     //SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo WHERE COD_TER = @codTer;", conexion);
-                    
+
                     SqlCommand cmd = new SqlCommand("UPDATE RetirosNet SET VerificadoFecha = @verificadoFecha,Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo, fechaRespaldo = @fechaRespaldo WHERE COD_TER = @codTer;", conexion);
                     cmd.Parameters.AddWithValue("@verificadoFecha", DateTime.Now);
                     cmd.Parameters.AddWithValue("@verficacionUsuario", datosVer.verficacionUsuario);
@@ -227,6 +227,14 @@ namespace WebApplication2.Repo
                     cmd.Parameters.AddWithValue("@fechaParaCalculo", datosVer.fechaParaCalculo);
                     cmd.Parameters.AddWithValue("@fechaRespaldo", fechaActual ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
+
+                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO RegAuditoriaRetiros (COD_TER, fecha_para_calculo, fechaActualizacion, usuario, ObservacionActualizacion) VALUES (@codTer, @fechaParaCalculo, @fechaActualizacion, @usuario, @observacionActualizacion);", conexion);
+                    cmdInsert.Parameters.AddWithValue("@codTer", datosVer.codTer);
+                    cmdInsert.Parameters.AddWithValue("@fechaParaCalculo", datosVer.fechaParaCalculo);
+                    cmdInsert.Parameters.AddWithValue("@fechaActualizacion", DateTime.Now);
+                    cmdInsert.Parameters.AddWithValue("@usuario", datosVer.verficacionUsuario);
+                    cmdInsert.Parameters.AddWithValue("@observacionActualizacion", datosVer.ObservacionActualizacion);
+                    cmdInsert.ExecuteNonQuery();
                 }
                 //res = true;
                 return true;

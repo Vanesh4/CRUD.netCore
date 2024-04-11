@@ -39,6 +39,6 @@
         public string verficacionFecha { get; set; }
         public string verficacionUsuario { get; set; }
 
-
+        public string ObservacionActualizacion {  get; set; }
     }
 }

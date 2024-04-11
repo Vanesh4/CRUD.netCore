@@ -126,6 +126,10 @@
                                         <input type="hidden" id="codTer" name="codTer" value="@Model[0].cedula" />
                                         <div class="mb-3">
                                             <input type="date" class="form-control" id="fechaParaCalculo" name="fechaParaCalculo">
+                                            <div class="form-group mt-2">
+                                                <label>Observacion Actualización</label>
+                                                <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -168,14 +172,15 @@
                             });
 
                             $('#confirmarEnvioBene').click(function () {
-                                console.log("en el boton");
+                                //console.log("en el boton");
                                 $.ajax({
                                     url: '@Url.Action("Update", "CRetirosListado")',
                                     type: 'POST',
                                     data: {
                                         verficacionUsuario: $('#verficacionUsuario').val(),
                                         codTer: $('#codTer').val(),
-                                        fechaParaCalculo: $('#fechaParaCalculo').val()
+                                        fechaParaCalculo: $('#fechaParaCalculo').val(),
+                                        ObservacionActualizacion: $('#ObservacionActualizacion').val()
                                     },
                                     success: function (result) {
                                         if (result.redirectUrl) {
@@ -255,7 +260,7 @@
                                             "<td>" + modelo.valorDebitos + "</td>" +
                                             "<td>" + modelo.valorCreditos + "</td>";
                                         tabla.appendChild(filadatos);
-                                        console.log(parseInt(modelo.valorCreditos))
+                                        
                                         debitosCont = debitosCont + parseInt(modelo.valorDebitos)
                                         creditosCont = creditosCont + parseInt(modelo.valorCreditos)
                                         
