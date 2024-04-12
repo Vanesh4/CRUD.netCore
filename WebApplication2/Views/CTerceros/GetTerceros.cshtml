@@ -59,10 +59,26 @@
                             }
                         </tbody>
                     </table>
-                    <form asp-action="previewcinco" asp-controller="ccinco" method="post">
-                        <input type="hidden" name="cedula" value=@Model[0].COD_TER>
-                        <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
-                    </form>
+                    <div class="row">
+
+                            <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+                                <input type="hidden" name="cedula" value=@Model[0].COD_TER>
+                                <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
+                            </form>
+                        
+                            @{
+                                string accion = ViewContext.RouteData.Values["action"].ToString();
+                            }
+                            @if (accion == "GetTerceros")
+                            {
+                                <form method="post" action="@Url.Action("GetTercerosTodos")">
+                                    <button type="submit" class="btn btn-outline-primary m-1">Mostrar Todos los Registros</button>
+                                </form>
+                            }
+                        
+                    </div>
+
+                    
                 </div>
 
             }

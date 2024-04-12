@@ -220,6 +220,7 @@
                             divBody.appendChild(Tabla);
 
                             var divContador = document.createElement("div");
+                            divContador.classList.add("text-end");
                             divContador.id = "divContador" + (i + 1);
                             divBody.appendChild(divContador);
 
@@ -268,7 +269,7 @@
                                     
                                     var divContador = document.getElementById("divContador" + (index + 1));
                                     divContador.classList.add("text-right");
-                                    divContador.innerHTML = "Debitos: " + debitosCont + " Créditos: " + creditosCont;
+                                    divContador.innerHTML = "<strong>Debitos:</strong> " + debitosCont.toLocaleString() + " <strong>Créditos: </strong>" + creditosCont.toLocaleString();
                                 },
                                 error: function (xhr, status, error) {
                                     console.error("Error al obtener los datos:", error);
