@@ -48,6 +48,7 @@ namespace WebApplication2.Controllers
         public IActionResult PreviewCinco(string cedula)
         {
             //return View("Cinco", repDatos(cedula));
+            
             return View("Cinco", _repoCINCO.MOVCont(cedula));
         }
 

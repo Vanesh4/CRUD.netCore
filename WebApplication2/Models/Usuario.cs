@@ -8,7 +8,7 @@ namespace WebApplication2.Models
         public string? userName { get; set; }
         public string? clave { get; set; }
         public string? correo { get; }
-        public string? rol { get; set; }
+        
 
         [NotMapped]
         public bool MantenerActivo { get; set; }

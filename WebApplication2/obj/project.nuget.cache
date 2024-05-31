@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rrXIJmy3+T6i6Q/pxmz1QGEzZ8W3ZB32E39j+2PZIAO1SO9bqxLChdLiq8+RDIV7x5SbsAMu5/hPOxO2Cqp/xw==",
+  "dgSpecHash": "oik22s5Tc3g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gordillov\\Desktop\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+  "projectFilePath": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gordillov\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Gordillov\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

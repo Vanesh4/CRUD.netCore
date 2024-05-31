@@ -39,12 +39,35 @@ namespace WebApplication2.Repo
                     cmd.Parameters.AddWithValue("user", u.userName);
                     cmd.Parameters.AddWithValue("email", u.correo);
                     cmd.Parameters.AddWithValue("pass", hashedPassword);
-                    cmd.Parameters.AddWithValue("rol", u.rol);
                     cmd.ExecuteNonQuery();
                 }
                 return true;
             }
             catch (Exception ex) {
+                string error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool VerificarRol(string user, int rol)
+        {
+            try
+            {
+                using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM permisos where usuario = @user and rol = @rol;", conexion);
+                    cmd.Parameters.AddWithValue("user", user);
+                    cmd.Parameters.AddWithValue("rol", rol);
+                    
+                    int count = (int)cmd.ExecuteScalar();
+                    if (count == 1) return true;
+                    else return false;
+                }
+                
+            }
+            catch (Exception ex)
+            {
                 string error = ex.Message;
                 return false;
             }
