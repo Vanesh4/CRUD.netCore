@@ -9,111 +9,123 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication2
 build_property.RootNamespace = WebApplication2
-build_property.ProjectDir = C:\Users\Gordillov\source\repos\CRUD.netCore\WebApplication2\
+build_property.ProjectDir = C:\Users\Gordillov\Source\Repos\CRUD.netCore\WebApplication2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Gordillov\source\repos\CRUD.netCore\WebApplication2
+build_property.MSBuildProjectDirectory = C:\Users\Gordillov\Source\Repos\CRUD.netCore\WebApplication2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCinco/Cinco.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCinco/Cinco.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENpbmNvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCinco/CincoData.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCinco/CincoData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENpbmNvRGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCinco/CIncoPrueba.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCinco/CIncoPrueba.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXENJbmNvUHJ1ZWJhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroNombreCongre.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCinco/PreviewCinco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NpbmNvXFByZXZpZXdDaW5jby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroNombreCongre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXEZpbHRyb05vbWJyZUNvbmdyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/filtroPorCedula.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/filtroPorCedula.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXGZpbHRyb1BvckNlZHVsYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroPorNombre.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/FiltroPorNombre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXEZpbHRyb1Bvck5vbWJyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/GetCongregaciones.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CCongregaciones/GetCongregaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NvbmdyZWdhY2lvbmVzXEdldENvbmdyZWdhY2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CDistritos/GetDistritos.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CDistritos/GetDistritos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0Rpc3RyaXRvc1xHZXREaXN0cml0b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CExequiales/Exequiales.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CExequiales/Exequiales.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0V4ZXF1aWFsZXNcRXhlcXVpYWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CLogin/Login.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CLogin/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0xvZ2luXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CPastores/FiltroPorCedula.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CPastores/FiltroPorCedula.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1Bhc3RvcmVzXEZpbHRyb1BvckNlZHVsYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CPastores/FiltroPorNombre.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CPastores/FiltroPorNombre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1Bhc3RvcmVzXEZpbHRyb1Bvck5vbWJyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CPastores/GetPastores.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CPastores/GetPastores.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1Bhc3RvcmVzXEdldFBhc3RvcmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CRetirosListado/FiltroCedula.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CRetirosListado/FiltroCedula.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JldGlyb3NMaXN0YWRvXEZpbHRyb0NlZHVsYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CRetirosListado/GetRetiros.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CRetirosListado/GetRetiros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JldGlyb3NMaXN0YWRvXEdldFJldGlyb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CTerceros/FiltroPorCodTer.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CTerceros/FiltroPorCodTer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1RlcmNlcm9zXEZpbHRyb1BvckNvZFRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CTerceros/FiltroPorNomTer.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CTerceros/FiltroPorNomTer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1RlcmNlcm9zXEZpbHRyb1Bvck5vbVRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/CTerceros/GetTerceros.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CTerceros/GetTerceros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1RlcmNlcm9zXEdldFRlcmNlcm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/Home/Index.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CUsuario/AgregarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1VzdWFyaW9cQWdyZWdhclVzdWFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/Home/Privacy.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/Shared/Error.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Shared/ViewError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFZpZXdFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/_ViewImports.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/_ViewStart.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/source/repos/CRUD.netCore/WebApplication2/Views/Shared/_Layout.cshtml]
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-amt9qciysm
