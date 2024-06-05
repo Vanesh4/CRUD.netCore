@@ -13,13 +13,12 @@ namespace WebApplication2.Models
         [NotMapped]
         public bool MantenerActivo { get; set; }
 
-        //public Usuario(string nombre, string userName, string correo, string clave, string rol)
+        //public Usuario(string nombre, string userName, string correo, string clave)
         //{
         //    this.nombre = nombre;
         //    this.userName = userName;
         //    this.clave = clave;
         //    this.correo = correo;
-        //    this.rol = rol;
         //}
 
     }

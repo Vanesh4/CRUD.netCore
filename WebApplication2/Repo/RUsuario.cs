@@ -34,7 +34,7 @@ namespace WebApplication2.Repo
                     string hashedPassword = HashPassword(u.clave);
 
                     // Consulta de inserción con contraseña cifrada
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios (nombre, UserName, correoElectronico, Clave, rol) VALUES (@nom, @user, @email, @pass, @rol)", conexion);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios (nombre, UserName, correoElectronico, Clave) VALUES (@nom, @user, @email, @pass)", conexion);
                     cmd.Parameters.AddWithValue("nom", u.nombre);
                     cmd.Parameters.AddWithValue("user", u.userName);
                     cmd.Parameters.AddWithValue("email", u.correo);
@@ -63,8 +63,7 @@ namespace WebApplication2.Repo
                     int count = (int)cmd.ExecuteScalar();
                     if (count == 1) return true;
                     else return false;
-                }
-                
+                }   
             }
             catch (Exception ex)
             {

@@ -15,7 +15,46 @@ namespace WebApplication2.Controllers
         RRetirosListado _retirosListado = new RRetirosListado();
         public IActionResult Cinco()
         {
-            return View();
+            return View(_repoCINCO.Rep20MovCont());
+        }        
+      
+        public IActionResult CincoData(string cedula)
+        {
+            //return View("CincoData", repDatos(cedula));
+            return View("CincoData", _repoCINCO.MOVCont(cedula));
+        }
+        public IActionResult PreviewCinco(string cedula)
+        {
+            //return View("Cinco", repDatos(cedula));
+            //vista con la misma donde esta el buscador
+            //return View("Cinco", _repoCINCO.MOVCont(cedula));
+            try
+            {
+                return View(_repoCINCO.MOVCont(cedula));
+            }
+            catch (Exception ex)
+            {
+                return View("ViewError");
+
+            }
+            
+        }
+
+        //vista de prueba Datos en for
+        public IActionResult CIncoPrueba(string cedula)
+        {
+            return View(_repoCINCO.MOVCont(cedula));
+        }
+
+        public IActionResult ObtenerFechaCalculo(string cedula)
+        {
+            string fechaCal = _retirosListado.fechadeCalculo(cedula);
+            return Json(new { FechaCalculo = fechaCal });
+        }
+
+        public IActionResult PorCuenta(string cuenta, string cedula)
+        {            
+            return Json(_repoCINCO.porCuentas(cuenta, cedula));
         }
 
         //private ReporteDatosCinco repDatos(string cedula)
@@ -39,35 +78,6 @@ namespace WebApplication2.Controllers
         //    };
         //    return reportData;
         //}
-      
-        public IActionResult CincoData(string cedula)
-        {
-            //return View("CincoData", repDatos(cedula));
-            return View("CincoData", _repoCINCO.MOVCont(cedula));
-        }
-        public IActionResult PreviewCinco(string cedula)
-        {
-            //return View("Cinco", repDatos(cedula));
-            
-            return View("Cinco", _repoCINCO.MOVCont(cedula));
-        }
-
-        //vista de prueba Datos en for
-        public IActionResult CIncoPrueba(string cedula)
-        {
-            return View(_repoCINCO.MOVCont(cedula));
-        }
-
-        public IActionResult ObtenerFechaCalculo(string cedula)
-        {
-            string fechaCal = _retirosListado.fechadeCalculo(cedula);
-            return Json(new { FechaCalculo = fechaCal });
-        }
-
-        public IActionResult PorCuenta(string cuenta, string cedula)
-        {            
-            return Json(_repoCINCO.porCuentas(cuenta, cedula));
-        }
 
         [HttpPost]
         public async Task<IActionResult> GenerarPDF(string cedula)

@@ -9,7 +9,6 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-
                 @if (TempData["Respuesta"] != null)
                 {
                     <div class="alert alert-success" role="alert">
@@ -139,76 +138,79 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha de calculo</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @{
+                                        var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+                                    }
+                                    <p id="fechaCalculoData"></p>
+                                    <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
+                                    <input type="hidden" id="codTer" name="codTer" value="@Model[0].codTer" />
+                                    <div class="mb-3">
+                                        <input type="date" class="form-control" id="fechaParaCalculo" name="fechaParaCalculo">
+                                        <div class="form-group mt-2">
+                                            <label>Observacion Actualización</label>
+                                            <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Actualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    Esta seguro que desea actualizar
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $('#confirmarEnvioBene').click(function () {
+                            //console.log("en el boton");
+                            $.ajax({
+                                url: '@Url.Action("Update", "CRetirosListado")',
+                                type: 'POST',
+                                data: {
+                                    verficacionUsuario: $('#verficacionUsuario').val(),
+                                    codTer: $('#codTer').val(),
+                                    fechaParaCalculo: $('#fechaParaCalculo').val(),
+                                    ObservacionActualizacion: $('#ObservacionActualizacion').val()
+                                },
+                                success: function (result) {
+                                    if (result.redirectUrl) {
+                                        window.location.href = result.redirectUrl;
+                                    }
+                                },
+                                error: function () {
+                                    console.log("Error al llamar al método");
+                                }
+                            });
+                        });
+                    </script>
                 }
                 else
                 {
                     <p>No se encontraron datos con esa cedula</p>
                 }
 
-                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha de calculo</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                @{
-                                    var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
-                                }
-                                <p id="fechaCalculoData"></p>
-                                <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
-                                <input type="hidden" id="codTer" name="codTer" value="@Model[0].codTer" />
-                                <div class="mb-3">
-                                    <input type="date" class="form-control" id="fechaParaCalculo" name="fechaParaCalculo">
-                                    <div class="form-group mt-2">
-                                        <label>Observacion Actualización</label>
-                                        <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Actualizar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                Esta seguro que desea actualizar
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
-                                <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    $('#confirmarEnvioBene').click(function () {
-                        //console.log("en el boton");
-                        $.ajax({
-                            url: '@Url.Action("Update", "CRetirosListado")',
-                            type: 'POST',
-                            data: {
-                                verficacionUsuario: $('#verficacionUsuario').val(),
-                                codTer: $('#codTer').val(),
-                                fechaParaCalculo: $('#fechaParaCalculo').val(),
-                                ObservacionActualizacion: $('#ObservacionActualizacion').val()
-                            },
-                            success: function (result) {
-                                if (result.redirectUrl) {
-                                    window.location.href = result.redirectUrl;
-                                }
-                            },
-                            error: function () {
-                                console.log("Error al llamar al método");
-                            }
-                        });
-                    });
-                </script>
+                
             </div>
         </div>
     </div>

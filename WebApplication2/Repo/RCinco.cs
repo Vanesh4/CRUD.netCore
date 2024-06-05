@@ -63,7 +63,6 @@ namespace WebApplication2.Repo
                     {
                         nombrePastor = readerApp["NOM_TER"].ToString();
                     }
-
                 }
             }
             return nombrePastor;
@@ -86,94 +85,99 @@ namespace WebApplication2.Repo
             return ObtenerDatos(consulta, parametros);
         }
 
+        public List<Cinco> Rep20MovCont()
+        {
+            string consulta = "SELECT TOP(20) * FROM [dbo].[REPMoviCont] ORDER BY Fecha;";
+            return ObtenerDatos(consulta, null);
+        }
+            
+
         //uno por uno
-        public List<Cinco> AportesPastor(string cedula)
-        {
-            string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
+        //public List<Cinco> AportesPastor(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPAportesPastor WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
 
-        public List<Cinco> CajaGeneral(string cedula)
-        {
-            string consulta = "SELECT * FROM REPCajaGeneral WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
+        //public List<Cinco> CajaGeneral(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPCajaGeneral WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
 
-        public List<Cinco> GastosDirectivos(string cedula)
-        {
-            string consulta = "SELECT * FROM REPGastosDirectivos WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> Otros(string cedula)
-        {
-            string consulta = "SELECT * FROM REPOtros WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> TaxisyBuses(string cedula)
-        {
-            string consulta = "SELECT * FROM REPTaxisBuses WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> BogotaCtasCorrientes(string cedula)
-        {
-            string consulta = "SELECT * FROM REPBogotaCtasCorrientes WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> Gastos(string cedula)
-        {
-            string consulta = "SELECT * FROM RepGastos WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> SegVicepresidente(string cedula)
-        {
-            string consulta = "SELECT * FROM REPSegVicepresidente WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> CajaMenor(string cedula)
-        {
-            string consulta = "SELECT * FROM REPCajaMenor WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> Reafiliaciones(string cedula)
-        {
-            string consulta = "SELECT * FROM REPReafiliaciones WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> InteresesCDT(string cedula)
-        {
-            string consulta = "SELECT * FROM REPInteresesCDT WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> Afiliaciones(string cedula)
-        {
-            string consulta = "SELECT * FROM REPAfiliaciones WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> InicialInvalidez(string cedula)
-        {
-            string consulta = "SELECT * FROM REPInicialInvalidez WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-        public List<Cinco> NuevoInvalidez(string cedula)
-        {
-            string consulta = "SELECT * FROM REPNuevoInvalidez WHERE Cedula = @cedula order by Fecha;";
-            SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
-            return ObtenerDatos(consulta, parametros);
-        }
-
-
+        //public List<Cinco> GastosDirectivos(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPGastosDirectivos WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> Otros(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPOtros WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> TaxisyBuses(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPTaxisBuses WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> BogotaCtasCorrientes(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPBogotaCtasCorrientes WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> Gastos(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM RepGastos WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> SegVicepresidente(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPSegVicepresidente WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> CajaMenor(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPCajaMenor WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> Reafiliaciones(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPReafiliaciones WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> InteresesCDT(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPInteresesCDT WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> Afiliaciones(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPAfiliaciones WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> InicialInvalidez(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPInicialInvalidez WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
+        //public List<Cinco> NuevoInvalidez(string cedula)
+        //{
+        //    string consulta = "SELECT * FROM REPNuevoInvalidez WHERE Cedula = @cedula order by Fecha;";
+        //    SqlParameter[] parametros = { new SqlParameter("@cedula", cedula) };
+        //    return ObtenerDatos(consulta, parametros);
+        //}
     }
 }

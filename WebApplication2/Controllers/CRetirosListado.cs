@@ -14,7 +14,14 @@ namespace WebApplication2.Controllers
 
         public IActionResult FiltroCedula(int cedula)
         {
-            return View(_repoListado.FiltroCedula(cedula));
+            try
+            {
+                return View(_repoListado.FiltroCedula(cedula));
+            }
+            catch (Exception ex) {
+                return View("ViewError");
+
+            } 
         }
 
         [HttpPost]

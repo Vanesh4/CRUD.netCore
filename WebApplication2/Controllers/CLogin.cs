@@ -15,7 +15,7 @@ namespace WebApplication2.Controllers
         private RUsuario _rusuario = new RUsuario();
         public IActionResult Login()
         {
-            //Usuario usuario = new Usuario("ALEYDA RUIZ", "RUIZA", "carteralagunas@corpentunida.org.co", "Aa123456789", "conCinco");
+            //Usuario usuario = new Usuario("Kelnherth Daniel Hernandez", "HERNANDEZK", "creditos03@corpentunida.org.co", "Kk123456");
             //_rusuario.AgregarUsuario(usuario);
             ClaimsPrincipal c = HttpContext.User;
             if (c.Identity != null) //evitar errores de un usuario no autenticado
@@ -25,6 +25,8 @@ namespace WebApplication2.Controllers
             }
             return View();
         }
+
+
 
         //crear la sesion de usuario
         [HttpPost]
