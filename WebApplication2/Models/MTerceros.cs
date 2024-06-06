@@ -68,7 +68,7 @@
 		public string CONT_TEL { get; set; }
 		public string I_PUNTOS { get; set; }
 		public string COD_PAIS { get; set; }
-		public DateTime FEC_MINIS { get; set; }
+		public string? FEC_MINIS { get; set; }
 		public string COD_DIST { get; set; }
 		public string COD_EST { get; set; }
 		public string TEL { get; set; }
@@ -87,7 +87,7 @@
 		public string COD_LICE { get; set; }
 		public string COD_CLASE { get; set; }
 		public string CONGREGA { get; set; }
-		public DateTime FEC_APORT { get; set; }
+		public string? FEC_APORT { get; set; }
 		public DateTime FEC_EXPCC { get; set; }
 		public string LUGAR_EXPCC { get; set; }
 		public string EMAIL_FACT { get; set; }

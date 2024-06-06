@@ -95,7 +95,7 @@ namespace WebApplication2.Repo
                         {
                             //codTer = Convert.ToInt32(reader["CÉDULA"]), este es con la vista
                             codTer = codTer,
-                            fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : (string)null,
+                            fechaParaCalculo = reader["fechaIngresoMinisterio"] != DBNull.Value ? Convert.ToDateTime(reader["fechaIngresoMinisterio"]).ToString("dd-MM-yyyy") : (string)null,
                             
                             liquidacion2006 = validarDato(anio2006(codTer).ToString()),
                             liquidacion2007 = validarDato(anio2007(codTer).ToString()),
@@ -137,14 +137,14 @@ namespace WebApplication2.Repo
                 {
                     conexion.Open();
                     string fechaParaCalculo = "no hay fecha";
-                    SqlCommand cmd = new SqlCommand("SELECT fecha_para_calculo FROM RetirosNet WHERE COD_TER=@codTer;", conexion);
+                    SqlCommand cmd = new SqlCommand("SELECT fechaIngresoMinisterio FROM RetirosNet WHERE COD_TER=@codTer;", conexion);
                     cmd.Parameters.AddWithValue("@codTer", cedula);
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            fechaParaCalculo = reader["fecha_para_calculo"] != DBNull.Value ? Convert.ToDateTime(reader["fecha_para_calculo"]).ToString("dd-MM-yyyy") : "no hay fecha";
+                            fechaParaCalculo = reader["fechaIngresoMinisterio"] != DBNull.Value ? Convert.ToDateTime(reader["fechaIngresoMinisterio"]).ToString("dd-MM-yyyy") : "no hay fecha";
                         }
                     }
                     return fechaParaCalculo;
@@ -202,7 +202,7 @@ namespace WebApplication2.Repo
                 using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT fecha_para_calculo as dato FROM RetirosNet where COD_TER = @cod_ter", conexion);
+                    SqlCommand cmd = new SqlCommand("SELECT fechaIngresoMinisterio as dato FROM RetirosNet where COD_TER = @cod_ter", conexion);
                     cmd.Parameters.AddWithValue("@cod_ter", datosVer.codTer);
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -220,7 +220,7 @@ namespace WebApplication2.Repo
                     //Tabla retiros
                     //SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo WHERE COD_TER = @codTer;", conexion);
 
-                    SqlCommand cmd = new SqlCommand("UPDATE RetirosNet SET VerificadoFecha = @verificadoFecha,Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo, fechaRespaldo = @fechaRespaldo WHERE COD_TER = @codTer;", conexion);
+                    SqlCommand cmd = new SqlCommand("UPDATE RetirosNet SET VerificadoFecha = @verificadoFecha,Verificacion=1,VerificadoUsuario=@verficacionUsuario, fechaIngresoMinisterio = @fechaParaCalculo, fechaRespaldo = @fechaRespaldo WHERE COD_TER = @codTer;", conexion);
                     cmd.Parameters.AddWithValue("@verificadoFecha", DateTime.Now);
                     cmd.Parameters.AddWithValue("@verficacionUsuario", datosVer.verficacionUsuario);
                     cmd.Parameters.AddWithValue("@codTer", datosVer.codTer);
@@ -228,7 +228,7 @@ namespace WebApplication2.Repo
                     cmd.Parameters.AddWithValue("@fechaRespaldo", fechaActual ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
 
-                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO RegAuditoriaRetiros (COD_TER, fecha_para_calculo, fechaActualizacion, usuario, ObservacionActualizacion) VALUES (@codTer, @fechaParaCalculo, @fechaActualizacion, @usuario, @observacionActualizacion);", conexion);
+                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO RegAuditoriaRetiros (COD_TER, fechaIngresoMinisterio, fechaActualizacion, usuario, ObservacionActualizacion) VALUES (@codTer, @fechaParaCalculo, @fechaActualizacion, @usuario, @observacionActualizacion);", conexion);
                     cmdInsert.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdInsert.Parameters.AddWithValue("@fechaParaCalculo", datosVer.fechaParaCalculo);
                     cmdInsert.Parameters.AddWithValue("@fechaActualizacion", DateTime.Now);
@@ -278,15 +278,15 @@ namespace WebApplication2.Repo
         private (int, int, int) retAnioMesDia(int cod_ter)
         {
             
-            string conanio = "SELECT YEAR(fecha_para_calculo) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
+            string conanio = "SELECT YEAR(fechaIngresoMinisterio) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
             SqlParameter[] parametroAnio = { new SqlParameter("@cod_ter", cod_ter) };
             int anio = ObtenerFechaInt(conanio, parametroAnio);
             
-            string conmes = "SELECT MONTH(fecha_para_calculo) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
+            string conmes = "SELECT MONTH(fechaIngresoMinisterio) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
             SqlParameter[] parametroMes = { new SqlParameter("@cod_ter", cod_ter) };
             int mes = ObtenerFechaInt(conmes, parametroMes);
 
-            string condia = "SELECT DAY(fecha_para_calculo) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
+            string condia = "SELECT DAY(fechaIngresoMinisterio) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
             SqlParameter[] parametroDia = { new SqlParameter("@cod_ter", cod_ter) };
             int dia = ObtenerFechaInt(condia, parametroDia);
 

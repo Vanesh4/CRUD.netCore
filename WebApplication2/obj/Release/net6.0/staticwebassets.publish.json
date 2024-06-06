@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UQUjNUh8fn5MgxygdxXGagdZu26ITstMmO8wEIqCF38=",
+  "Hash": "6NC+xIZRb4etXr1F94xZhw8PVPcN0kRQurujKCrI1Rc=",
   "Source": "WebApplication2",
   "BasePath": "_content/WebApplication2",
   "Mode": "Default",
@@ -2523,6 +2523,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\banner.png"
+    },
+    {
+      "Identity": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\cropped-logoAppCircular-32x32.png",
+      "SourceId": "WebApplication2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\wwwroot\\",
+      "BasePath": "_content/WebApplication2",
+      "RelativePath": "img/cropped-logoAppCircular-32x32.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\cropped-logoAppCircular-32x32.png"
     },
     {
       "Identity": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\loading.gif",

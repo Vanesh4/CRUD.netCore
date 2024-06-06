@@ -26,11 +26,13 @@ namespace WebApplication2.Repo
 						{
 							COD_TER = reader["COD_TER"].ToString(),
 							NOM_TER = reader["NOM_TER"].ToString(),
-							DIR1 = reader["DIR1"].ToString(),
-							CIUDAD = reader["NOM1"].ToString(),
-							EMAIL = reader["EMAIL"].ToString(),
-							FEC_ING = reader["FEC_ING"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_ING"]).ToString("dd-MM-yyyy") : (string)null
-						});
+							//DIR1 = reader["DIR1"].ToString(),
+							//EMAIL = reader["EMAIL"].ToString(),
+							CIUDAD = reader["CIUDAD"].ToString(),
+							FEC_ING = reader["FEC_ING"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_ING"]).ToString("dd-MM-yyyy") : (string)null,
+                            FEC_APORT = reader["FEC_APORT"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_APORT"]).ToString("dd-MM-yyyy") : (string)null,
+                            FEC_MINIS = reader["FEC_MINIS"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_MINIS"]).ToString("dd-MM-yyyy") : (string)null
+                        });
 					}
 				}
 				return Lista;
@@ -56,7 +58,12 @@ namespace WebApplication2.Repo
 
 		public List<MTerceros> FiltroPorNomTer(string nomTer)
 		{
-			string con = "SELECT * FROM Terceros WHERE NOM_TER LIKE '%' + @nomTer + '%';";
+
+            string[] nombrebusqueda = nomTer.Split(' ');
+            // Agregar '%' entre las palabras
+            string parametroNombre = string.Join("%", nombrebusqueda);
+
+            string con = "SELECT * FROM Terceros WHERE NOM_TER LIKE '%' + @nomTer + '%';";
 			SqlParameter[] parametros = { new SqlParameter("@nomTer", nomTer) };
 			return ObtenerDatos(con, parametros);
 

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\Gordillov\Source\Repos\CRUD.netCore\WebApplication2\bin\Release\net6.0\</_PublishTargetUrl>
-    <History>True|2024-06-05T16:52:10.6429774Z||;True|2024-05-31T15:34:14.5646436-05:00||;</History>
+    <History>True|2024-06-06T19:31:30.7106048Z||;True|2024-06-05T11:52:10.6429774-05:00||;True|2024-05-31T15:34:14.5646436-05:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

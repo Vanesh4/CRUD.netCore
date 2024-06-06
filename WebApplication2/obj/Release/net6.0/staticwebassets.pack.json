@@ -289,6 +289,10 @@
       "PackagePath": "staticwebassets\\img\\banner.png"
     },
     {
+      "Id": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\cropped-logoAppCircular-32x32.png",
+      "PackagePath": "staticwebassets\\img\\cropped-logoAppCircular-32x32.png"
+    },
+    {
       "Id": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\wwwroot\\img\\loading.gif",
       "PackagePath": "staticwebassets\\img\\loading.gif"
     },
