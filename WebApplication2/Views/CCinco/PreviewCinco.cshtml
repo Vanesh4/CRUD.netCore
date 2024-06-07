@@ -7,33 +7,29 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-body">
-                @if (Model != null && Model.Count > 0)
-                {
-                    <div class="row">                        
-                        <div id="informacion" class="col-9 d-flex justify-content-around">
-                            <h3>@Model[0].cedula </h3>
-                            <h3 id="nombre"> @Model[0].nombre</h3>
-                        </div>
-                        @{
-                            var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
-                        @using WebApplication2.Repo
-                            RUsuario _user = new RUsuario();
-                            bool Permiso = _user.VerificarRol(nombreUsuario, 1); // Ajusta los valores según tus necesidades
-                            if (Permiso)
-                            {
-                                <div class="col-3">
-                                    <button type="button" class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="botonFec">
-
-                                        Verificar fecha de calculo
-                                    </button>
-                                </div>
-                            }
-                        }                        
+            <div class="card-body">            
+            @if (Model != null && Model.Count > 0)
+            {
+                <div class="row">
+                    <div class="col-5">
+                        <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+                            <div class="input-group no-border">
+                                <input id="inputCedula" type="number" name="cedula" class="form-control" placeholder="Número de Cedula...">
+                                <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    string cuentaAnterior = Model[0].cuenta;
+                <div class="card-header">
+                    <h5 class="card-category">@Model[0].cedula</h5>
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">@Model[0].nombre</h4>
+                    </div>
+                </div>
+                <div class="card-body">                
 
+                    @{string cuentaAnterior = Model[0].cuenta;
                     <div class="accordion-item" id="accordion1">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="false" aria-controls="panelsStayOpen-collapse1">
@@ -65,96 +61,12 @@
                         }
                         cuentaAnterior = item.cuenta;
                     }
-
+                    }
                     <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
-                        <input type="hidden" name="cedula" value="@Model[0].cedula" />
+                        <input type="hidden" name="cedula" value="@Model[0].cedula" id="codTer"/>
                         <input type="hidden" name="nombre" value="@Model[0].nombre" />
                         <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
-                    </form>
-
-
-                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha de calculo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <p id="fechaCalculoData"></p>
-                                    <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
-                                    <input type="hidden" id="codTer" name="codTer" value="@Model[0].cedula" />
-                                    <div class="mb-3">
-                                        <input type="date" class="form-control" id="fechaParaCalculo" name="fechaParaCalculo">
-                                        <div class="form-group mt-2">
-                                            <label>Observacion Actualización</label>
-                                            <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Actualizar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    Esta seguro que desea actualizar
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <script>
-                        $(document).ready(function () {
-                            $('#botonFec').click(function () {
-                                $.ajax({
-                                    url: '@Url.Action("ObtenerFechaCalculo", "CCinco")',
-                                    type: 'GET',
-                                    data: { cedula: @Model[0].cedula},
-                                    success: function (result) {
-                                        //console.log(result)
-                                        $('#fechaCalculoData').html("<strong>@Model[0].nombre</strong> fecha: " + result["fechaCalculo"])
-                                    },
-                                    error: function () {
-                                        console.log("Error al llamar al método");
-                                    }
-                                });
-                            });
-                        });
-
-                        $('#confirmarEnvioBene').click(function () {
-                            //console.log("en el boton");
-                            $.ajax({
-                                url: '@Url.Action("Update", "CRetirosListado")',
-                                type: 'POST',
-                                data: {
-                                    verficacionUsuario: $('#verficacionUsuario').val(),
-                                    codTer: $('#codTer').val(),
-                                    fechaParaCalculo: $('#fechaParaCalculo').val(),
-                                    ObservacionActualizacion: $('#ObservacionActualizacion').val()
-                                },
-                                success: function (result) {
-                                    if (result.redirectUrl) {
-                                        window.location.href = result.redirectUrl;
-                                    }
-                                },
-                                error: function () {
-                                    console.log("Error al llamar al método");
-                                }
-                            });
-
-                        });
-                    </script>
+                    </form>                             
 
                     <script>
                         var modelo = @Json.Serialize(Model)
@@ -199,12 +111,12 @@
 
                                     var encabezado = document.createElement("tr");
                                     encabezado.innerHTML = `
-                                        <th>Comprobante</th>
-                                        <th>Num Comprobante</th>
-                                        <th>Fecha</th>
-                                        <th>Observacion</th>
-                                        <th>Debitos</th>
-                                        <th>Creditos</th>`;
+                                                                <th>Comprobante</th>
+                                                                <th>Num Comprobante</th>
+                                                                <th>Fecha</th>
+                                                                <th>Observacion</th>
+                                                                <th>Debitos</th>
+                                                                <th>Creditos</th>`;
                                     tabla.appendChild(encabezado);
 
                                     for (var i = 0; i < response.length; i++) {
@@ -233,11 +145,12 @@
                             });
                         }
                     </script>
-                }
-                else
-                {
-                    <p>No se encontraron datos con esa cedula</p>
-                }
+                </div>
+            }
+            else
+            {
+                <p>No se encontraron datos con esa cedula</p>
+            }
             </div>
         </div>
     </div>

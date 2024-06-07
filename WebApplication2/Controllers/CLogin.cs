@@ -21,7 +21,8 @@ namespace WebApplication2.Controllers
             if (c.Identity != null) //evitar errores de un usuario no autenticado
             {
                 if (c.Identity.IsAuthenticated) //se valida en el POST
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    return RedirectToAction("GetTerceros", "CTerceros");
             }
             return View();
         }
@@ -100,7 +101,8 @@ namespace WebApplication2.Controllers
                                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), authProperties);
 
                                 // Redirigir al usuario a la página de inicio
-                                return RedirectToAction("Index", "Home");
+                                //return RedirectToAction("Index", "Home");
+                                return RedirectToAction("GetTerceros", "CTerceros");
                             }
                             else
                             {
