@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\repo\\rretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1329,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,13 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PreviewCinco.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABCAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-07T17:15:49.967Z",
               "EditorCaption": ""
@@ -67,7 +67,8 @@
               "RelativeToolTip": "WebApplication2\\Controllers\\CTerceros.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAIwDUAAABhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T15:26:03.059Z"
+              "WhenOpened": "2024-06-07T15:26:03.059Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -79,17 +80,18 @@
               "RelativeToolTip": "WebApplication2\\Repo\\RPastores.cs",
               "ViewState": "AQIAAEsAAAAAAAAAAAAmwGEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-07T15:12:03.102Z"
+              "WhenOpened": "2024-06-07T15:12:03.102Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FiltroPorCodTer.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAmAAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAAAmwEoAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-05T19:26:01.024Z",
               "EditorCaption": ""
@@ -104,7 +106,8 @@
               "RelativeToolTip": "WebApplication2\\Repo\\RRetirosListado.cs",
               "ViewState": "AQIAAL0AAAAAAAAAAAAmwPMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T20:20:38.348Z"
+              "WhenOpened": "2024-04-01T20:20:38.348Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -116,7 +119,8 @@
               "RelativeToolTip": "WebApplication2\\Repo\\RTerceros.cs",
               "ViewState": "AQIAAEkAAAAAAAAAAAAkwHAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T19:26:17.45Z"
+              "WhenOpened": "2024-06-05T19:26:17.45Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -128,7 +132,8 @@
               "RelativeToolTip": "WebApplication2\\Views\\CTerceros\\FiltroPorNomTer.cshtml",
               "ViewState": "AQIAABgAAAAAAAAAAAAAACgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T17:32:02.011Z"
+              "WhenOpened": "2024-06-06T17:32:02.011Z",
+              "EditorCaption": ""
             }
           ]
         }
