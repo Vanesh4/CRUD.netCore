@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
     <div class="row">
         <div class="col-md-12">
@@ -35,8 +36,7 @@
                         <thead>
                             <tr>
                                 <th>CÉDULA</th>
-                                <th>NOMBRE</th>                                
-                                <th>CUIDAD</th>                                
+                                <th>NOMBRE</th>
                                 <th>FECHA DE INGRESO</th>
                                 <th>FECHA PRIMER APORTE</th>
                                 <th>FECHA MINISTERIO</th>
@@ -47,27 +47,74 @@
                             {
                                 <tr>
                                     <td>@item.COD_TER</td>
-                                    <td>@item.NOM_TER</td>                                    
-                                    <td>@item.CIUDAD</td>                                    
+                                    <td>@item.NOM_TER</td>
                                     <td>@item.FEC_ING</td>
                                     <td>@item.FEC_APORT</td>
-                                    <td>@item.FEC_MINIS</td>                                    
+                                    <td>@item.FEC_MINIS</td>
+                                    <td><button class="btn btn-success py-1">VERIFICAR</button></td>
+                                    <td>
+                                        <form id="deleteForm-@item.IdRow" asp-action="Delete" asp-controller="CTerceros">
+                                            <input type="hidden" value="@item.IdRow" name="idRow" />
+                                            <button type="button" class="btn btn-danger py-1" data-bs-toggle="modal" data-bs-target="#confirmacionModal" data-id="@item.IdRow">ELIMINAR</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             }
+                            <script>
+                                $(document).ready(function () {
+                                    console.log("antes del click")
+                                    $('button[data-bs-toggle="modal"]').on('click', function () {
+                                        var itemId = $(this).data('id');
+                                        $('#confirmarEnvio').on('click', function () {                                            
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: '@Url.Action("Delete", "CTerceros")',
+                                                data: { idRow: itemId },
+                                                success: function (response) {
+                                                    localStorage.setItem('successMessage', response.message);
+                                                    window.location.reload();
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    console.error('Error:', response.message);
+                                                }
+                                            });
+                                        });
+                                    });
+                                });
+                            </script>
                         </tbody>
                     </table>
-                    @{
-                        string accion = ViewContext.RouteData.Values["action"].ToString();
-                    }
-                    @if (accion == "GetTerceros")
-                    {
-                        <form method="post" action="@Url.Action("GetTercerosTodos")">
-                            <button type="submit" class="btn btn-primary m-3">Mostrar Todos los Registros</button>
-                        </form>
-                    }
+                    <div id="msj">                        
+                    </div>
+                    <script>
+                        message = localStorage.getItem('successMessage');
+                        if (message) {
+                            $("#msj").html('<div class="alert alert-success p-1">' + message + '</div>');
+                            localStorage.removeItem('successMessage');
+                        }
+                    </script>
+                    
                 </div>
-
             </div>
         </div>
     </div>
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar el registro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="confirmarEnvio" class="btn btn-primary">Si</button>
+                    <button type="button" class="btn btn-secondary" id="botonNo">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
+<script src="@Url.Content("~/js/zoom.js")"></script>

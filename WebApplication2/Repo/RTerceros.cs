@@ -28,10 +28,11 @@ namespace WebApplication2.Repo
 							NOM_TER = reader["NOM_TER"].ToString(),
 							//DIR1 = reader["DIR1"].ToString(),
 							//EMAIL = reader["EMAIL"].ToString(),
-							CIUDAD = reader["CIUDAD"].ToString(),
+							//CIUDAD = reader["CIUDAD"].ToString(),
 							FEC_ING = reader["FEC_ING"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_ING"]).ToString("dd-MM-yyyy") : (string)null,
                             FEC_APORT = reader["FEC_APORT"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_APORT"]).ToString("dd-MM-yyyy") : (string)null,
-                            FEC_MINIS = reader["FEC_MINIS"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_MINIS"]).ToString("dd-MM-yyyy") : (string)null
+                            FEC_MINIS = reader["FEC_MINIS"] != DBNull.Value ? Convert.ToDateTime(reader["FEC_MINIS"]).ToString("dd-MM-yyyy") : (string)null,
+							IdRow = reader["idRow"].ToString()
                         });
 					}
 				}
@@ -58,15 +59,57 @@ namespace WebApplication2.Repo
 
 		public List<MTerceros> FiltroPorNomTer(string nomTer)
 		{
-
             string[] nombrebusqueda = nomTer.Split(' ');
             // Agregar '%' entre las palabras
             string parametroNombre = string.Join("%", nombrebusqueda);
 
             string con = "SELECT * FROM Terceros WHERE NOM_TER LIKE '%' + @nomTer + '%';";
-			SqlParameter[] parametros = { new SqlParameter("@nomTer", nomTer) };
+			SqlParameter[] parametros = { new SqlParameter("@nomTer", parametroNombre) };
 			return ObtenerDatos(con, parametros);
-
 		}
-	}
+
+        public bool Update(MPastores datosAct)
+        {
+            try
+            {
+                using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+                {
+                    conexion.Open();                    
+                    SqlCommand cmd = new SqlCommand("UPDATE Pastores SET NOMBRE=@nom,EMAIL=@email,CONTACTO=@con WHERE CÉDULA = @id", conexion);
+                    cmd.Parameters.AddWithValue("id", datosAct.cedula);
+                    cmd.Parameters.AddWithValue("nom", datosAct.nombre);
+                    cmd.Parameters.AddWithValue("email", datosAct.email);
+                    cmd.Parameters.AddWithValue("con", datosAct.contacto);
+                    cmd.ExecuteNonQuery();
+
+                }
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                return false;
+            }            
+        }
+        public bool Delete(int idRow)
+        {
+            try
+            {
+                using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Terceros where idRow= @id", conexion);
+                    cmd.Parameters.AddWithValue("id", idRow);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+				return false;
+            }            
+        }
+    }
 }

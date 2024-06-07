@@ -100,5 +100,6 @@
 		public string CTA_ICAP { get; set; }
 		public string CTA_ICAC { get; set; }
 		public string EMAIL_FAC { get; set; }
+		public string IdRow { get; set; }
 	}
 }

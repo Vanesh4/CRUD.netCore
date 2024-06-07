@@ -189,8 +189,6 @@ namespace WebApplication2.Repo
             }
         }
 
-         
-        
 
     public bool Update(MRetirosListado datosVer)
         {
@@ -704,6 +702,32 @@ namespace WebApplication2.Repo
             }
             else return (0, calculo, 0);
         }
+
+        private (double, double, double) anio2024(int cod_ter)
+        {
+            double calculo = 0;
+            var r = retAnioMesDia(cod_ter);
+            int valorFijo = 3243572;
+            if (r.Item1 < 2024)
+            {
+                double liquidacion = valorFijo;
+                double plus = calculoPlus(cod_ter, new DateTime(2024, 12, 31), 7209);
+                double total = liquidacion + plus;
+                return (liquidacion, plus, total);
+            }
+            else if (r.Item1 == 2024)
+            {
+                int difMes = 12 - r.Item2;
+                int difDia = 31 - r.Item3;
+
+                double liquidacion = ((difMes * valorFijo) / 12) + (((difDia * valorFijo) / 12) / 30);
+                double plus = calculoPlus(cod_ter, new DateTime(2024, 12, 31), 7209);
+                double total = (liquidacion + plus);
+                return ((int)Math.Ceiling(liquidacion), (int)Math.Ceiling(plus), total);
+            }
+            else return (0, calculo, 0);
+        }
+
 
         private string sumaTotalLiquidaciones(int codTer)
         {

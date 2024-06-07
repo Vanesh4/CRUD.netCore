@@ -42,5 +42,17 @@ namespace WebApplication2.Controllers
 		{
 			return View(_repoTerceros.FiltroPorNomTer(nomTer));
 		}
-	}
+
+        [HttpPost]
+        public IActionResult Delete(int idRow)
+        {
+            var respuesta = _repoTerceros.Delete(idRow);
+            if (respuesta)
+                return Json(new { success = true, message = "El elemento se eliminó correctamente." });
+            else
+            {
+                return Json(new { success = false, message = "Error al eliminar el elemento." });
+            }
+        }
+    }
 }

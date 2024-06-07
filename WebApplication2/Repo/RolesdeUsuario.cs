@@ -11,10 +11,10 @@ namespace WebApplication2.Repo
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            // Verificar si el usuario está autenticado
+            
             if (!context.HttpContext.User.Identity.IsAuthenticated)
             {
-                context.Result = new UnauthorizedResult(); // No permitir acceso si el usuario no está autenticado
+                context.Result = new UnauthorizedResult(); 
                 return;
             }
 
@@ -22,7 +22,7 @@ namespace WebApplication2.Repo
             var requiredRole = "administrador"; 
             if (!context.HttpContext.User.IsInRole(requiredRole))
             {
-                context.Result = new ForbidResult(); // No permitir acceso si el usuario no tiene el rol requerido
+                context.Result = new ForbidResult(); 
             }
         }
     }
