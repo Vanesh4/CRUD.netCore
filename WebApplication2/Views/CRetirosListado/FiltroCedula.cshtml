@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@* <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" /> *@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="row">
     <div class="col-md-12">
@@ -55,38 +54,57 @@
                             <div class="col-md-3 pr-1">
                                 <div class="form-group">
                                     <label>Fecha Ingreso al Ministerio</label>
-                                    <div class="form-control">@Model[0].fechaParaCalculo</div>
+                                    <div class="form-control">@Model[0].fechaIngresoMinisterio</div>
                                     @* <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc."> *@
                                 </div>
                             </div>
-                            <div class="col-md-3 px-1">
+                            <div class="col-md-3 pr-1">
                                 <div class="form-group">
-                                    @if (@Model[0].verficacion == "True") //esta en string, ponerlo a BOOL
+                                    <label>Fecha Primer Aporte</label>
+                                    <div class="form-control">@Model[0].fechaPrimerAporte</div>
+                                    @* <input type="text" class="form-control" placeholder="Company" value="Creative Code Inc."> *@
+                                </div>
+                            </div>
+                            <div class="col-md-3 pr-1">
+                                <div class="form-group">
+                                    @if (@Model[0].verficacion) //esta en string, ponerlo a BOOL
                                     {
                                         <label>Estado</label>
-                                        <div class="form-control btn btn-success py-1">VERIFICADO</div>
+                                        <div class="form-control btn-success">VERIFICADO</div>
                                     }
                                     else
                                     {
                                         <label>Estado</label>
-                                        <div class="form-control btn btn-danger py-1">SIN VERIFICAR</div>
+                                        <div class="form-control btn-danger">SIN VERIFICAR</div>
                                     }
 
                                 </div>
                             </div>
-                            <div class="col-md-3 px-1">
-                                <div class="form-group">
-                                    <label>Verficacion Fecha</label>
-                                    <div class="form-control">@Model[0].verficacionFecha</div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 pl-1">
-                                <div class="form-group">
-                                    <label>Verficacion Usuario</label>
-                                    <div class="form-control">@Model[0].verficacionUsuario</div>
-                                </div>
-                            </div>
                         </div>
+                        @if (@Model[0].verficacion) //esta en string, ponerlo a BOOL
+                        {
+                            <div class="row">
+                                <div class="col-md-3 px-1">
+                                    <div class="form-group">
+                                        <label>Verficacion Fecha</label>
+                                        <div class="form-control">@Model[0].verficacionFecha</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pl-1">
+                                    <div class="form-group">
+                                        <label>Verficacion Usuario</label>
+                                        <div class="form-control">@Model[0].verficacionUsuario</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pl-1">
+                                    <div class="form-group">
+                                        <label>Observacion</label>
+                                        <div class="form-control">@Model[0].ObservacionActualizacion</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }                        
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
@@ -105,7 +123,7 @@
                                 </thead>
                                 <tbody>
                                     @{
-                                        List<string> without = new List<string> { "codTer", "fechaParaCalculo", "verficacion", "verficacionFecha", "verficacionUsuario", };
+                                        List<string> without = new List<string> { "codTer", "fechaPrimerAporte", "fechaIngresoMinisterio", "ObservacionActualizacion", "verficacion", "verficacionFecha", "verficacionUsuario", };
                                     }
 
                                     @foreach (var propertyInfo in typeof(MRetirosListado).GetProperties())

@@ -55,7 +55,7 @@ namespace WebApplication2.Repo
                             //liquidacion2022PLUS = validarDato(reader["liquidacion_2022PLUS"].ToString()),
                             //liquidacion2023PLUS = validarDato(reader["liquidacion_2023PLUS"].ToString()),
 
-                            verficacion = reader["Verificacion"].ToString(),
+                            //verficacion = reader["Verificacion"].ToString(),
                             verficacionFecha = reader["VerificadoFecha"] != DBNull.Value ? Convert.ToDateTime(reader["VerificadoFecha"]).ToString("dd-MM-yyyy") : (string)null,
                             verficacionUsuario = reader["VerificadoUsuario"].ToString(),
                         });
@@ -97,7 +97,8 @@ namespace WebApplication2.Repo
                             //codTer = Convert.ToInt32(reader["CÉDULA"]), este es con la vista
                             codTer = codTer,
                             fechaIngresoMinisterio = reader["fechaIngresoMinisterio"] != DBNull.Value ? Convert.ToDateTime(reader["fechaIngresoMinisterio"]).ToString("dd-MM-yyyy") : (string)null,
-                            
+                            fechaPrimerAporte = reader["fechaPrimerAporte"] != DBNull.Value ? Convert.ToDateTime(reader["fechaPrimerAporte"]).ToString("dd-MM-yyyy") : (string)null,
+
                             liquidacion2006 = validarDato(anio2006(codTer).ToString()),
                             liquidacion2007 = validarDato(anio2007(codTer).ToString()),
                             liquidacion2008 = validarDato(anio2008(codTer).ToString()),
@@ -121,9 +122,10 @@ namespace WebApplication2.Repo
 
                             totalLiquidaciones = sumaTotalLiquidaciones(codTer),
 
-                            verficacion = reader["Verificacion"].ToString(),
+                            verficacion = reader["Verificacion"] != DBNull.Value && (int)reader["Verificacion"] == 1,
                             verficacionFecha = reader["VerificadoFecha"] != DBNull.Value ? Convert.ToDateTime(reader["VerificadoFecha"]).ToString("dd-MM-yyyy") : (string)null,
                             verficacionUsuario = reader["VerificadoUsuario"].ToString(),
+                            ObservacionActualizacion = reader["ObservacionActualizacion"].ToString(),
                         });
                     }
                 }
@@ -236,8 +238,7 @@ namespace WebApplication2.Repo
                     cmdTer.ExecuteNonQuery();
 
                     //ACTUALIZACION EN PASTORES
-                    SqlCommand cmdPar = new SqlCommand("UPDATE Terceros SET FEC_MINIS = @fechaIM, FEC_PRIMERAPORTE = @fechaPA WHERE COD_TER = @codTer;", conexion);
-                    cmdPar.Parameters.AddWithValue("@fechaIM", datosVer.fechaIngresoMinisterio);
+                    SqlCommand cmdPar = new SqlCommand("UPDATE Pastores SET FEC_PRIMERAPORTE = @fechaPA WHERE COD_TER = @codTer;", conexion);
                     cmdPar.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
                     cmdPar.ExecuteNonQuery();
 
@@ -746,7 +747,7 @@ namespace WebApplication2.Repo
 
         private string sumaTotalLiquidaciones(int codTer)
         {
-            double suma = anio2006(codTer) + anio2007(codTer) + anio2008(codTer) + anio2009(codTer) + anio2010(codTer) + anio2011(codTer) + anio2012(codTer) + anio2013(codTer) + anio2014(codTer) + anio2015(codTer) + anio2016(codTer) + anio2017(codTer).Item3 + anio2018(codTer).Item3 + anio2019(codTer).Item3 + anio2020(codTer).Item3 + anio2021(codTer).Item3 + anio2022(codTer).Item3 + anio2022(codTer).Item3;
+            double suma = anio2006(codTer) + anio2007(codTer) + anio2008(codTer) + anio2009(codTer) + anio2010(codTer) + anio2011(codTer) + anio2012(codTer) + anio2013(codTer) + anio2014(codTer) + anio2015(codTer) + anio2016(codTer) + anio2017(codTer).Item3 + anio2018(codTer).Item3 + anio2019(codTer).Item3 + anio2020(codTer).Item3 + anio2021(codTer).Item3 + anio2022(codTer).Item3 + anio2023(codTer).Item3 + anio2024(codTer).Item3;
             return validarDato(suma.ToString());
         }
 

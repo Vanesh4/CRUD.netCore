@@ -9,7 +9,8 @@ namespace WebApplication2.Controllers
         RRetirosListado _repoListado = new RRetirosListado();
         public IActionResult GetRetiros()
         {
-            return View(_repoListado.listarTodos());
+            //return View(_repoListado.listarTodos());
+            return View();
         }
 
         public IActionResult FiltroCedula(int cedula)

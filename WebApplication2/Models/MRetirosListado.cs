@@ -30,7 +30,7 @@
 
         public string? fechaIngresoMinisterio { get; set; }
         public string? fechaPrimerAporte { get; set; }
-        public string verficacion { get; set; }
+        public bool verficacion { get; set; }
         public string verficacionFecha { get; set; }
         public string verficacionUsuario { get; set; }
 

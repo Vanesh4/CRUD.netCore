@@ -26,7 +26,7 @@ function toggleColumns(columnIndexes) {
 }
 
 //ZOOM a la tabla
-var zoomLevel = 0.8;
+var zoomLevel = 0;
 tabla.style.zoom = zoomLevel;
 
 function zoomIn() {
