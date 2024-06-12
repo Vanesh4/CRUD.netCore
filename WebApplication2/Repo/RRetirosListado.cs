@@ -110,7 +110,7 @@ namespace WebApplication2.Repo
                             liquidacion2014 = validarDato(anio2014(codTer).ToString()),
                             liquidacion2015 = validarDato(anio2015(codTer).ToString()),
                             liquidacion2016 = validarDato(anio2016(codTer).ToString()),
-                            
+
                             liquidacion2017 = new List<string> { validarDato(liq2017.Item1.ToString()), validarDato(liq2017.Item2.ToString()), validarDato(liq2017.Item3.ToString()) },
                             liquidacion2018 = new List<string> { validarDato(liq2018.Item1.ToString()), validarDato(liq2018.Item2.ToString()), validarDato(liq2018.Item3.ToString()) },
                             liquidacion2019 = new List<string> { validarDato(liq2019.Item1.ToString()), validarDato(liq2019.Item2.ToString()), validarDato(liq2019.Item3.ToString()) },
@@ -194,27 +194,34 @@ namespace WebApplication2.Repo
         }
 
 
-    public bool Update(MRetirosListado datosVer)
+        public bool Update(MRetirosListado datosVer)
         {
             try
             {
-                DateTime? fechaActual = null;
+                DateTime? fechaActualIM = null;
+                DateTime? fechaActualPA = null;
 
                 using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT fechaIngresoMinisterio as dato FROM RetirosNet where COD_TER = @cod_ter", conexion);
+                    SqlCommand cmd = new SqlCommand("SELECT fechaIngresoMinisterio as datoFM, fechaPrimerAporte as datoPA FROM RetirosNet where COD_TER = @cod_ter", conexion);
                     cmd.Parameters.AddWithValue("@cod_ter", datosVer.codTer);
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            fechaActual = Convert.ToDateTime(reader["dato"]);
+                            fechaActualIM = Convert.ToDateTime(reader["datoFM"]);
+                            fechaActualPA = Convert.ToDateTime(reader["datoPA"]);
                         }
                     }
                     conexion.Close();
                 }
-
+                if (datosVer.fechaIngresoMinisterio == null) {
+                    datosVer.fechaIngresoMinisterio = fechaActualIM.ToString();
+                }else if (datosVer.fechaPrimerAporte == null)
+                {
+                    datosVer.fechaPrimerAporte = fechaActualPA.ToString();
+                }
                 using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
                 {
                     conexion.Open();
@@ -222,35 +229,38 @@ namespace WebApplication2.Repo
                     //SqlCommand cmd = new SqlCommand("UPDATE Retiros SET VerificadoFecha=GETDATE(),Verificacion=1,VerificadoUsuario=@verficacionUsuario, fecha_para_calculo = @fechaParaCalculo WHERE COD_TER = @codTer;", conexion);
 
                     //ACTUALIZACION EN RETIROSNET
-                    SqlCommand cmdRet = new SqlCommand("UPDATE RetirosNet SET VerificadoFecha = @verificadoFecha,Verificacion=1,VerificadoUsuario=@verficacionUsuario, fechaIngresoMinisterio = @fechaIM, fechaRespaldo = @fechaRespaldo, fechaPrimerAporte = @fechaPA WHERE COD_TER = @codTer;", conexion);
+                    SqlCommand cmdRet = new SqlCommand("UPDATE RetirosNet SET VerificadoFecha = @verificadoFecha,Verificacion=1,VerificadoUsuario=@verficacionUsuario, fechaIngresoMinisterio = @fechaIM, fechaRespaldo = @fechaRespaldo, fechaPrimerAporte = @fechaPA, ObservacionActualizacion = @observ  WHERE COD_TER = @codTer;", conexion);
                     cmdRet.Parameters.AddWithValue("@verificadoFecha", DateTime.Now);
                     cmdRet.Parameters.AddWithValue("@verficacionUsuario", datosVer.verficacionUsuario);
                     cmdRet.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdRet.Parameters.AddWithValue("@fechaIM", datosVer.fechaIngresoMinisterio);
                     cmdRet.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
-                    cmdRet.Parameters.AddWithValue("@fechaRespaldo", fechaActual ?? (object)DBNull.Value);
+                    cmdRet.Parameters.AddWithValue("@fechaRespaldo", fechaActualIM ?? (object)DBNull.Value);
+                    cmdRet.Parameters.AddWithValue("@observ", datosVer.ObservacionActualizacion);
                     cmdRet.ExecuteNonQuery();
 
                     //ACTUALIZACION EN TERCEROS
                     SqlCommand cmdTer = new SqlCommand("UPDATE Terceros SET FEC_MINIS = @fechaIM, FEC_APORT = @fechaPA WHERE COD_TER = @codTer;", conexion);
+                    cmdTer.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdTer.Parameters.AddWithValue("@fechaIM", datosVer.fechaIngresoMinisterio);
                     cmdTer.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
                     cmdTer.ExecuteNonQuery();
 
                     //ACTUALIZACION EN PASTORES
-                    SqlCommand cmdPar = new SqlCommand("UPDATE Pastores SET FEC_PRIMERAPORTE = @fechaPA WHERE COD_TER = @codTer;", conexion);
+                    SqlCommand cmdPar = new SqlCommand("UPDATE Pastores SET FEC_PRIMERAPORTE = @fechaPA WHERE CÉDULA = @codTer;", conexion);
+                    cmdPar.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdPar.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
                     cmdPar.ExecuteNonQuery();
 
-                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO RegAuditoriaRetiros (COD_TER, fechaIngresoMinisterio, fechaPrimerAporte, fechaActualizacion, usuario, ObservacionActualizacion) VALUES (@codTer, @fechaIM, @fechaPA, @fechaActualizacion, @usuario, @observacionActualizacion);", conexion);
+                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO RegAuditoriaRetiros (COD_TER, fechaIngresoMinisterio, fechaPrimerAporte, fechaActualizacion, usuario, ObservacionActualizacion) VALUES (@codTer, @fechaIM, @fechaPA, @fechaActualizacion, @usuario, @observ);", conexion);
                     cmdInsert.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdInsert.Parameters.AddWithValue("@fechaIM", datosVer.fechaIngresoMinisterio);
                     cmdInsert.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
                     cmdInsert.Parameters.AddWithValue("@fechaActualizacion", DateTime.Now);
                     cmdInsert.Parameters.AddWithValue("@usuario", datosVer.verficacionUsuario);
-                    cmdInsert.Parameters.AddWithValue("@observacionActualizacion", datosVer.ObservacionActualizacion);
+                    cmdInsert.Parameters.AddWithValue("@observ", datosVer.ObservacionActualizacion);
                     cmdInsert.ExecuteNonQuery();
-                }            
+                }
                 return true;
             }
             catch (Exception e)
@@ -291,11 +301,11 @@ namespace WebApplication2.Repo
         //calculos de liquidaciones
         private (int, int, int) retAnioMesDia(int cod_ter)
         {
-            
+
             string conanio = "SELECT YEAR(fechaIngresoMinisterio) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
             SqlParameter[] parametroAnio = { new SqlParameter("@cod_ter", cod_ter) };
             int anio = ObtenerFechaInt(conanio, parametroAnio);
-            
+
             string conmes = "SELECT MONTH(fechaIngresoMinisterio) as dato FROM RetirosNet WHERE COD_TER = @cod_ter;";
             SqlParameter[] parametroMes = { new SqlParameter("@cod_ter", cod_ter) };
             int mes = ObtenerFechaInt(conmes, parametroMes);
@@ -528,12 +538,12 @@ namespace WebApplication2.Repo
         double divAnioDias = 365.0 / 12.0;
         private double calculoPlus(int cod_ter, DateTime fechaFin, int plusVal)
         {
-            
+
             DateTime fechaInicio;
             if (!DateTime.TryParse(fechadeCalculo(cod_ter.ToString()), out fechaInicio))
             {
                 fechaInicio = DateTime.MinValue;
-            }           
+            }
             TimeSpan diferencia = fechaFin.Subtract(fechaInicio);
             int diferenciaEnDias = diferencia.Days;
 
@@ -558,7 +568,7 @@ namespace WebApplication2.Repo
                 double plus = calculoPlus(cod_ter, new DateTime(2017, 12, 31), 4891);
                 double total = liquidacion + plus;
                 return (liquidacion, (int)Math.Ceiling(plus), total);
-                
+
             }
             else if (r.Item1 == 2017)
             {
@@ -570,7 +580,7 @@ namespace WebApplication2.Repo
                 double total = (liquidacion + plus);
                 return (liquidacion, plus, total);
             }
-            else return (0,calculo, 0);
+            else return (0, calculo, 0);
         }
 
         private (double, double, double) anio2018(int cod_ter)

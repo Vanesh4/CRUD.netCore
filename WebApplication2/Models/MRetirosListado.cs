@@ -2,8 +2,7 @@
 {
     public class MRetirosListado
     {
-        public int? codTer { get; set; }
-        
+        public int? codTer { get; set; }       
 
         public string? liquidacion2006 { get; set; }
         public string? liquidacion2007 { get; set; }

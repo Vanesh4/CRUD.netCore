@@ -31,11 +31,11 @@ namespace WebApplication2.Controllers
             try
             {
                 var respuesta = _repoListado.Update(datosVer);
-
                 if (respuesta)
                 {
                     TempData["Respuesta"] = "Se actualizaron los datos";
-                    return Json(new { redirectUrl = Url.Action("FiltroCedula", new { cedula = datosVer.codTer }) });
+                    //return Json(new { redirectUrl = Url.Action("FiltroCedula", new { cedula = datosVer.codTer }) });
+                    return Json(new { redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
                 }
                 else
                 {

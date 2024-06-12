@@ -2,7 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    
+
     var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -11,6 +11,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
+                    @if (TempData["Respuesta"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            @TempData["Respuesta"]
+                        </div>
+                    }
                     <div class="row">
                         <div class="col-md-3 pr-1">
                             <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
@@ -40,9 +46,9 @@
                             <tr>
                                 <th>CÉDULA</th>
                                 <th>NOMBRE</th>
-                                <th>FECHA DE INGRESO</th>
-                                <th>FECHA PRIMER APORTE</th>
+                                <th>FECHA CORPENTUNIDA</th>
                                 <th>FECHA MINISTERIO</th>
+                                <th>FECHA PRIMER APORTE</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,15 +58,15 @@
                                     <td>@item.COD_TER</td>
                                     <td>@item.NOM_TER</td>
                                     <td>@item.FEC_ING</td>
+                                    <td>@item.FEC_MINIS</td>
                                     <td>@item.FEC_APORT</td>
-                                    <td>@item.FEC_MINIS</td>     
-                                    @using WebApplication2.Repo
+                                @using WebApplication2.Repo
                                     @{
                                         RUsuario _user = new RUsuario();
                                         bool Permiso = _user.VerificarRol(nombreUsuario, 1); // Ajusta los valores según tus necesidades
                                         if (Permiso)
                                         {
-                                            <td><button class="btn btn-success py-1">VERIFICAR</button></td>
+                                            <td><button class="btn btn-success py-1" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="botonFec">VERIFICAR</button></td>
                                         }
                                         Permiso = _user.VerificarRol(nombreUsuario, 4);
                                         if (Permiso)
@@ -72,15 +78,14 @@
                                                 </form>
                                             </td>
                                         }
-                                    }   
+                                    }
                                 </tr>
                             }
                             <script>
                                 $(document).ready(function () {
-                                    console.log("antes del click")
                                     $('button[data-bs-toggle="modal"]').on('click', function () {
                                         var itemId = $(this).data('id');
-                                        $('#confirmarEnvio').on('click', function () {                                            
+                                        $('#confirmarEnvio').on('click', function () {
                                             $.ajax({
                                                 type: 'POST',
                                                 url: '@Url.Action("Delete", "CTerceros")',
@@ -99,7 +104,7 @@
                             </script>
                         </tbody>
                     </table>
-                    <div id="msj">                        
+                    <div id="msj">
                     </div>
                     <script>
                         message = localStorage.getItem('successMessage');
@@ -108,7 +113,7 @@
                             localStorage.removeItem('successMessage');
                         }
                     </script>
-                    
+
                 </div>
             </div>
         </div>
@@ -130,6 +135,102 @@
             </div>
         </div>
     </div>
+
+            //VERIFICAR FECHAS MODAL
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="fechaCalculoData"></p>
+                        <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
+                        <input type="hidden" id="codTer" name="codTer" value="@Model[0].COD_TER" />
+                    <form class="mb-3 needs-validation" novalidate>
+                            <div class="form-group">
+                                <label>Fecha Ingreso al Ministerio</label>
+                                <input type="date" class="form-control py-1" id="fechaIM" name="fechaIM">
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha Primer Aporte</label>
+                                <input type="date" class="form-control py-1" id="fechaPA" name="fechaPA">
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Observación de Actualización</label>
+                                <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion" required>
+                            <div class="invalid-feedback">
+                                Digite una observación.
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnActualizar">Actualizar</button>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnActualizar = document.getElementById('btnActualizar');
+            btnActualizar.addEventListener('click', function () {
+                form = document.querySelector('.needs-validation')
+                if (form.checkValidity()) {
+                    var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+                    modal.show();
+                }else form.classList.add('was-validated');
+            });
+        });
+    </script>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    ¿Esta seguro que desea actualizar?
+                    <div class="modal-footer">
+                        <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#confirmarEnvioBene').click(function () {
+            //console.log("en el boton");
+            $.ajax({
+                url: '@Url.Action("Update", "CRetirosListado")',
+                type: 'POST',
+                data: {
+                    verficacionUsuario: $('#verficacionUsuario').val(),
+                    codTer: $('#codTer').val(),
+                    fechaIngresoMinisterio: $('#fechaIM').val(),
+                    fechaPrimerAporte: $('#fechaPA').val(),
+                    ObservacionActualizacion: $('#ObservacionActualizacion').val()
+                },
+                success: function (result) {
+                    if (result.redirectUrl) {
+                        console - log("siiii?")
+                        window.location.href = result.redirectUrl;
+                    }
+                    else {
+                        console.log("nooooo")
+                    }
+                },
+                error: function () {
+                    console.log("Error al llamar al método");
+                }
+            });
+
+        });
+    </script>
 
 }
 <script src="@Url.Content("~/js/zoom.js")"></script>
