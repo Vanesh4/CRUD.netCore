@@ -140,37 +140,56 @@
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="fechaCalculoData"></p>
-                        <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
-                        <input type="hidden" id="codTer" name="codTer" value="@Model[0].COD_TER" />
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="fechaCalculoData"></p>
+                    <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
+                    <input type="hidden" id="codTer" name="codTer" value="@Model[0].COD_TER" />
                     <form class="mb-3 needs-validation" novalidate>
-                            <div class="form-group">
-                                <label>Fecha Ingreso al Ministerio</label>
-                                <input type="date" class="form-control py-1" id="fechaIM" name="fechaIM">
-                            </div>
-                            <div class="form-group">
-                                <label>Fecha Primer Aporte</label>
-                                <input type="date" class="form-control py-1" id="fechaPA" name="fechaPA">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label>Observación de Actualización</label>
-                                <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion" required>
+                        <div class="form-group">
+                            <label>Fecha Ingreso al Ministerio</label>
+                            <input type="date" class="form-control py-1" id="fechaIM" name="fechaIM">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha Primer Aporte</label>
+                            <input type="date" class="form-control py-1" id="fechaPA" name="fechaPA">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label>Observación de Actualización</label>
+                            <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion" required>
                             <div class="invalid-feedback">
                                 Digite una observación.
                             </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="btnActualizar">Actualizar</button>
-                    </div>
-                
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¿Esta seguro que desea actualizar?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-2" id="modalBodyFechas">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -182,26 +201,22 @@
                 if (form.checkValidity()) {
                     var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
                     modal.show();
-                }else form.classList.add('was-validated');
+                } else form.classList.add('was-validated');
+
+                body = document.getElementById('modalBodyFechas');
+                fim = $('#fechaIM').val()
+                fap = $('#fechaPA').val()
+                if ($('#fechaIM').val() === "") fim = " "
+                if ($('#fechaPA').val() === "") fap = " "
+
+                body.innerHTML = '';
+                var fm = '<strong>Fecha de Ministerio: </strong>' + '<p>' + fim + '</p>';
+                var pa = '<strong>Primer Aporte: </strong>' + '<p>' + fap + '</p>';
+                body.innerHTML += fm;
+                body.innerHTML += pa;
             });
         });
     </script>
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    ¿Esta seguro que desea actualizar?
-                    <div class="modal-footer">
-                        <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
-                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script>
         $('#confirmarEnvioBene').click(function () {
             //console.log("en el boton");
@@ -217,11 +232,7 @@
                 },
                 success: function (result) {
                     if (result.redirectUrl) {
-                        console - log("siiii?")
                         window.location.href = result.redirectUrl;
-                    }
-                    else {
-                        console.log("nooooo")
                     }
                 },
                 error: function () {
