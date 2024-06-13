@@ -122,7 +122,7 @@ namespace WebApplication2.Repo
 
                             totalLiquidaciones = sumaTotalLiquidaciones(codTer),
 
-                            verficacion = reader["Verificacion"] != DBNull.Value && (int)reader["Verificacion"] == 1,
+                            verficacion = reader["Verificacion"] != DBNull.Value && (bool)reader["Verificacion"],
                             verficacionFecha = reader["VerificadoFecha"] != DBNull.Value ? Convert.ToDateTime(reader["VerificadoFecha"]).ToString("dd-MM-yyyy") : (string)null,
                             verficacionUsuario = reader["VerificadoUsuario"].ToString(),
                             ObservacionActualizacion = reader["ObservacionActualizacion"].ToString(),
@@ -235,7 +235,7 @@ namespace WebApplication2.Repo
                     cmdRet.Parameters.AddWithValue("@codTer", datosVer.codTer);
                     cmdRet.Parameters.AddWithValue("@fechaIM", datosVer.fechaIngresoMinisterio);
                     cmdRet.Parameters.AddWithValue("@fechaPA", datosVer.fechaPrimerAporte);
-                    cmdRet.Parameters.AddWithValue("@fechaRespaldo", fechaActualIM ?? (object)DBNull.Value);
+                    cmdRet.Parameters.AddWithValue("@fechaRespaldo", fechaActualIM);
                     cmdRet.Parameters.AddWithValue("@observ", datosVer.ObservacionActualizacion);
                     cmdRet.ExecuteNonQuery();
 
