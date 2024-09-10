@@ -11337,24 +11337,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nvane\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Gordillov\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nvane\\Source\\Repos\\CINCO.net\\WebApplication2\\WebApplication2.csproj",
+      "projectUniqueName": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "C:\\Users\\nvane\\Source\\Repos\\CINCO.net\\WebApplication2\\WebApplication2.csproj",
-      "packagesPath": "C:\\Users\\nvane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nvane\\Source\\Repos\\CINCO.net\\WebApplication2\\obj\\",
+      "projectPath": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\WebApplication2.csproj",
+      "packagesPath": "C:\\Users\\Gordillov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gordillov\\Source\\Repos\\CRUD.netCore\\WebApplication2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\nvane\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Gordillov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11375,6 +11370,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11435,7 +11435,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
