@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cusuario\\agregarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cusuario\\agregarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cretiroslistado\\filtrocedula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cretiroslistado\\filtrocedula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cusuario\\agregarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cusuario\\agregarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\wwwroot\\js\\zoom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1535,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FiltroCedula.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CRetirosListado\\FiltroCedula.cshtml",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FiltroPorCodTer.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
@@ -59,15 +59,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AgregarUsuario.cshtml",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CUsuario\\AgregarUsuario.cshtml",
               "RelativeDocumentMoniker": "WebApplication2\\Views\\CUsuario\\AgregarUsuario.cshtml",
               "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CUsuario\\AgregarUsuario.cshtml",
               "RelativeToolTip": "WebApplication2\\Views\\CUsuario\\AgregarUsuario.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAADkAAAAuAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-06T21:04:21.393Z"
+              "WhenOpened": "2024-09-06T21:04:21.393Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
