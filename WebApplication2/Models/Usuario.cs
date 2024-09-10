@@ -7,7 +7,7 @@ namespace WebApplication2.Models
         public string? nombre { get; set; }
         public string? userName { get; set; }
         public string? clave { get; set; }
-        public string? correo { get; }
+        public string? correo { get; set; }
         
 
         [NotMapped]

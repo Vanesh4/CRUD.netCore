@@ -5,7 +5,7 @@ using WebApplication2.Repo;
 
 namespace WebApplication2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CTerceros : Controller
 	{
 		RTerceros _repoTerceros = new RTerceros();

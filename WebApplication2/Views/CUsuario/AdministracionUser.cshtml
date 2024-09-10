@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "AdministracionUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Administrador</h5>
+                @* <p class="category">Handcrafted by our friends from <a href="https://nucleoapp.com/?ref=1712">NucleoApp</a></p> *@
+            </div>
+            <div class="card-body">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Agregar Usuario
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form class="form needs-validation" id="addUser" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" name="nombre" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 px-1">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" name="correo" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Nombre Usuario</label>
+                                                <input type="text" class="form-control uppercase-input" name="userName" required="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1">
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <input type="password" class="form-control" name="clave" required="" autocomplete="off">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary m-1">Agregar</button>
+                                </form>
+                                <div id="msj"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-3">
+                    <h5 class="title">Monitoria</h5>
+                    <table class="table">
+                        <thead class=" text-primary">
+                        <th>Fecha Actualización</th>
+                        <th>Tercero</th>
+                        <th>Usuario</th>
+                        <th>Observación</th>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.fechaActualizacion</td>
+                                    <td>@item.codTer</td>
+                                    <td>@item.usuario</td>
+                                    <td>@item.observacion</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5"></h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que deseas añadir el registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirmarEnvio" class="btn btn-primary">Si</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+            $("#addUser").submit(function (event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                console.log(formData);
+                form = document.querySelector('.needs-validation')
+                if (form.checkValidity()) {
+                    var modal = new bootstrap.Modal(document.getElementById('confirmacionModal'));
+                    modal.show();
+                $('#confirmarEnvio').on('click', function () {
+                    var formData = $("#addUser").serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddUsuario", "CUsuario")',
+                        data: formData,
+                        success: function (response) {
+
+                            localStorage.setItem('successMessage', response.message);
+                            console.log("success c:")
+                            //window.location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("entro a error")
+                            console.error('Error:', response.message);
+                        }
+                    });
+                });
+                } else form.classList.add('was-validated');
+            });
+
+            
+
+        message = localStorage.getItem('successMessage');
+        if (message) {
+            $("#msj").html('<div class="alert alert-success p-1">' + message + '</div>');
+            localStorage.removeItem('successMessage');
+        }
+    });
+</script>
