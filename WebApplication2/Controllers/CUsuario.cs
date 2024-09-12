@@ -26,7 +26,7 @@ namespace WebApplication2.Controllers
             }
         }
 
-        public IActionResult MonitoriaFiltros(string fecha, string user, int opc)
+        public IActionResult MonitoriaFiltros(string fecha, string user, string codter, int opc)
         {
             if (opc==0)
             {
@@ -34,7 +34,7 @@ namespace WebApplication2.Controllers
             }
             else
             {
-                return Json(_repoReg.MonitoriaFiltros(fecha, user, opc));
+                return Json(_repoReg.MonitoriaFiltros(fecha, user, codter, opc));
             }
         }
 

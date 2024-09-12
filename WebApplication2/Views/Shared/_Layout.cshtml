@@ -25,6 +25,12 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
+                        <a class="nav-link" asp-action="GetTerceros" asp-controller="CTerceros">
+                            <i class="now-ui-icons business_briefcase-24"></i>
+                            <p>BD Fechas</p>
+                        </a>
+                    </li>
+                    <li class="active">
                         <a class="nav-link" asp-action="Cinco" asp-controller="CCinco">
                             <i class="now-ui-icons design_app"></i>
                             <p>Cinco</p>
@@ -35,13 +41,7 @@
                             <i class="now-ui-icons objects_spaceship"></i>
                             <p>Retiros</p>
                         </a>
-                    </li>
-                    <li class="active">
-                        <a class="nav-link" asp-action="GetTerceros" asp-controller="CTerceros">
-                            <i class="now-ui-icons business_briefcase-24"></i>
-                            <p>BD Fechas</p>
-                        </a>
-                    </li>
+                    </li>                    
                     @*
                     <li class="active">
                     <a asp-action="GetPastores" asp-controller="CPastores">
@@ -59,7 +59,7 @@
                             <li class="active">
                                 <a class="nav-link" asp-action="AdministracionUser" asp-controller="CUsuario">
                                     <i class="now-ui-icons business_badge"></i>
-                                    <p>Agregar Usuario</p>
+                                    <p>Administración</p>
                                 </a>
                             </li>
                         }
@@ -67,7 +67,7 @@
                     <li class="active-pro">
                         <a asp-controller="Home" asp-action="CerrarSesion">
                             <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                            <p>Cerrar Sesion</p>
+                            <p>Cerrar Sesión</p>
                         </a>
                     </li>
                 </ul>
