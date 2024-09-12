@@ -2,6 +2,7 @@
 using System.Text;
 using WebApplication2.Models;
 using System.Data.SqlClient;
+using System.Reflection.Metadata;
 
 namespace WebApplication2.Repo
 {
@@ -69,6 +70,29 @@ namespace WebApplication2.Repo
             {
                 string error = ex.Message;
                 return false;
+            }
+        }
+
+        public List<Usuario> ListaUsuarios()
+        {
+            var Lista = new List<Usuario>();
+            using (var conexion = new SqlConnection(_cn.getCadenaConAPP()))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SELECT nombre, UserName FROM Usuarios", conexion);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Lista.Add(new Usuario()
+                        {
+                            nombre = reader["nombre"].ToString(),
+                            userName = reader["userName"].ToString(),
+                        });
+                    }
+                }
+                return Lista;
             }
         }
     }

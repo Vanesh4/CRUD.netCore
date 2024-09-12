@@ -3,7 +3,7 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Repo
 {
-	public class RTerceros
+    public class RTerceros
 	{
 		private conexion _cn = new conexion();
 		private List<MTerceros> ObtenerDatos(string consulta, SqlParameter[] parametro)

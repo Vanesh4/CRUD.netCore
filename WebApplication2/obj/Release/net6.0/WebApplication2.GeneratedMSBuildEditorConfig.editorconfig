@@ -94,8 +94,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1RlcmNlcm9zXEdldFRlcmNlcm9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CUsuario/AgregarUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1VzdWFyaW9cQWdyZWdhclVzdWFyaW8uY3NodG1s
+[C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/CUsuario/AdministracionUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1VzdWFyaW9cQWRtaW5pc3RyYWNpb25Vc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Gordillov/Source/Repos/CRUD.netCore/WebApplication2/Views/Home/Index.cshtml]
