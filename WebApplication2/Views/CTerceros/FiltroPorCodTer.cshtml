@@ -1,234 +1,243 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@{
+    ViewData["Title"] = "FiltroPorNomTer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
 @{
     var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Terceros - Fechas </h5>
+            </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="@Url.Content("~/css/filtros.css")" />
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                <div class="card-header">
-                    <h5 class="title">Terceros - Fechas </h5>
+            <div class="card-body">
+                @if (TempData["Respuesta"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["Respuesta"]
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-md-3 pr-1">
+                        <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+                            <div class="d-flex justify-content-center">
+                                <input class="form-control m-1" type="number" name="codTer" placeholder="cédula tercero">
+                                <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3 px-1">
+                        <form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
+                            <div class="d-flex justify-content-center">
+                                <input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
+                                <button type="submit" class="btn btn-primary m-1">Buscar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 px-1">
+                    </div>
+                    <div class="col-md-2 px-1">
+                        <button onclick="zoomIn()" class="btn btn-secondary m-2">+</button>
+                        <button onclick="zoomOut()" class="btn btn-secondary m-2">-</button>
+                    </div>
                 </div>
-                    <div class="card-body">
-                        @if (TempData["Respuesta"] != null)
-                    {
-                            <div class="alert alert-success" role="alert">
-                                @TempData["Respuesta"]
-                            </div>
-                    }
-                        <div class="row">
-                            <div class="col-md-3 pr-1">
-                                <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
-                                    <div class="d-flex justify-content-center">
-                                    <input class="form-control m-1" type="number" name="codTer" placeholder="cédula tercero">
-                                        <button type="submit" class="btn btn-primary m-1">Buscar</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-md-3 px-1">
-                                <form asp-action="FiltroPorNomTer" asp-controller="CTerceros" method="post">
-                                    <div class="d-flex justify-content-center">
-                                        <input class="form-control m-1" type="text" name="nomTer" placeholder="Nombre">
-                                        <button type="submit" class="btn btn-primary m-1">Buscar</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-md-4 px-1">
-                            </div>
-                            <div class="col-md-2 px-1">
-                                <button onclick="zoomIn()" class="btn btn-secondary m-2">+</button>
-                                <button onclick="zoomOut()" class="btn btn-secondary m-2">-</button>
-                            </div>
-                        </div>
-                        <table id="miTabla">
-                            <thead>
-                                <tr>
-                                    <th>CÉDULA</th>
-                                    <th>NOMBRE</th>
-                                    <th>FECHA CORPENTUNIDA</th>
-                                    <th>FECHA MINISTERIO</th>
-                                    <th>FECHA PRIMER APORTE</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
+
+                @if (Model != null && Model.Count > 0)
+                {
+                    <table id="miTabla">
+                        <thead>
+                            <tr>
+                                <th>CÉDULA</th>
+                                <th>NOMBRE</th>
+                                <th>FECHA CORPENTUNIDA</th>
+                                <th>FECHA MINISTERIO</th>
+                                <th>FECHA PRIMER APORTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
                             {
-                                    <tr>
-                                        <td>@item.COD_TER</td>
-                                        <td>@item.NOM_TER</td>
-                                        <td>@item.FEC_ING</td>
-                                        <td>@item.FEC_MINIS</td>
-                                        <td>@item.FEC_APORT</td>
-                                    @using WebApplication2.Repo
-                                        @{
+                                <tr>
+                                    <td>@item.COD_TER</td>
+                                    <td>@item.NOM_TER</td>
+                                    <td>@item.FEC_ING</td>
+                                    <td>@item.FEC_MINIS</td>
+                                    <td>@item.FEC_APORT</td>
+                            @using WebApplication2.Repo
+                                    @{
                                         RUsuario _user = new RUsuario();
                                         bool Permiso = _user.VerificarRol(nombreUsuario, 1);
                                         if (Permiso)
                                         {
-                                                    <td><button class="btn btn-success py-1" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="botonFec">VERIFICAR</button></td>
+                                            <td><button class="btn btn-success py-1" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="botonFec">VERIFICAR</button></td>
                                         }
                                         Permiso = _user.VerificarRol(nombreUsuario, 4);
                                         if (Permiso)
                                         {
-                                                    <td>
-                                                        <form id="deleteForm-@item.IdRow" asp-action="Delete" asp-controller="CTerceros">
-                                                            <input type="hidden" value="@item.IdRow" name="idRow" />
-                                                            <button type="button" class="btn btn-danger py-1" data-bs-toggle="modal" data-bs-target="#confirmacionModal" data-id="@item.IdRow">ELIMINAR</button>
-                                                        </form>
-                                                    </td>
+                                            <td>
+                                                <form id="deleteForm-@item.IdRow" asp-action="Delete" asp-controller="CTerceros">
+                                                    <input type="hidden" value="@item.IdRow" name="idRow" />
+                                                    <button type="button" class="btn btn-danger py-1" data-bs-toggle="modal" data-bs-target="#confirmacionModal" data-id="@item.IdRow">ELIMINAR</button>
+                                                </form>
+                                            </td>
                                         }
-                                        }
-                                    </tr>
+                                    }
+                                </tr>
                             }
-                                <script>
-                                    $(document).ready(function () {
-                                        $('button[data-bs-toggle="modal"]').on('click', function () {
-                                            var itemId = $(this).data('id');
-                                            $('#confirmarEnvio').on('click', function () {
-                                                $.ajax({
-                                                    type: 'POST',
-                                                    url: '@Url.Action("Delete", "CTerceros")',
-                                                    data: { idRow: itemId },
-                                                    success: function (response) {
-                                                        localStorage.setItem('successMessage', response.message);
-                                                        window.location.reload();
-                                                    },
-                                                    error: function (xhr, status, error) {
-                                                        console.error('Error:', response.message);
-                                                    }
-                                                });
-                                            });
-                                        });
-                                    });
-                                </script>
-                            </tbody>
-                        </table>
-                        <div id="msj">
-                        </div>
-                        <script>
-                            message = localStorage.getItem('successMessage');
-                            if (message) {
-                                $("#msj").html('<div class="alert alert-success p-1">' + message + '</div>');
-                                localStorage.removeItem('successMessage');
-                            }
-                        </script>
-
-                        <form asp-action="previewcinco" asp-controller="ccinco" method="post">
-                            <input type="hidden" name="cedula" value=@Model[0].COD_TER>
-                            <button class="btn btn-primary" type="submit">Ir a CINCO</button>
-                        </form>
+                        </tbody>
+                    </table>
+                    <div id="msj">
                     </div>
+                    <script>
+                        message = localStorage.getItem('successMessage');
+                        if (message) {
+                            $("#msj").html('<div class="alert alert-success p-1">' + message + '</div>');
+                            localStorage.removeItem('successMessage');
+                        }
+                    </script>
+
+                    <form asp-action="previewcinco" asp-controller="ccinco" method="post">
+                        <input type="hidden" name="cedula" value=@Model[0].COD_TER>
+                        <button class="btn btn-primary" type="submit">Ir a CINCO</button>
+                    </form>
+                }
+                else
+                {
+                    <p>No se encontraron datos</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@if (Model != null && Model.Count > 0)
+{
+
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar el registro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="confirmarEnvio" class="btn btn-primary">Si</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">No</button>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title fs-5"></h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ¿Estás seguro de que deseas eliminar el registro?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="confirmarEnvio" class="btn btn-primary">Si</button>
-                        <button type="button" class="btn btn-secondary" id="botonNo">No</button>
-                    </div>
+    </div>
+    @* //VERIFICAR FECHAS MODAL *@
+    <form asp-action="Update" asp-controller="CRetirosListado" method="post" class="mb-3 needs-validation" novalidate>
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-        </div>
-
-     //VERIFICAR FECHAS MODAL
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Actualizar Fecha</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p id="fechaCalculoData"></p>
+                <div class="modal-body">
+                    <p id="fechaCalculoData"></p>
+                    @*<form class="mb-3 needs-validation" novalidate>*@
                         <input type="hidden" id="verficacionUsuario" name="verficacionUsuario" value="@nombreUsuario" />
                         <input type="hidden" id="codTer" name="codTer" value="@Model[0].COD_TER" />
-                        <form class="mb-3 needs-validation" novalidate>
-                            <div class="form-group">
-                                <label>Fecha Ingreso al Ministerio</label>
-                                <input type="date" class="form-control py-1" id="fechaIM" name="fechaIM">
+                        <div class="form-group">
+                            <label>Fecha Ingreso al Ministerio</label>
+                            <input type="date" class="form-control py-1" id="fechaIM" name="fechaIngresoMinisterio">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha Primer Aporte</label>
+                            <input type="date" class="form-control py-1" id="fechaPA" name="fechaPrimerAporte">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label>Observación de Actualización</label>
+                            <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion" required>
+                            <div class="invalid-feedback">
+                                Digite una observación.
                             </div>
-                            <div class="form-group">
-                                <label>Fecha Primer Aporte</label>
-                                <input type="date" class="form-control py-1" id="fechaPA" name="fechaPA">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label>Observación de Actualización</label>
-                                <input type="text" class="form-control" id="ObservacionActualizacion" name="ObservacionActualizacion" required>
-                                <div class="invalid-feedback">
-                                    Digite una observación.
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btnActualizar">Actualizar</button>
-                    </div>
+                        </div>
+                    @*</form>*@
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnActualizar">Actualizar</button>
+                </div>
 
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¿Esta seguro que desea actualizar?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-2" id="modalBodyFechas">
+                </div>
+                <div class="modal-footer">
+                     @*<button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>*@
+                     <button type="submit" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¿Esta seguro que desea actualizar?</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body py-2" id="modalBodyFechas">
+    </div>
+    </form>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="confirmarEnvioBene" class="btn btn-primary">Si</button>
-                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const btnActualizar = document.getElementById('btnActualizar');
-                btnActualizar.addEventListener('click', function () {
-                    form = document.querySelector('.needs-validation')
-                    if (form.checkValidity()) {
-                        var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
-                        modal.show();
-                    } else form.classList.add('was-validated');
-
-                    body = document.getElementById('modalBodyFechas');
-                    fim = $('#fechaIM').val()
-                    fap = $('#fechaPA').val()
-                    if ($('#fechaIM').val() === "") fim = " "
-                    if ($('#fechaPA').val() === "") fap = " "
-
-                    body.innerHTML = '';
-                    var fm = '<strong>Fecha de Ministerio: </strong>' + '<p>' + fim + '</p>';
-                    var pa = '<strong>Primer Aporte: </strong>' + '<p>' + fap + '</p>';
-                    body.innerHTML += fm;
-                    body.innerHTML += pa;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            $('button[data-bs-toggle="modal"]').on('click', function () {
+                var itemId = $(this).data('id');
+                $('#confirmarEnvio').on('click', function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("Delete", "CTerceros")',
+                        data: { idRow: itemId },
+                        success: function (response) {
+                            localStorage.setItem('successMessage', response.message);
+                            window.location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', response.message);
+                        }
+                    });
                 });
+            });
+
+            const btnActualizar = document.getElementById('btnActualizar');
+            btnActualizar.addEventListener('click', function () {
+                form = document.querySelector('.needs-validation')
+                if (form.checkValidity()) {
+                    var modal = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+                    modal.show();
+                } else form.classList.add('was-validated');
+
+                body = document.getElementById('modalBodyFechas');
+                fim = $('#fechaIM').val()
+                fap = $('#fechaPA').val()
+                if ($('#fechaIM').val() === "") fim = " "
+                if ($('#fechaPA').val() === "") fap = " "
+
+                body.innerHTML = '';
+                var fm = '<strong>Fecha de Ministerio: </strong>' + '<p>' + fim + '</p>';
+                var pa = '<strong>Primer Aporte: </strong>' + '<p>' + fap + '</p>';
+                body.innerHTML += fm;
+                body.innerHTML += pa;
+            });
 
             function convertirFecha(fecha) {
                 fecha = String(fecha)
-                console.log(fecha)
                 var partes = fecha.split('-');
                 return partes[2] + '-' + partes[1] + '-' + partes[0];
             }
 
-                $('#botonFec').click(function () {
-                    
+            $('#botonFec').click(function () {
+
                 var tabla = document.getElementById('miTabla');
                 var primeraFila = tabla.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[0];
                 var celdas = primeraFila.getElementsByTagName('td');
@@ -237,32 +246,35 @@
 
                 document.getElementById("fechaIM").value = convertirFecha(fechaMinisterio);
                 document.getElementById("fechaPA").value = convertirFecha(fechaPrimerAporte);
-                });
-
-                $('#confirmarEnvioBene').click(function () {
-                    //console.log("en el boton");
-                    $.ajax({
-                        url: '@Url.Action("Update", "CRetirosListado")',
-                        type: 'POST',
-                        data: {
-                            verficacionUsuario: $('#verficacionUsuario').val(),
-                            codTer: $('#codTer').val(),
-                            fechaIngresoMinisterio: $('#fechaIM').val(),
-                            fechaPrimerAporte: $('#fechaPA').val(),
-                            ObservacionActualizacion: $('#ObservacionActualizacion').val()
-                        },
-                        success: function (result) {
-                            if (result.redirectUrl) {
-                                window.location.href = result.redirectUrl;
-                            }
-                        },
-                        error: function () {
-                            console.log("Error al llamar al método");
-                        }
-                    });
-
-                });
             });
-        </script>
+
+            @*$('#confirmarEnvioBene').click(function () {
+                $.ajax({
+                    url: '@Url.Action("Update", "CRetirosListado")',
+                    type: 'POST',
+                    data: {
+                        verficacionUsuario: $('#verficacionUsuario').val(),
+                        codTer: $('#codTer').val(),
+                        fechaIngresoMinisterio: $('#fechaIM').val(),
+                        fechaPrimerAporte: $('#fechaPA').val(),
+                        ObservacionActualizacion: $('#ObservacionActualizacion').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            console.log("Redirigiendo a: ", response.redirectUrl);
+                            window.location.href = response.redirectUrl;
+                        } else {
+                            console.error('Error en la respuesta:', response.message);
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error al llamar al método:", error);
+                        console.error("Respuesta del servidor:", xhr.responseText);
+                    }
+                });
+            });*@
+        });
+    </script>
 }
 <script src="@Url.Content("~/js/zoom.js")"></script>

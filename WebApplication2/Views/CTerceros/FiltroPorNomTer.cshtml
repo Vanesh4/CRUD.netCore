@@ -9,8 +9,7 @@
             <div class="card-header">
                 <h5 class="title">Terceros - Fechas </h5>
             </div>
-            @if (Model != null && Model.Count > 0)
-            {
+            
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3 pr-1">
@@ -36,6 +35,8 @@
                             <button onclick="zoomOut()" class="btn btn-secondary m-2">-</button>
                         </div>
                     </div>
+                @if (Model != null && Model.Count > 0)
+                {
                     <table id="miTabla">
                         <thead>
                             <tr>
@@ -63,13 +64,14 @@
                         <input type="hidden" name="cedula" value=@Model[0].COD_TER>
                         <button class="btn btn-primary d-block" type="submit">Ir a CINCO</button>
                     </form>
-                </div>
+                }
+                else
+                {
+                    <p>No se encontraron datos</p>
+                }
+            </div>
 
-            }
-            else
-            {
-                <p>No se encontraron datos</p>
-            }            
+                     
         </div>
     </div>
 </div>

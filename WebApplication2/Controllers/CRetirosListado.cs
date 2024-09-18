@@ -34,13 +34,15 @@ namespace WebApplication2.Controllers
                 if (respuesta)
                 {
                     TempData["Respuesta"] = "Se actualizaron los datos";
-                    //return Json(new { redirectUrl = Url.Action("FiltroCedula", new { cedula = datosVer.codTer }) });
-                    return Json(new { redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
+                    //return Json(new { redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
+                    //return Json(new { success = true, redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
+                    return RedirectToAction("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer.ToString() });
                 }
                 else
                 {
                     TempData["Respuesta"] = "Hubo un problema al actualizar los datos";
-                    return RedirectToAction("FiltroCedula", new { cedula = datosVer.codTer });
+                    //return Json(new { redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
+                    return RedirectToAction("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer.ToString() });
                 }
             }
             catch (Exception ex)

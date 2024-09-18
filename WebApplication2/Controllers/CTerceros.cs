@@ -19,11 +19,10 @@ namespace WebApplication2.Controllers
 			return View("GetTerceros", _repoTerceros.listarTodos());
 		}
 
-		[HttpGet]
-		[HttpPost]
+		
 		public IActionResult FiltroPorCodTer(string codTer)
 		{
-			return View(_repoTerceros.FiltroId(codTer));
+			return View("FiltroPorCodTer",_repoTerceros.FiltroId(codTer));
 		}
 
         public IActionResult NombreCedula(string cedula)

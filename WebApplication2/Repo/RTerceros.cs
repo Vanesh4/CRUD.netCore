@@ -60,7 +60,6 @@ namespace WebApplication2.Repo
 		public List<MTerceros> FiltroPorNomTer(string nomTer)
 		{
             string[] nombrebusqueda = nomTer.Split(' ');
-            // Agregar '%' entre las palabras
             string parametroNombre = string.Join("%", nombrebusqueda);
 
             string con = "SELECT * FROM Terceros WHERE NOM_TER LIKE '%' + @nomTer + '%';";
