@@ -2,6 +2,9 @@
     ViewData["Title"] = "PreviewCinco";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var nombreUsuario = ViewContext.HttpContext.User.Identity.Name;
+}
 <link rel="stylesheet" href="~/css/cincocss.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="row">
@@ -23,136 +26,151 @@
                 </div>
                 @if (Model != null && Model.Count > 0)
                 {
-                <div class="card-header">
-                    <h5 class="card-category">@Model[0].cedula</h5>
-                    <div class="d-flex justify-content-between">
-                        <h4 class="card-title">@Model[0].nombre</h4>
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">@Model[0].cedula - @Model[0].nombre</h4>
+                        @using WebApplication2.Repo
+                            @{
+                                RUsuario _user = new RUsuario();
+                                bool Permiso = _user.VerificarRol(nombreUsuario, 1);
+                                if (Permiso)
+                                {
+                                    <form asp-action="FiltroPorCodTer" asp-controller="CTerceros" method="post">
+                                        <input type="hidden" name="codTer" value=@Model[0].cedula>
+                                        <button class="btn btn-success py-1" type="submit">IR A VERIFICAR</button>
+                                    </form>
+                                    @* <a class="btn btn-success py-1" href="/CTerceros/FiltroPorCodTer/codTer?codTer=@Model[0].cedula">IR A VERIFICAR</a> *@
+
+                                }
+                            }
+
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">                
+                    <div class="card-body">
 
-                    @{string cuentaAnterior = Model[0].cuenta;
-                    <div class="accordion-item" id="accordion1">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="false" aria-controls="panelsStayOpen-collapse1">
-                                <strong>@Model[0].cuenta </strong> _ @Model[0].CuentaDescripcion
-                            </button>
-                        </h2>
-                    </div>
-                    <!-- a = id del acordeon -->
-                    int a = 2;
-
-                    var contadorejemplo = 0;
-                    @foreach (var item in Model)
-                    {
-                        @if (item.cuenta != cuentaAnterior)
-                        {
-
-                            <div class="accordion-item" id="accordion@(a)">
+                        @{
+                            string cuentaAnterior = Model[0].cuenta;
+                            <div class="accordion-item" id="accordion1">
                                 <h2 class="accordion-header">
-                                    <input type="hidden" value="0" id="contador0">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse@(a)" aria-expanded="false" aria-controls="panelsStayOpen-collapse@(a)">
-                                        <strong>@item.cuenta </strong> _ @item.CuentaDescripcion
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="false" aria-controls="panelsStayOpen-collapse1">
+                                        <strong>@Model[0].cuenta </strong> _ @Model[0].CuentaDescripcion
                                     </button>
                                 </h2>
-                                @{
-                                    a++;
-                                }
                             </div>
+                            <!-- a = id del acordeon -->
+                            int a = 2;
 
-                        }
-                        cuentaAnterior = item.cuenta;
-                    }
-                    }
-                    <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
-                        <input type="hidden" name="cedula" value="@Model[0].cedula" id="codTer"/>
-                        <input type="hidden" name="nombre" value="@Model[0].nombre" />
-                        <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
-                    </form>                             
+                            var contadorejemplo = 0;
+                            @foreach (var item in Model)
+                            {
+                                @if (item.cuenta != cuentaAnterior)
+                                {
 
-                    <script>
-                        var modelo = @Json.Serialize(Model)
-                            cuentas =[];
-                        var botones = document.getElementsByClassName("accordion-button");
-                        for (var i = 0; i < botones.length; i++) {
-                            var texto = botones[i].textContent.trim();
+                                    <div class="accordion-item" id="accordion@(a)">
+                                        <h2 class="accordion-header">
+                                            <input type="hidden" value="0" id="contador0">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse@(a)" aria-expanded="false" aria-controls="panelsStayOpen-collapse@(a)">
+                                                <strong>@item.cuenta </strong> _ @item.CuentaDescripcion
+                                            </button>
+                                        </h2>
+                                        @{
+                                            a++;
+                                        }
+                                    </div>
 
-                            var contenedor = document.getElementById("accordion" + (i + 1));
-                            var divCollapse = document.createElement("div");
-                            divCollapse.id = "panelsStayOpen-collapse" + (i + 1);
-                            divCollapse.classList.add("accordion-collapse", "collapse");
-                            var divBody = document.createElement("div");
-                            divBody.classList.add("accordion-body");
-
-                            var Tabla = document.createElement("table");
-                            Tabla.id = "tablaData" + (i + 1);
-                            Tabla.classList.add("tablaDatos");
-                            divBody.appendChild(Tabla);
-
-                            var divContador = document.createElement("div");
-                            divContador.classList.add("text-end");
-                            divContador.id = "divContador" + (i + 1);
-                            divBody.appendChild(divContador);
-
-                            divCollapse.appendChild(divBody);
-                            contenedor.appendChild(divCollapse);
-
-
-                            llamarCuenta(texto.split(" ")[0], Tabla, i);
-                            //llamarCuenta("416542", Tabla, i);
-                        }
-
-                        function llamarCuenta(c, tabla, index) {
-                            $.ajax({
-                                type: "GET",
-                                url: "@Url.Action("PorCuenta", "CCinco")",
-                                data: { cuenta: c, cedula: $('#codTer').val() },
-                                success: function (response) {
-                                    var debitosCont = 0;
-                                    var creditosCont = 0;
-
-                                    var encabezado = document.createElement("tr");
-                                    encabezado.innerHTML = `
-                                                                <th>Comprobante</th>
-                                                                <th>Num Comprobante</th>
-                                                                <th>Fecha</th>
-                                                                <th>Observacion</th>
-                                                                <th>Debitos</th>
-                                                                <th>Creditos</th>`;
-                                    tabla.appendChild(encabezado);
-
-                                    for (var i = 0; i < response.length; i++) {
-                                        var modelo = response[i];
-                                        var filadatos = document.createElement("tr");
-                                        filadatos.innerHTML = "<td>" + modelo.codComprobante + "</td>" +
-                                            "<td>" + modelo.numComprobante + "</td>" +
-                                            "<td>" + modelo.fecha + "</td>" +
-                                            "<td>" + modelo.observacion + "</td>" +
-                                            "<td>" + modelo.valorDebitos + "</td>" +
-                                            "<td>" + modelo.valorCreditos + "</td>";
-                                        tabla.appendChild(filadatos);
-
-                                        debitosCont = debitosCont + parseInt(modelo.valorDebitos)
-                                        creditosCont = creditosCont + parseInt(modelo.valorCreditos)
-
-                                    }
-
-                                    var divContador = document.getElementById("divContador" + (index + 1));
-                                    divContador.classList.add("text-right");
-                                    divContador.innerHTML = "<strong>Debitos:</strong> " + debitosCont.toLocaleString() + " <strong>Créditos: </strong>" + creditosCont.toLocaleString();
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error("Error al obtener los datos:", error);
                                 }
-                            });
+                                cuentaAnterior = item.cuenta;
+                            }
                         }
-                    </script>
-                </div>
-            }
-            else
-            {
-                <p>No se encontraron datos con esa cedula</p>
-            }
+                        <form asp-action="GenerarPDF" asp-controller="CCinco" method="post">
+                            <input type="hidden" name="cedula" value="@Model[0].cedula" id="codTer" />
+                            <input type="hidden" name="nombre" value="@Model[0].nombre" />
+                            <button class="btn btn-primary" id="botonPDF" type="submit">Generar PDF</button>
+                        </form>
+
+                        <script>
+                            var modelo = @Json.Serialize(Model)
+                                cuentas =[];
+                            var botones = document.getElementsByClassName("accordion-button");
+                            for (var i = 0; i < botones.length; i++) {
+                                var texto = botones[i].textContent.trim();
+
+                                var contenedor = document.getElementById("accordion" + (i + 1));
+                                var divCollapse = document.createElement("div");
+                                divCollapse.id = "panelsStayOpen-collapse" + (i + 1);
+                                divCollapse.classList.add("accordion-collapse", "collapse");
+                                var divBody = document.createElement("div");
+                                divBody.classList.add("accordion-body");
+
+                                var Tabla = document.createElement("table");
+                                Tabla.id = "tablaData" + (i + 1);
+                                Tabla.classList.add("tablaDatos");
+                                divBody.appendChild(Tabla);
+
+                                var divContador = document.createElement("div");
+                                divContador.classList.add("text-end");
+                                divContador.id = "divContador" + (i + 1);
+                                divBody.appendChild(divContador);
+
+                                divCollapse.appendChild(divBody);
+                                contenedor.appendChild(divCollapse);
+
+
+                                llamarCuenta(texto.split(" ")[0], Tabla, i);
+                                //llamarCuenta("416542", Tabla, i);
+                            }
+
+                            function llamarCuenta(c, tabla, index) {
+                                $.ajax({
+                                    type: "GET",
+                                    url: "@Url.Action("PorCuenta", "CCinco")",
+                                    data: { cuenta: c, cedula: $('#codTer').val() },
+                                    success: function (response) {
+                                        var debitosCont = 0;
+                                        var creditosCont = 0;
+
+                                        var encabezado = document.createElement("tr");
+                                        encabezado.innerHTML = `
+                                                                                            <th>Comprobante</th>
+                                                                                            <th>Num Comprobante</th>
+                                                                                            <th>Fecha</th>
+                                                                                            <th>Observacion</th>
+                                                                                            <th>Debitos</th>
+                                                                                            <th>Creditos</th>`;
+                                        tabla.appendChild(encabezado);
+
+                                        for (var i = 0; i < response.length; i++) {
+                                            var modelo = response[i];
+                                            var filadatos = document.createElement("tr");
+                                            filadatos.innerHTML = "<td>" + modelo.codComprobante + "</td>" +
+                                                "<td>" + modelo.numComprobante + "</td>" +
+                                                "<td>" + modelo.fecha + "</td>" +
+                                                "<td>" + modelo.observacion + "</td>" +
+                                                "<td>" + modelo.valorDebitos + "</td>" +
+                                                "<td>" + modelo.valorCreditos + "</td>";
+                                            tabla.appendChild(filadatos);
+
+                                            debitosCont = debitosCont + parseInt(modelo.valorDebitos)
+                                            creditosCont = creditosCont + parseInt(modelo.valorCreditos)
+
+                                        }
+
+                                        var divContador = document.getElementById("divContador" + (index + 1));
+                                        divContador.classList.add("text-right");
+                                        divContador.innerHTML = "<strong>Debitos:</strong> " + debitosCont.toLocaleString() + " <strong>Créditos: </strong>" + creditosCont.toLocaleString();
+                                    },
+                                    error: function (xhr, status, error) {
+                                        console.error("Error al obtener los datos:", error);
+                                    }
+                                });
+                            }
+                        </script>
+                    </div>
+                }
+                else
+                {
+                    <p>No se encontraron datos con esa cedula</p>
+                }
             </div>
         </div>
     </div>

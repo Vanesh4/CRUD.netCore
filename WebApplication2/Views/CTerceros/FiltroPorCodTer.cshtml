@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="title">Terceros - Fechas </h5>
+                <h5 class="title">Fecha Aporte - Ministerio</h5>
             </div>
 
             <div class="card-body">
@@ -18,6 +18,12 @@
                 {
                     <div class="alert alert-success" role="alert">
                         @TempData["Respuesta"]
+                    </div>
+                }
+                else if (TempData["RespuestaError"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @TempData["RespuestaError"]
                     </div>
                 }
                 <div class="row">
@@ -148,11 +154,11 @@
                         <input type="hidden" id="codTer" name="codTer" value="@Model[0].COD_TER" />
                         <div class="form-group">
                             <label>Fecha Ingreso al Ministerio</label>
-                            <input type="date" class="form-control py-1" id="fechaIM" name="fechaIngresoMinisterio">
+                            <input type="date" class="form-control py-1" id="fechaIM" name="fechaIngresoMinisterio" required>
                         </div>
                         <div class="form-group">
                             <label>Fecha Primer Aporte</label>
-                            <input type="date" class="form-control py-1" id="fechaPA" name="fechaPrimerAporte">
+                            <input type="date" class="form-control py-1" id="fechaPA" name="fechaPrimerAporte" required>
                         </div>
                         <div class="form-group mt-2">
                             <label>Observación de Actualización</label>

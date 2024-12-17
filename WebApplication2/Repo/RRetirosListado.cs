@@ -210,8 +210,13 @@ namespace WebApplication2.Repo
                     {
                         if (reader.Read())
                         {
-                            fechaActualIM = Convert.ToDateTime(reader["datoFM"]);
-                            fechaActualPA = Convert.ToDateTime(reader["datoPA"]);
+                            fechaActualIM = reader.IsDBNull(reader.GetOrdinal("datoFM"))
+                            ? DateTime.MinValue
+                            : Convert.ToDateTime(reader["datoFM"]);
+
+                            fechaActualPA = reader.IsDBNull(reader.GetOrdinal("datoPA"))
+                            ? DateTime.MinValue 
+                            : Convert.ToDateTime(reader["datoPA"]); ;
                         }
                     }
                     conexion.Close();

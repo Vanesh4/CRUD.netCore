@@ -15,7 +15,7 @@ namespace WebApplication2.Controllers
         private RUsuario _rusuario = new RUsuario();
         public IActionResult Login()
         {
-            //Usuario usuario = new Usuario("Lady Ramirez", "RamirezL", " ", "Ll123456");
+            //Usuario usuario = new Usuario("LUZ DARY CASTRO", "CastroL", "contabilidad@corpentunida.org.co", "Ll123456");
             //_rusuario.AgregarUsuario(usuario);
             ClaimsPrincipal c = HttpContext.User;
             if (c.Identity != null) //evitar errores de un usuario no autenticado
@@ -90,7 +90,7 @@ namespace WebApplication2.Controllers
 
                                 if (!u.MantenerActivo)
                                 {
-                                    authProperties.ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10);
+                                    authProperties.ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30);
                                 }
                                 else
                                 {

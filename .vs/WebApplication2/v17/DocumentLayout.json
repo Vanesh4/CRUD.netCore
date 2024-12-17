@@ -7,44 +7,60 @@
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\repo\\rterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cterceros\\filtroporcodter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\cterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cretiroslistado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\repo\\rusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cusuario\\administracionuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cusuario\\administracionuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\repo\\rauditoriaregistros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rauditoriaregistros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\cterceros\\getterceros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\cterceros\\getterceros.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\cusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\clogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\clogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\clogin\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\clogin\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\models\\cinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\models\\cinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\ccinco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\controllers\\cterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\controllers\\cterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\previewcinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\ccinco\\cincodata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\cincodata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\views\\ccinco\\cinco.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|c:\\users\\gordillov\\source\\repos\\crud.netcore\\webapplication2\\repo\\rterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AFF4F3-296B-42A0-9E4E-CEDD1682971C}|WebApplication2\\WebApplication2.csproj|solutionrelative:webapplication2\\repo\\rterceros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,12 +70,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1535,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -68,53 +80,178 @@
               "RelativeDocumentMoniker": "WebApplication2\\Repo\\RRetirosListado.cs",
               "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RRetirosListado.cs",
               "RelativeToolTip": "WebApplication2\\Repo\\RRetirosListado.cs",
-              "ViewState": "AQIAAOsAAAAAAAAAAIAwwAUBAAAwAAAA",
+              "ViewState": "AQIAALcAAAAAAAAAAAAowMUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T13:25:36.16Z",
+              "WhenOpened": "2024-12-16T21:03:38.623Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CRetirosListado.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CRetirosListado.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
-              "RelativeToolTip": "WebApplication2\\Controllers\\CRetirosListado.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAApwCwAAAB5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T19:29:34.591Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CTerceros.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CTerceros.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CTerceros.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CTerceros.cs",
-              "RelativeToolTip": "WebApplication2\\Controllers\\CTerceros.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBYAAAA1AAAA",
+              "DocumentIndex": 8,
+              "Title": "Cinco.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Models\\Cinco.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Models\\Cinco.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Models\\Cinco.cs",
+              "RelativeToolTip": "WebApplication2\\Models\\Cinco.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T13:50:11.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T20:48:22.279Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "CCinco.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CCinco.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CCinco.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CCinco.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CCinco.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T20:48:13.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "RUsuario.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RUsuario.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Repo\\RUsuario.cs",
               "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RUsuario.cs",
               "RelativeToolTip": "WebApplication2\\Repo\\RUsuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA8AAAA",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAewFsAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T13:31:24.119Z",
+              "WhenOpened": "2024-09-30T14:59:56.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Models\\Usuario.cs",
+              "RelativeToolTip": "WebApplication2\\Models\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T14:59:22.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CLogin.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CLogin.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CLogin.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CLogin.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T14:58:16.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CUsuario.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CUsuario.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CUsuario.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CUsuario.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAQwCoAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T14:58:11.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FiltroPorCodTer.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAAAJ0AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T16:03:56.725Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CRetirosListado.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CRetirosListado.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CRetirosListado.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CRetirosListado.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAwwCoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T14:53:29.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CLogin\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CLogin\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CLogin\\Login.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CLogin\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-14T19:37:30.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CTerceros.cs",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CTerceros.cs",
+              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CTerceros.cs",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CTerceros.cs",
+              "RelativeToolTip": "WebApplication2\\Controllers\\CTerceros.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAIwBEAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T21:21:57.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PreviewCinco.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CCinco\\PreviewCinco.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T20:33:35.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CincoData.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\CincoData.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\CincoData.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\CincoData.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CCinco\\CincoData.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T20:32:51.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Cinco.cshtml",
+              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "RelativeDocumentMoniker": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "RelativeToolTip": "WebApplication2\\Views\\CCinco\\Cinco.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T20:32:32.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "RTerceros.cs",
               "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RTerceros.cs",
               "RelativeDocumentMoniker": "WebApplication2\\Repo\\RTerceros.cs",
@@ -122,84 +259,7 @@
               "RelativeToolTip": "WebApplication2\\Repo\\RTerceros.cs",
               "ViewState": "AQIAAEQAAAAAAAAAAAAMwDkAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T21:10:13.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FiltroPorCodTer.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\CTerceros\\FiltroPorCodTer.cshtml",
-              "ViewState": "AQIAAHkAAAAAAAAAAIAwwIcAAAB2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-16T16:03:56.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CUsuario.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Controllers\\CUsuario.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Controllers\\CUsuario.cs",
-              "RelativeToolTip": "WebApplication2\\Controllers\\CUsuario.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBwAAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T17:23:39.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RAuditoriaRegistros.cs",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RAuditoriaRegistros.cs",
-              "RelativeDocumentMoniker": "WebApplication2\\Repo\\RAuditoriaRegistros.cs",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Repo\\RAuditoriaRegistros.cs",
-              "RelativeToolTip": "WebApplication2\\Repo\\RAuditoriaRegistros.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T17:06:55.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AdministracionUser.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CUsuario\\AdministracionUser.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\CUsuario\\AdministracionUser.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CUsuario\\AdministracionUser.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\CUsuario\\AdministracionUser.cshtml",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAowHAAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T16:37:36.95Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GetTerceros.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\GetTerceros.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\CTerceros\\GetTerceros.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\CTerceros\\GetTerceros.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\CTerceros\\GetTerceros.cshtml",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAABMAAAB9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T16:30:13.258Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Gordillov\\source\\repos\\CRUD.netCore\\WebApplication2\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebApplication2\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-12T16:18:15.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-16T21:10:13.992Z"
             }
           ]
         }

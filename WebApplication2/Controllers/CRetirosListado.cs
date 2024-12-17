@@ -40,7 +40,7 @@ namespace WebApplication2.Controllers
                 }
                 else
                 {
-                    TempData["Respuesta"] = "Hubo un problema al actualizar los datos";
+                    TempData["RespuestaError"] = "Hubo un problema al actualizar los datos";
                     //return Json(new { redirectUrl = Url.Action("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer }) });
                     return RedirectToAction("FiltroPorCodTer", "CTerceros", new { codTer = datosVer.codTer.ToString() });
                 }

@@ -12,7 +12,7 @@ namespace WebApplication2.Controllers
         RUsuario _repoUsuario = new RUsuario();
         public IActionResult AdministracionUser()
         {
-            return View("AdministracionUser",_repoReg.RegistrosAuditoria());
+            return View("AdministracionUser", _repoReg.RegistrosAuditoria());
         }
 
         public IActionResult AddUsuario(Usuario user)
@@ -28,7 +28,7 @@ namespace WebApplication2.Controllers
 
         public IActionResult MonitoriaFiltros(string fecha, string user, string codter, int opc)
         {
-            if (opc==0)
+            if (opc == 0)
             {
                 return Json(_repoReg.RegistrosAuditoria());
             }
@@ -38,7 +38,8 @@ namespace WebApplication2.Controllers
             }
         }
 
-        public IActionResult Usuarios() {
+        public IActionResult Usuarios()
+        {
             List<Usuario> listaUser = _repoUsuario.ListaUsuarios();
             return Json(new { users = listaUser });
         }
